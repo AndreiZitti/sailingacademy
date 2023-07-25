@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import HeroSection from '../HeroSection';  // replace with your HeroSection's path
 import Cards from '../Cards.js';
 import '../Cards.css';
-import Popup from '../Popup'; // replace with your Popup's path
-import FlipCard from '../FlipCard'
+import Popup from '../Popup'; 
+
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
