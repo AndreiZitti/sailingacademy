@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './FlipCard.css'; // Import the CSS file
+import './FlipCard.css'; 
 
 function FlipCard({frontImage, backText, title}) {
     const [isFlipped, setIsFlipped] = useState(false);
@@ -12,7 +12,22 @@ function FlipCard({frontImage, backText, title}) {
                 <div className="card__clickme">Click me!</div>
             </div>
             <div className="card__face card__face--back">
-                <p>{backText}</p>
+                <div className="backtext-section">
+                    <h3>Requirements</h3>
+                    <ul>
+                        {backText.requirements.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+                <div className="backtext-section">
+                    <h3>Benefits</h3>
+                    <ul>
+                        {backText.benefits.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </div>
     );

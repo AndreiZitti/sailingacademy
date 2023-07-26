@@ -3,7 +3,10 @@
     margin: 0;
     padding: 0;
     font-family: 'PT Sans', sans-serif;
+   
   }
-  
+  a {
+    cursor: url(Cursor3.png),pointer;
+  }
   /* Rest of your CSS... */
   

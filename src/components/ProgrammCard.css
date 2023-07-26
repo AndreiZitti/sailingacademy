@@ -1,0 +1,25 @@
+.programm-card {
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.programm-card h2 {
+    text-align: center;
+    font-size: 2.3em;
+    margin-bottom: 25px;
+}
+
+.programm-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.programm-card ul li {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    text-align: center;
+}

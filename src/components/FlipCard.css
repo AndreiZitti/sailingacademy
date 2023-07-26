@@ -53,6 +53,7 @@ body {
   align-items: center;
   justify-content: center;
   transform: rotateY(-180deg);
+  flex-direction: column;
 }
 
 .card.flipped .card__face--back {
@@ -91,3 +92,23 @@ body {
   
   margin: 20px;
 }
+/* Keep existing styles, then add */
+
+.backtext-section {
+    padding: 5px;
+  }
+  
+  .backtext-section h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .backtext-section ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .backtext-section ul li {
+    margin-bottom: 5px;
+  }
+  

@@ -1,0 +1,17 @@
+nav {
+    position: sticky;
+    top: 0; /* Stick to the top */
+    display: flex;
+    justify-content: space-around; /* This will give each item about 2em space */
+    padding: 1em;
+    background-color: rgb(256,256,256); /* Change the color as you prefer */
+   /* Replace with your image's path */
+
+}
+  
+  nav a {
+    font-weight: bold; /* Making the text bold */
+    text-decoration: none; /* Removing the underline */
+    color: #333; /* Change the color as you prefer */
+  }
+  

@@ -1,13 +1,14 @@
 import React from 'react';
 import './Popup.css';  // Add your styles in this file
-
+import './ProgrammCard'
+import ProgrammCard from './ProgrammCard';
 function Popup({ onClose }) {
   return (
     <div className="popup">
       <div className="popup_inner">
-        <h1>Working hours</h1>
+        <ProgrammCard />
         <h1>Contact</h1>
-        <p> You can contact us via email at sailingacademy@yahoo.com or via phone at 0712123123 </p>
+        <p> You can contact us via email at contact@sailingacademy.ro or via phone at 0730333755 </p>
         <button onClick={onClose}>Close</button>
       </div>
     </div>

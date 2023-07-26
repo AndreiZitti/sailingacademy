@@ -3,6 +3,7 @@ import HeroSection from '../HeroSection';  // replace with your HeroSection's pa
 import Cards from '../Cards.js';
 import '../Cards.css';
 import Popup from '../Popup'; 
+import Footer from '../Footer'; 
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,19 +23,22 @@ function Home() {
 
   return (
     <div>
+      <div>
       <div ref={heroRef}>
         <HeroSection />
       </div>
       <Cards />
-     
-
       {isVisible && <button className="button-fixed" onClick={() => setIsPopupOpen(true)}>
   <img src='images/contact.png' alt="button image" className='button-image' />
   <div className='button-text'>Contact us!</div>
-</button>
+      </button>
 }
-      {isPopupOpen && <Popup onClose={() => setIsPopupOpen(false)} />}
+     {isPopupOpen && <Popup onClose={() => setIsPopupOpen(false)} />}
+    
     </div>
+    <div><Footer /></div>
+    </div>
+    
   );
 }
 
