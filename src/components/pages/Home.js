@@ -4,6 +4,8 @@ import Cards from '../Cards.js';
 import '../Cards.css';
 import Popup from '../Popup'; 
 import Footer from '../Footer'; 
+import LoginPage from  './LoginPage'
+import '../../App.css';
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,6 +29,8 @@ function Home() {
       <div ref={heroRef}>
         <HeroSection />
       </div>
+      
+   
       <Cards />
       {isVisible && <button className="button-fixed" onClick={() => setIsPopupOpen(true)}>
   <img src='images/contact.png' alt="button image" className='button-image' />

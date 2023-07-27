@@ -1,0 +1,6 @@
+.body {
+    display: flex;
+    background-color: white;
+    height: 100vh;  /* This covers the entire height of the viewport */
+    width: 100%; /* This covers the entire width of the viewport */
+}
