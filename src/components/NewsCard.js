@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import Modal from 'react-modal';
-
-Modal.setAppElement('#root') // add this line to avoid the console warning
+import NewsModal from './NewsModal';
 
 function NewsCard({ title, image, description, details }) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -11,22 +9,20 @@ function NewsCard({ title, image, description, details }) {
     };
 
     const closeModal = () => {
+        console.log("Attempting to close modal");
         setModalIsOpen(false);
     };
 
     return (
         <div className="newscard" onClick={openModal}>
-            <h2 className="newscard-title">{title}</h2>
-            {image && <img className="newscard-image" src={image} alt={title} />}
-            <p className="newscard-description">{description}</p>
-            <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="News Details">
-                <h2>{title}</h2>
-                {image && <img src={image} alt={title} />}
-                <p>{description}</p>
-                <p>{details}</p>
-                <button onClick={closeModal}>Close</button>
-            </Modal>
-        </div>
+    <div className="newscard-content">
+        <h2 className="newscard-title">{title}</h2>
+        {image && <img className="newscard-image" src={image} alt={title} />}
+        <p className="newscard-description">{description}</p>
+    </div>
+    <NewsModal isOpen={modalIsOpen} closeModal={closeModal} title={title} image={image} description={description} details={details} />
+</div>
+
     );
 }
 

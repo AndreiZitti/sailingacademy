@@ -45,6 +45,7 @@ function News() {
 
     return (
         <div className='body'>
+            <div>
             {isAuthenticated && (
                 <button onClick={handleModalOpen}>Add news</button>
             )}
@@ -65,6 +66,7 @@ function News() {
                 {newsCards.map((news, index) => (
                     <NewsCard key={index} title={news.title} image={news.image} description={news.description} details={news.details} />
                 ))}
+            </div>
             </div>
         </div>
     );

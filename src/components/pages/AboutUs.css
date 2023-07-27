@@ -1,6 +1,21 @@
-.body {
-    display: flex;
-    background-color: white;
-    height: 100vh;  /* This covers the entire height of the viewport */
-    width: 100%; /* This covers the entire width of the viewport */
+.body2 {
+ 
+  background-color: white;
+
 }
+    
+.body1 {
+  display: grid;
+  background-color: white;
+  
+  grid-template-rows: repeat(3, 1fr);
+  height: 200vh; /* adjust as needed */
+  width: 100%;
+}
+#scroll-icon {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
