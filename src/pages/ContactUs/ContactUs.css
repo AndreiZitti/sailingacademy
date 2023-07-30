@@ -1,0 +1,59 @@
+.contact-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+    background-color: #fff;
+}
+
+.contact-us h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.social-links a {
+    color: #4285f4;
+    text-decoration: none;
+}
+
+.programm-card {
+    width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.programm-card h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 25px;
+}
+
+.programm-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.programm-card ul li {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    text-align: center;
+}

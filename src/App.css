@@ -8,7 +8,7 @@
    
   }
   a {
-    cursor: url(Cursor3.png),pointer;
+    cursor: url(/src/Assets/Cursor3.png),pointer;
   }
 body{background-color: white;}
   /* Rest of your CSS... */

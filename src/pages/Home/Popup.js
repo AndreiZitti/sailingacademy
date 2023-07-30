@@ -1,7 +1,6 @@
 import React from 'react';
 import './Popup.css';  // Add your styles in this file
-import './ProgrammCard'
-import ProgrammCard from './ProgrammCard';
+import ProgrammCard from '../ContactUs/ProgrammCard';
 function Popup({ onClose }) {
   return (
     <div className="popup">

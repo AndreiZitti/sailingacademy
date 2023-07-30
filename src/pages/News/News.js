@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
-import NewsCard from '../NewsCard';
+import NewsCard from './NewsCard';
 import Modal from 'react-modal';
-import { AuthContext } from '../AuthContext'; // path to your AuthContext
+import { AuthContext } from '../../AuthContext'; // path to your AuthContext
 import './News.css';
 
 function News() {

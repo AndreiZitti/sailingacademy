@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'; // import useEffect
-import icon from '../../Cursor3.png';
-import AboutUsCard from '../AboutUsCard'
+import icon from '../../Assets/Cursor3.png';
+import AboutUsCard from './AboutUsCard'
 import './AboutUs.css'
 function AboutUs() {
 

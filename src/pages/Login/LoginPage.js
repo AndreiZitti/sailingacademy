@@ -3,7 +3,7 @@ import './LoginPage.css';  // Importing a CSS file to style the components
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase.js'; // replace this with the path to your firebase file
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { AuthContext } from '../AuthContext'; // Path to your AuthContext
+import { AuthContext } from '../../AuthContext'; // Path to your AuthContext
 
 
 function SignInModal({ open, handleClose }) {

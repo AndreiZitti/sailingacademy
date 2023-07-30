@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import HeroSection from '../HeroSection';  // replace with your HeroSection's path
-import Cards from '../Cards.js';
-import '../Cards.css';
-import Popup from '../Popup'; 
-import Footer from '../Footer'; 
-import LoginPage from  './LoginPage'
+import HeroSection from './HeroSection';  // replace with your HeroSection's path
+import Cards from './Cards.js';
+import './Cards.css';
+import Popup from './Popup'; 
+import Footer from './Footer'; 
 import '../../App.css';
+import './Map'
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -40,7 +40,9 @@ function Home() {
      {isPopupOpen && <Popup onClose={() => setIsPopupOpen(false)} />}
     
     </div>
+   
     <div><Footer /></div>
+    
     </div>
     
   );
