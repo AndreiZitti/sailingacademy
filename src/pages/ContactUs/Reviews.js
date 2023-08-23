@@ -1,37 +1,9 @@
-import React, { useState, useEffect } from 'react';
- // assuming that the Review component is in the same folder
-import ReviewCarousel from './ReviewCarousel.tsx'; // import the ReviewCarousel component
-import ReviewCard, { ReviewProps } from './ReviewCard';
+import React from 'react';
+import ReviewCarousel from './ReviewCarousel.js';
+import './Reviews.css';
 
-export type Review = {
-  profile_photo_url: string;
-  rating: number;
-  text: string;
-  author_name: string;
-};
-
-const Reviews: React.FC = () => {
-  // const [reviews, setReviews] = useState<Review[]>([]);
-
-  // useEffect(() => {
-  //   const placeId = 'ChIJqYBm3kICskAR9E4rC1dwxpA';
-  //   //const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
-  //   const apiKey = 'AIzaSyCpaJqD0JR9vlVMSvKlOth9tnsEQfCrQng';
-  //   console.log(apiKey);
-  //   const url = `/maps/api/place/details/json?placeid=${placeId}&key=${apiKey}`;
-
-  //   fetch(url)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       if (data.result && data.result.reviews) {
-  //         setReviews(data.result.reviews);
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching reviews:", error);
-  //     });
-  // }, []);
-  const reviews: ReviewProps[] = [
+const Reviews = () => {
+  const reviews = [
     {
       "author_name": "John Doe",
       "profile_photo_url": "https://randomuser.me/api/portraits/men/1.jpg",
@@ -69,16 +41,9 @@ const Reviews: React.FC = () => {
     src: review.profile_photo_url,
     reviewUrl: 'https://www.google.com/' // replace with the actual review URL
   }));;
-  
-
-  return (
-    
-   
-        <ReviewCarousel reviews={reviews}  style={{ height: '500px' }}/>
-      
-   
-    
-  );
+ 
+    return <ReviewCarousel reviews={reviews} />;
 };
+
 
 export default Reviews;

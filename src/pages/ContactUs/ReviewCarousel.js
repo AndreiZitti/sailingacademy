@@ -1,9 +1,9 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import ReviewCard, { ReviewProps } from './ReviewCard.tsx';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import ReviewCard from './ReviewCard.js';
 
-const ReviewCarousel: React.FC<{ reviews: ReviewProps[] }> = ({ reviews }) => (
+const ReviewCarousel = ({ reviews }) => (
   <Carousel 
     showThumbs={false} 
     showStatus={false} 
@@ -20,6 +20,8 @@ const ReviewCarousel: React.FC<{ reviews: ReviewProps[] }> = ({ reviews }) => (
       </div>
     ))}
   </Carousel>
+
+
 );
 
 export default ReviewCarousel;

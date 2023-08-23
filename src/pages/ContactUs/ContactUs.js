@@ -1,13 +1,16 @@
 import React from 'react';
-import Reviews from './Reviews.tsx';
+import Reviews from './Reviews';
 import ProgrammCard from './ProgrammCard';
 import './ContactUs.css';
 
 function ContactUs() {
     return (
+     
+             
         <div className="contact-us">
-            <h1>Contact Us</h1>
+        <h1>Contact Us</h1>
             <div className="contact-info">
+                <div>
                 <p>Phone Number: +1 234 567 890</p>
                 <p>Email: info@sailingacademy.com</p>
                 <p>Address: 123 Ocean Drive, Miami, FL</p>
@@ -15,10 +18,13 @@ function ContactUs() {
                     <a href="https://www.facebook.com/yourfacebookpage" target="_blank" rel="noopener noreferrer">Facebook</a>
                     <a href="https://www.instagram.com/yourinstagramhandle" target="_blank" rel="noopener noreferrer">Instagram</a>
                 </div>
+                </div>
+                <ProgrammCard />
             </div>
-            <ProgrammCard />
+           
             <Reviews />
         </div>
+    
     );
 }
 

@@ -6,7 +6,7 @@ Modal.setAppElement('#root'); // add this line to avoid the console warning
 class NewsModal extends Component {
     render() {
         const { isOpen, closeModal, title, image, description, details } = this.props;
-
+        console.log(isOpen);
         return (
             <Modal
                 isOpen={isOpen}

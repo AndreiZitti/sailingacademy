@@ -1,0 +1,48 @@
+
+.star {
+    display: inline-block;
+    color: gold;  /* You can choose any color you prefer */
+  }
+  
+  .star.empty {
+    color: #ddd;  /* Choose the color you prefer for the empty star */
+  }
+
+.reviewCard {      
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    
+  }
+  
+  .profilePic {
+    width: 30px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .rating {
+    margin: 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .reviewText {
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .reviewLink {
+    margin-top: auto;
+    color: #4285f4;
+    text-decoration: none;
+  }
+  
