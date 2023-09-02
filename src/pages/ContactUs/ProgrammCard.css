@@ -1,16 +1,19 @@
 .programm-card {
-    width: 400px;
-    height: 400px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30%; /* Approximately 1/3 of the screen width */
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Centers the card if its parent is display block or flex */
 }
 
 .programm-card h2 {
     text-align: center;
-    font-size: 2.3em;
-    margin-bottom: 25px;
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
 .programm-card ul {
@@ -19,7 +22,8 @@
 }
 
 .programm-card ul li {
-    margin-bottom: 15px;
-    font-size: 1.5em;
+    margin-bottom: 12px;
+    font-size: 1.4em;
     text-align: center;
+    font-weight: 500;
 }

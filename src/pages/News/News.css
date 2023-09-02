@@ -1,8 +1,7 @@
-.newsgrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
-    padding: 1rem;
+
+.body{
+    background-color: white;
+    height: 100vh;
 }
 
 .newscard {
@@ -25,14 +24,26 @@
 .newscard-description {
     font-size: 1rem;
 }
-.body {
-    display: flex;
-    background-color: white;
-    height: 100vh;  /* This covers the entire height of the viewport */
-    width: 100%; /* This covers the entire width of the viewport */
-}
+
 .newsgrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px; /* Space between items */
+    height: 30%;
+
+    padding: 1rem;
+}
+
+
+@media (max-width: 767px) {
+    .newscard {
+        width: 100%; 
+    }
+
+    .newscard-description {
+        display: none; /* Hide description on mobile */
+    }
+    .newsgrid {
+        grid-template-columns: 2fr; /* Single column layout on mobile */
+    }
 }

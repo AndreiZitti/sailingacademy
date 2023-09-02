@@ -1,3 +1,17 @@
+.NavTitle{
+  font-family: 'Roboto', sans-serif;
+  font-size: 160%;
+}
+.content-overlay {
+  background-color: rgba(255, 255, 255, 0.7);  /* 70% opaque white background */
+  width: 100%;
+  min-height: 100vh;  /* at least the full height of the viewport */
+  position: relative; /* ensures that this div starts right below HeroSection */
+  z-index: 0;  /* ensure that this overlays the video */
+}
+
+
+
 * {
   
     box-sizing: border-box;
@@ -10,6 +24,19 @@
   a {
     cursor: url(/src/Assets/Cursor3.png),pointer;
   }
-body{background-color: white;}
-  /* Rest of your CSS... */
+  
+  .site-wrapper {
+    position: relative;  /* establishes a new stacking context */
+    z-index: 0;  /* base z-index */
+  }
+  
+
+  
+  .content-overlay {
+    background-color: rgba(255, 255, 255, 0.7);  /* 70% opaque white background */
+    width: 100%;
+    min-height: 100vh;  /* at least the full height of the viewport */
+    position: relative; /* ensures that this div starts right below HeroSection */
+    z-index: 1;  /* ensures that this overlays the video */
+  }
   

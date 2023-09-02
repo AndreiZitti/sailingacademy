@@ -6,10 +6,13 @@ import Map from './Map';
 import Rent from './RentCards';
 import Courses from './CoursesCards';
 import Membership from './MembershipCard';
+import { useTranslation } from 'react-i18next';
 
-function Cards({ topRef, bottomRef }) {
+
+function Cards({ isMapVisible }) {
+  const { t } = useTranslation();
   return (
-    <div className='cards' ref={topRef}>
+    <div className='cards'>
       <div id='Rent'>
         <Rent />
       </div>
@@ -21,10 +24,8 @@ function Cards({ topRef, bottomRef }) {
       <div id='Membership'>
         <Membership />
       </div>
-      <div id='Contact'>
-      <h1>Come visit us !</h1>
-    
-      </div>
+      <h1>{t('Come visit us !')}</h1>
+      <Map isVisible={isMapVisible} />
     </div>
   );
 }

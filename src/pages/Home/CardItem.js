@@ -5,7 +5,7 @@ function CardItem(props) {
   return (
     <div className='card-container'>
       <figure className='card-img'>
-        <img alt='Travel Image' src={props.src} />
+        <img alt='Sailing is cool' src={props.src} />
       </figure>
       <div className='card-title'>
         <h5>{props.label}</h5>

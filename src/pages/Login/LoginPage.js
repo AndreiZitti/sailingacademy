@@ -14,8 +14,7 @@ function SignInModal({ open, handleClose }) {
 
   
   const handleSignIn = () => {
-    const email = 'zittiandrei@yahoo.com';
-const password = '12345678';
+   
   //   createUserWithEmailAndPassword(auth, email, password)
   // .then((userCredential) => {
   //   // The user account has been created.
@@ -30,7 +29,6 @@ const password = '12345678';
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         var user = userCredential.user;
-        console.log(user);
         setIsAuthenticated(true);
         handleClose();
       })

@@ -1,21 +1,68 @@
-.body2 {
  
-  background-color: white;
-
-}
-    
 .body1 {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background-color: white;
-  
-  grid-template-rows: repeat(3, 1fr);
-  height: 200vh; /* adjust as needed */
-  width: 100%;
+  overflow-y: auto;
 }
-#scroll-icon {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+
+
+.oneRow{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5%;
+  margin-left:15% ;
+  margin-top: 1%;
+}
+.oneRow-img {
+  width: 50%;
+  height: 50%;
+  margin: 0; /* Remove margins */
+  overflow: hidden;
+}
+
+.oneRow-img img {
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+}
+
+@media (max-width: 768px) {
+  .oneRow{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10%;
+    height: 100%;
+    margin-left:5% ;
+    margin-right:5% ;
+   
+  }
+  .oneRow-img {
+    margin-top: 1%;
+    width: 100%;
+    height: 50%;
+    margin: 0; 
+   
+    overflow: hidden;
+    margin-top: 1%;
   }
   
+  .oneRow-img img {
+    margin-top: 1%;
+    width: 100%;
+    height: 100%;
+  
+    object-fit:cover;
+  }
+
+}
+
+
+
+  
+  
+
+ 

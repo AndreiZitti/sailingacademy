@@ -1,26 +1,40 @@
-import React from 'react';
-import './Navbar.css'; // Import your styles
-import { Link } from 'react-scroll';
+import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
- 
-const cursorStyle = {
-    cursor: `url(${process.env.PUBLIC_URL}/images/Cursor3.png), auto`
-  };
-function Navbar({ children }) {
-  return (
-    <nav style={cursorStyle}>
-      {children}
-    </nav>
-  );
+import { Navbar, Nav, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { useTranslation } from 'react-i18next';
+import './Navbar.css';
+
+function NavbarComponent() {
+    const { t } = useTranslation();
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggle = () => setDropdownOpen(prevState => !prevState);
+
+    return (
+        <Navbar color="white" dark expand="md" >
+            <RouterLink className="navbar-brand navbar-link" to="/">Sailing Academy</RouterLink>
+
+            <Nav className="ml-auto w-100" navbar>
+                <RouterLink className="nav-link d-none d-md-block navbar-link" to="/events">{t('Events')}</RouterLink>
+                <RouterLink className="nav-link d-none d-md-block navbar-link" to="/contact-us">{t('Contact Us')}</RouterLink>
+                <RouterLink className="nav-link d-none d-md-block navbar-link" to="/about-us">{t('About Us')}</RouterLink>
+
+                {/* Mobile view dropdown */}
+                <Dropdown isOpen={dropdownOpen} toggle={toggle} className="d-md-none">
+                    <DropdownToggle nav caret style={{ color: 'black' }}>                        
+                        {t('Menu')}
+                    </DropdownToggle>
+                    <DropdownMenu>
+                        <DropdownItem tag={RouterLink} to="/">{t('Home')}</DropdownItem>
+                        <DropdownItem tag={RouterLink} to="/events">{t('Events')}</DropdownItem>
+                        <DropdownItem tag={RouterLink} to="/contact-us">{t('Contact Us')}</DropdownItem>
+                        <DropdownItem tag={RouterLink} to="/about-us">{t('About Us')}</DropdownItem>
+                        <DropdownItem tag={RouterLink} to="/login">{t('Login')}</DropdownItem>
+                    </DropdownMenu>
+                </Dropdown>
+            </Nav>
+        </Navbar>
+    );
 }
-export function DropdownMenu() {
-  return (
-    <div className="dropdown-content">
-      <Link activeClass="active" to="Rent" spy={true} smooth={true} offset={-70} duration={500}>Rent</Link>
-      <Link activeClass="active" to="Courses" spy={true} smooth={true} offset={-70} duration={500}>Courses</Link>
-      <Link activeClass="active" to="Membership" spy={true} smooth={true} offset={-70} duration={500}>Membership</Link>
-      <Link activeClass="active" to="Contact" spy={true} smooth={true} offset={-70} duration={500}>Contact</Link>
-    </div>
-  );
-}
-export default Navbar;;
+
+export default NavbarComponent;

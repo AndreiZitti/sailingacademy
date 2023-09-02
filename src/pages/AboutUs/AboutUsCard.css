@@ -1,44 +1,40 @@
 .body {
-  position: relative;
+ 
   background-color: white;
   width: 100%;
-  height: 300vh; /* adjust as needed */
+  height: 100%; /* adjust as needed */
 }
 
 .about-us-card {
-  position: absolute;
-  width: 33.33%;
-  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+  width: 35%;
+  height: 90%;
+  font-size: 140%;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
   text-align: center;
   padding: 1rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
   gap: 1rem;
-  overflow: hidden;
+
 }
-.about-us-card img {
+
+
+@media (max-width: 768px) {
+  .about-us-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  height: 100%; /* or you can adjust to your preference */
-  object-fit: contain;
-}
-.about-us-card .image-container {
-  display: cover;
-  overflow: hidden;
-}
-.card-1 {
-  top: 15%; /* adjust as needed */
-  left: 10%;
-}
+  height: 100%;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  padding: 1rem;
+  justify-content: center;
+  gap: 1rem;
 
-.card-2 {
-  top: 50%; /* adjust as needed */
-  right: 10%;
-}
-
-.card-3 {
-  top: 110%; /* adjust as needed */
-  left: 10%;
+  }
 }

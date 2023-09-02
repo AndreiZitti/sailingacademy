@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import './FlipCard.css'; 
+import { useTranslation } from 'react-i18next';
+
 
 function FlipCard({frontImage, backText, title}) {
     const [isFlipped, setIsFlipped] = useState(false);
+    const { t } = useTranslation();
 
     return (
         <div className={`card ${isFlipped ? "flipped" : ""}`} onClick={() => setIsFlipped(!isFlipped)}>
@@ -13,7 +16,7 @@ function FlipCard({frontImage, backText, title}) {
             </div>
             <div className="card__face card__face--back">
                 <div className="backtext-section">
-                    <h3>Requirements</h3>
+                    <h3>{t('Requirements')}</h3>
                     <ul>
                         {backText.requirements.map((item, index) => (
                             <li key={index}>{item}</li>
@@ -21,7 +24,7 @@ function FlipCard({frontImage, backText, title}) {
                     </ul>
                 </div>
                 <div className="backtext-section">
-                    <h3>Benefits</h3>
+                    <h3>{t('Benefits')}</h3>
                     <ul>
                         {backText.benefits.map((item, index) => (
                             <li key={index}>{item}</li>

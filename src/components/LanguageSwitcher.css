@@ -1,0 +1,29 @@
+.language-switcher {
+    display: flex;
+    align-items: center;
+    position: absolute;  /* Set to absolute positioning */
+    top: 10px;           /* Offset from the top, adjust as needed */
+    right: 10px;         /* Offset from the right, adjust as needed */
+    z-index: 10;         /* Ensure it's above other content if needed */
+}
+
+  
+  .language-switcher button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 1%; /* Using percentage for spacing */
+    padding: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .language-switcher button:hover {
+    opacity: 0.7;
+  }
+  
+  .language-switcher img {
+    width: 30px;  /* Set a fixed width */
+    height: 30px; /* Set a fixed height */
+    object-fit: cover; /* This will ensure the image covers the entire width and height without distortion */
+}
+  

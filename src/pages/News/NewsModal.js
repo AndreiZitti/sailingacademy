@@ -1,42 +1,38 @@
-import React, { Component } from 'react';
-import Modal from 'react-modal';
+import React from 'react';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
 
-Modal.setAppElement('#root'); // add this line to avoid the console warning
+function NewsModal({ isOpen, closeModal, news }) {
+  // If there's no news provided, just return null to avoid errors
+  if (!news) return null;
 
-class NewsModal extends Component {
-    render() {
-        const { isOpen, closeModal, title, image, description, details } = this.props;
-        console.log(isOpen);
-        return (
-            <Modal
-                isOpen={isOpen}
-                onRequestClose={closeModal}
-                shouldCloseOnOverlayClick={true}
-                contentLabel="News Details"
-                style={{
-                    overlay: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                    },
-                    content: {
-                        top: '50%',
-                        left: '50%',
-                        right: 'auto',
-                        bottom: 'auto',
-                        marginRight: '-50%',
-                        transform: 'translate(-50%, -50%)',
-                        width: '60%',
-                        height: '70%',
-                    },
-                }}
-            >
-                <h2>{title}</h2>
-                {image && <img src={image} alt={title} />}
-                <p>{description}</p>
-                <p>{details}</p>
-                <button onClick={closeModal}>Close</button>
-            </Modal>
-        );
-    }
+  return (
+    <Modal open={isOpen} onClose={closeModal}>
+      <Box
+        sx={{ 
+          position: 'absolute', 
+          top: '50%', 
+          left: '50%', 
+          transform: 'translate(-50%, -50%)', 
+          width: '[95%,80%]', 
+          height: '[95%,80%]',
+          overflow: 'auto',
+          bgcolor: 'background.paper', 
+          border: '2px solid #000',
+          boxShadow: 24, 
+          p: 4 
+        }}
+      >
+        <h2>{news.title}</h2>
+        {news.image && <img src={news.image} alt={news.title} style={{ maxWidth: '100%' }} />}
+        <p>{news.description}</p>
+        <p>{news.details}</p>
+        <div style={{ marginTop: '20px' }}>
+            <button onClick={closeModal}>Close</button>
+        </div>
+      </Box>
+    </Modal>
+  );
 }
 
 export default NewsModal;

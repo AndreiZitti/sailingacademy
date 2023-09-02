@@ -9,8 +9,8 @@ const ReviewCarousel = ({ reviews }) => (
     showStatus={false} 
     autoPlay 
     infiniteLoop 
-    interval={6000} 
-    
+    interval={4000} 
+    maxItems = {3}
     centerMode
     centerSlidePercentage={33}
   >

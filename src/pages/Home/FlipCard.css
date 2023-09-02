@@ -7,12 +7,13 @@ body {
 
 .card {
   width: 300px;
-  height: 400px; 
+  height:400px !important;
   perspective: 600px;
   cursor: pointer;
   transition: 0.6s;
   position: relative;
   margin: 25px 0;
+  z-index: 0;
 }
 
 .card:hover {
@@ -110,5 +111,32 @@ body {
   
   .backtext-section ul li {
     margin-bottom: 5px;
+  }
+  @media (max-width: 768px) {
+    .card {
+      width: 300%; /* Adjusted for mobile viewport */
+      perspective: 600px;
+      cursor: pointer;
+      transition: 0.6s;
+      position: relative;
+      margin: 25px auto; /* centering the card */
+}
+.backtext-section {
+  padding: 5px;
+}
+
+.backtext-section h3 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.backtext-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.backtext-section ul li {
+  margin-bottom: 5px;
+}
   }
   

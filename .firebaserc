@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "example-e4503"
-  }
+    "default": "example-e4503",
+    "finall": "sailingacademy-e57c9"
+  },
+  "targets": {},
+  "etags": {}
 }

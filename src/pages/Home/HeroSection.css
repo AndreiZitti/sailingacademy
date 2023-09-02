@@ -1,31 +1,54 @@
 video {
-    object-fit: cover;
+    object-fit:cover;
     width: 100%;
     height: 100%;
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: -1;
+    
+   
   }
+  .hero-wrapper {
+    display: flex;
+  }
+  .hero-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+   
+}
   
   .hero-container {
     /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
-    height: 100vh;
+    height: 1200px;
+    background-color: transparent !important;
     width: 100%;
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
-    object-fit: contain;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
   }
   
   .hero-container > h1 {
     color: #fff;
     font-size: 100px;
     margin-top: -100px;
+    z-index: 2;
+    align-self: center;
   }
   
   .hero-container > p {
     margin-top: 8px;
+    z-index: 2;
     color: #fff;
     font-size: 32px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
@@ -44,21 +67,18 @@ video {
     margin-left: 4px;
   }
   
-  @media screen and (max-width: 960px) {
-    .hero-container > h1 {
-      font-size: 70px;
-      margin-top: -150px;
-    }
-  }
-  
+ 
   @media screen and (max-width: 768px) {
+    .hero-container {
+      height: 100vh;
+  }
     .hero-container > h1 {
-      font-size: 50px;
+      font-size: 250%;
       margin-top: -100px;
     }
   
     .hero-container > p {
-      font-size: 30px;
+      font-size: 170%;
     }
   
     .btn-mobile {
