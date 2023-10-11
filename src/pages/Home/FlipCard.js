@@ -3,15 +3,15 @@ import './FlipCard.css';
 import { useTranslation } from 'react-i18next';
 
 
-function FlipCard({frontImage, backText, title}) {
+function FlipCard({frontImage, backText, title,imageClass}) {
     const [isFlipped, setIsFlipped] = useState(false);
     const { t } = useTranslation();
 
     return (
         <div className={`card ${isFlipped ? "flipped" : ""}`} onClick={() => setIsFlipped(!isFlipped)}>
             <div className="card__face card__face--front">
-                <img src={frontImage} alt="front" />
-                <div className="card__title">{title}</div>
+            <img src={frontImage} alt={title} className={imageClass} />               
+             <div className="card__title">{title}</div>
                 <div className="card__clickme">Click me!</div>
             </div>
             <div className="card__face card__face--back">

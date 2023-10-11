@@ -9,12 +9,14 @@ video {
     
    
   }
+
   .hero-wrapper {
     display: flex;
   }
   .hero-container::before {
     content: "";
     position: absolute;
+    background-color: transparent !important;
     top: 0;
     left: 0;
     right: 0;
@@ -24,7 +26,6 @@ video {
 }
   
   .hero-container {
-    /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
     height: 1200px;
     background-color: transparent !important;
     width: 100%;

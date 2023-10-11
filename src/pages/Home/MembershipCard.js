@@ -40,6 +40,7 @@ function Membership() {
         />
         <FlipCard 
           frontImage="images/profil3.jpg" 
+          imageClass = "simpatizanti-image"
           backText={{
             requirements: [
               t('- You must have been an active sailing athlete.'), 
@@ -55,6 +56,7 @@ function Membership() {
         />
         <FlipCard 
           frontImage="images/Simpatizanti.jpg" 
+          imageClass = "simpatizanti-image"
           backText={{
             requirements: [
               t('- You must fully pay the annual fee of 2400 lei.')

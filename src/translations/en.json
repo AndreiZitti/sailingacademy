@@ -16,15 +16,16 @@
 "Click me!":"Click me!",
 "Events":"Events",
 "Opening Hours":"Opening Hours",
+"Home":"Home",
 
 "About Us":"About Us",
 "- You must have completed the Optimist or Laser initiation course at Sailing Academy.": "- You must have completed the Optimist or Laser initiation course at Sailing Academy.",
 "- You must fully pay the annual fee of 1200 lei.":"- You must fully pay the annual fee of 1200 lei.",
 "- Access card for Sailing Academy club.":"- Access card for Sailing Academy club.",
-"- 50% discount for renting Kayaks, Stand Up Paddles, and Sailboats":"- 50% discount for renting Kayaks, Stand Up Paddles, and Sailboats",
+"- 50% discount for renting Kayaks, Stand Up Paddles, and Sailboats.":"- 50% discount for renting Kayaks, Stand Up Paddles, and Sailboats",
 "- FRY sports ID card.":"- FRY sports ID card.",
-"- You must have a previous year's FRY ID or have completed the adult sailing courses at Sailing Academy":"- You must have a previous year's FRY ID or have completed the adult sailing courses at Sailing Academy",
-"- You must fully pay the annual fee of 2400 lei":"- You must fully pay the annual fee of 2400 lei",
+"- You must have a previous year's FRY ID or have completed the adult sailing courses at Sailing Academy.":"- You must have a previous year's FRY ID or have completed the adult sailing courses at Sailing Academy",
+"- You must fully pay the annual fee of 2400 lei.":"- You must fully pay the annual fee of 2400 lei",
 "- 25% discount for renting Kayaks, Stand Up Paddles, and Sailboats.":"- 25% discount for renting Kayaks, Stand Up Paddles, and Sailboats.",
 "- You must have been an active sailing athlete.":"- You must have been an active sailing athlete.",
 "- You must fully pay the annual fee of 1800 lei.":"- You must fully pay the annual fee of 1800 lei.",
@@ -39,5 +40,7 @@
 "Thursday: 9:00 - 20:00": "Thursday: 9:00 - 20:00",
 "Friday: 9:00 - 20:00": "Friday: 9:00 - 20:00",
 "Saturday: 9:00 - 20:00": "Saturday: 9:00 - 20:00",
-"Sunday: 9:00 - 20:00": "Sunday: 9:00 - 20:00"
+"Sunday: 9:00 - 20:00": "Sunday: 9:00 - 20:00",
+"Menu":"Menu"
+
 }

@@ -1,6 +1,6 @@
 .newscard {
     width: 100%;
-    height: 50%;
+    height: 100%;
     padding-bottom: 250%; /* 2.5* width */
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -14,7 +14,11 @@
 }
 
 .newscard-content {
-  height: 50%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .newscard-title {
@@ -26,8 +30,10 @@
 
 .newscard-image {
     width: 100%;
-    height: 200px;
+    height: 100%;
+    display: block;
     object-fit: cover;
+    
 }
 
 .newscard-description {
@@ -50,8 +56,21 @@
     height: 50px;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
 }
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 100; 
+    background-color: red;
 
-
+}
+.edit-btn{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 101; 
+    background-color: red;
+}
 @media (max-width: 767px) {
     .newscard {
         width: 100%; 

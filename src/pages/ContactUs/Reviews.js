@@ -3,37 +3,68 @@ import ReviewCarousel from './ReviewCarousel.js';
 import './Reviews.css';
 
 const Reviews = () => {
-  const reviews = [
-    {
-      "author_name": "John Doe",
-      "profile_photo_url": "https://randomuser.me/api/portraits/men/1.jpg",
-      "rating": 4,
-      "text": "Great place! The staff was very friendly and helpful. I will definitely be back."
-    },
-    {
-      "author_name": "Jane Smith",
-      "profile_photo_url": "https://randomuser.me/api/portraits/women/1.jpg",
-      "rating": 5,
-      "text": "This is hands down my favorite place in town. The atmosphere is great and the food is even better!"
-    },
-    {
-      "author_name": "Bob Johnson",
-      "profile_photo_url": "https://randomuser.me/api/portraits/men/2.jpg",
-      "rating": 3,
-      "text": "The place is good, but I've seen better. It might be worth a visit if you're in the area."
-    },
-    {
-      "author_name": "Alice Williams",
-      "profile_photo_url": "https://randomuser.me/api/portraits/women/2.jpg",
-      "rating": 2,
-      "text": "I didn't enjoy my visit here. The service was slow and the prices were high for what you get."
-    },
-    {
-      "author_name": "Charlie Brown",
-      "profile_photo_url": "https://randomuser.me/api/portraits/men/3.jpg",
-      "rating": 4,
-      "text": "A solid place with a good selection. I'll be coming back to try more!"
-    }
+  const reviews =
+  [
+     {
+        "author_name" : "Dan Popescu",
+        "author_url" : "https://www.google.com/maps/contrib/105854175410235112310/reviews",
+        "language" : "en",
+        "original_language" : "en",
+        "profile_photo_url" : "images/r1.png",
+        "rating" : 5,
+        "relative_time_description" : "2 months ago",
+        "text" : "Maybe the best club for initiating children in the sport of sailing. In Bucharest.",
+        "time" : 1686968191,
+        "translated" : false
+     },
+     {
+        "author_name" : "Cristian Firca",
+        "author_url" : "https://www.google.com/maps/contrib/107974880733612962409/reviews",
+        "language" : "en",
+        "original_language" : "en",
+        "profile_photo_url" : "images/r2.png",
+        "rating" : 5,
+        "relative_time_description" : "2 years ago",
+        "text" : "Kids have lots of fun! Staff are friendly and well trained! Highly recomended!",
+        "time" : 1625312528,
+        "translated" : false
+     },
+     {
+        "author_name" : "Daniela Meghea",
+        "author_url" : "https://www.google.com/maps/contrib/115085197922097005208/reviews",
+        "language" : "en",
+        "original_language" : "en",
+        "profile_photo_url" : "images/r4.png",
+        "rating" : 5,
+        "relative_time_description" : "2 years ago",
+        "text" : "Wonderful place! A lot of joy and fun for kids!",
+        "time" : 1623607508,
+        "translated" : false
+     },
+     {
+        "author_name" : "Mik P",
+        "author_url" : "https://www.google.com/maps/contrib/113818538913961659286/reviews",
+        "language" : "en",
+        "original_language" : "en",
+        "profile_photo_url" : "images/r3.png",
+        "rating" : 5,
+        "relative_time_description" : "8 months ago",
+        "text" : "All people here are friendly",
+        "time" : 1671357953,
+        "translated" : false
+     },
+     {
+        "author_name" : "Jorge Mota Pinto",
+        "author_url" : "https://www.google.com/maps/contrib/112310973518070071593/reviews",
+        "language" : "en",
+        "original_language" : "en",
+        "profile_photo_url" : "images/r5.png",
+        "rating" : 5,
+        "relative_time_description" : "a year ago",
+        "text" : "Nice spot for SUP. Good SUP boards",
+        "time" : 1658952712,
+        "translated" : false
+     }
   ].map(review => ({
     name: review.author_name,
     rating: review.rating,

@@ -17,7 +17,7 @@ function Courses() {
               label={t('Sailing Courses')}
             />
             <CardItem
-              src='images/bigBoat.JPG'
+              src='images/bigBoat.jpg'
               text={t('Skipper courses for categories A, B, C, D, S for motor and/or sailboats. For more details contact us')}
               label={t('Courses for Boat Skipper')}
             />

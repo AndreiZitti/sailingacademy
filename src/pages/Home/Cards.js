@@ -13,6 +13,7 @@ function Cards({ isMapVisible }) {
   const { t } = useTranslation();
   return (
     <div className='cards'>
+      
       <div id='Rent'>
         <Rent />
       </div>

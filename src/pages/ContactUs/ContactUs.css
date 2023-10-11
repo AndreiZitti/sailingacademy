@@ -1,135 +1,97 @@
-.reviewsCarousel {
-    background-color: white;
+.contact-page {
     display: flex;
-    overflow: hidden;
-    width: 100% ;
-    position : relative;
-    
-
+    flex-direction: column;
+    min-height: 100vh; /* ensures footer stays at the bottom on short content pages */
 }
-.body{
+
+.contact-content {
+    flex: 1; /* allows this section to grow and take up all space before the footer */
     background-color: white;
+    padding: 5%;
+    padding-bottom: 2%;;
+    display: flex;
+    flex-direction: column; /* This keeps the children stacked vertically */
+    justify-content: center; /* This vertically centers the children */
+    height: 100%; 
 }
-
 
 .contact-container {
-    display: flex;
-    justify-content: center; /* Horizontally centers the children */
-    align-items: center;     /* Vertically centers the children */
-    width: 100%;
-    gap: 3%; /* Adjust this gap as per your requirements */
-    background-color: white;
+    display: flex; 
+    flex-direction: row; /* Horizontal by default for larger screens */
+    justify-content: space-between;
+    gap: 2%;
+   /* To align the contact card and programm card at the top */
+    align-items: stretch;
+
 }
 
 .contact-info {
-    margin: 0 0 0 25%; /* Allows the contact-info to grow and take the available space */
-    display: flex;
-    gap: 5px;;
-    flex-direction: column; /* Stack the content vertically */
-    justify-content: center;
-    align-items: center;
-     /* Add padding if necessary */
-}
-
-.contact-us {
+    flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    font-size: 130%;
-    height: 100%;
-    width: 100%;
-    color: #333;
-    background-color: white;
-    margin: 0 auto;
-    gap: 5%;
+    gap: 1em;
 }
-
-.contact-us h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-
 
 .contact-info p {
     font-size: 1.2em;
-    margin-bottom: 10px;
+}
+
+
+
+.contact-card {
+    flex: 1;
+    background-color: #fff;
+    padding: 2em;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.contact-card h2,
+.programm-card h2 { /* Assuming programm-card has a h2 title called "Opening Hours" */
+    font-size: 2em; /* Adjust this based on your actual font size for the "Opening Hours" title */
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.contact-card p {
+    font-size: 1.2em;
+    text-align: center;
 }
 
 .social-links {
     display: flex;
-    justify-content: space-between;
-    width: 50%;
+    gap: 1em;
+    justify-content: center;
+    margin-top: 1em;
 }
 
 .social-links a {
     color: #4285f4;
-    text-decoration: none;
 }
+
 
 .programm-card {
-
+    flex: 1;
     background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 2em;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-    
+    border-radius: 10px;
 }
 
-.programm-card h2 {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 25px;
-}
-
-.programm-card ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.programm-card ul li {
-    margin-bottom: 15px;
-    font-size: 1.2em;
-    text-align: center;
-}
-
-
-/* ... All your previous CSS above ... */
-
-/* Media Query for screens up to 768px wide (typically phones) */
 @media only screen and (max-width: 768px) {
     .contact-container {
-        flex-direction: column; /* Stack children (contact-info & programm-card) vertically */
-        gap: 20px;  /* Spacing between the vertically stacked elements */
-        align-items: center;  /* Horizontally center the items */
+        flex-direction: column;
+        gap: 1.5em;
+    }
     
-    }
-
-    .contact-info {
-        margin: 0;  /* Remove the margin as it's not necessary on mobile view */
-        gap: 10px;  /* Adjust spacing for mobile */
-        width: 90%;  /* Full width for better mobile viewing */
-    }
-
+    .contact-info,
     .programm-card {
-        width: 90%;  /* Use a larger width for mobile view */
-        margin-bottom: 20px; /* Add some margin at the bottom for spacing */
-    }
-    .reviewsCarousel{
-        height: 50%;
-    }
-    
-
-   
-
-    .social-links {
-        justify-content: center; /* Center the social links on mobile */
-        gap: 15px;  /* Adjust spacing between links */
-        margin-top: 15px;  /* Provide space above the links */
-    }
-
-    .contact-us h1, .contact-info p, .programm-card h2, .programm-card ul li {
-        text-align: center;  /* Center the text for better appearance on mobile */
+        width: 100%;
     }
 }

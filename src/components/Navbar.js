@@ -29,7 +29,6 @@ function NavbarComponent() {
                         <DropdownItem tag={RouterLink} to="/events">{t('Events')}</DropdownItem>
                         <DropdownItem tag={RouterLink} to="/contact-us">{t('Contact Us')}</DropdownItem>
                         <DropdownItem tag={RouterLink} to="/about-us">{t('About Us')}</DropdownItem>
-                        <DropdownItem tag={RouterLink} to="/login">{t('Login')}</DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
             </Nav>

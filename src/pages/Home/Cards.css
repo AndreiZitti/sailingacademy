@@ -1,9 +1,21 @@
 .cards {
   padding: 0.5em;
-  background: rgb(256, 256, 256,0.94);
+  background: rgba(256, 256, 256, 0.7);
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  overflow: hidden;  /* Ensure SVG doesn't overflow */
+}
+
+.wave {
+  fill: white;  /* Adjust this color to match the background */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;  /* Adjust this to control the height of the wave */
+  z-index: 1;  /* Make sure the wave is above the content, adjust as needed */
 }
 
 .cards__container, .cards__wrapper {

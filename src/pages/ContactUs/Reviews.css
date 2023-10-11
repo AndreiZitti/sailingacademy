@@ -45,4 +45,45 @@
     color: #4285f4;
     text-decoration: none;
   }
+
+  .carousel .control-prev, .carousel .control-next {
+    background-color: rgba(0, 0, 0, 0.4);  /* semi-transparent black */
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.carousel .control-prev:hover, .carousel .control-next:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.carousel .control-prev.control-disabled, .carousel .control-next.control-disabled {
+    opacity: 0.5;
+}
+.carousel .control-dots .dot {
+  background-color: gray;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: none;
+  margin: 0 8px;
+  transition: background-color 0.2s;
+}
+
+.carousel .control-dots .dot.selected {
+  background-color: black;
+}
+
   
+  @media (max-width: 768px) {
+    .reviewCard {
+        padding: 30px;
+    }
+
+    .rating {
+        font-size: 24px; 
+    }
+
+    .reviewText {
+        font-size: 18px;  
+    }
+}

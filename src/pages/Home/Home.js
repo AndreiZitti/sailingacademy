@@ -1,37 +1,59 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { IconButton, Fade, useScrollTrigger } from '@mui/material';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import HeroSection from './HeroSection';
 import Cards from './Cards.js';
 import Footer from './Footer'; 
 import '../../App.css';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
+import '../Home/HeroSection.css'
 
 function Home() {
-  const [isMapVisible, setIsMapVisible] = useState(false);
-  const cardsRef = useRef();
+  const [showArrow, setShowArrow] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => setIsMapVisible(entry.isIntersecting));
-    });
-
-    observer.observe(cardsRef.current);
-
-    // clean up on unmounting
-    return () => cardsRef.current && observer.unobserve(cardsRef.current);
+    const timer = setTimeout(() => {
+      setShowArrow(true);
+    }, 15000);
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
+
+  const trigger = useScrollTrigger({
+    threshold: 50,
+    disableHysteresis: true,
+  });
 
   return (
     <div className="site-background">
-            <LanguageSwitcher />
-
+      <LanguageSwitcher />
       <HeroSection />
-      <div ref={cardsRef}>
-        <Cards isMapVisible={isMapVisible} />
-      </div>
+
+      <Cards />
+      
+      <Fade in={showArrow && !trigger}>
+      <IconButton
+        className={`custom-icon-btn ${showArrow && !trigger ? 'bouncing' : ''}`}
+  style={{
+    position: 'fixed',
+   
+    left: '50%',
+    zIndex: 20,
+  }}
+  onClick={() => {
+    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+    setShowArrow(false);
+  }}
+ 
+>
+  <ArrowDropDownIcon style={{ fontSize: '150px' , color:'white'}}  />
+</IconButton>
+
+      </Fade>
+
       <Footer />
     </div>
-   
-  
   );
 }
 

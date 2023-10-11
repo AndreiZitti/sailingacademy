@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'; // import useEffect
 import icon from '../../Assets/Cursor3.png';
 import AboutUsCard from './AboutUsCard'
 import './AboutUs.css'
+import Footer from '../Home/Footer'
 function AboutUs() {
 
  
@@ -20,7 +21,7 @@ function AboutUs() {
         Avem parteneriate cu cluburi unde unii dintre cei mai buni antrenori la ora actuala, din Grecia si din lume, au format de-a lungul anilor campioni europeni si mondiali. In acest proiect sunt alaturi de noi si de sportivii nostri care isi doresc sa mearga la urmatorul nivel si sa faca performanta."
       />
       <div className='oneRow-img'>
-      <img  src = "/images/international.jpg"/>
+      <img  src = "/images/imag12.jpg"/>
       </div>
       </div>
       <div className='oneRow'>
@@ -32,10 +33,11 @@ function AboutUs() {
         Ne dorim sa contribuim la cresterea considerabila a numarului de tineri care indragesc acest sport si sa ii ajutam pe cei ce vor sa practice la nivel de performanta sa evolueze, punandu-le la dispozitie cele mai bune alternative si conditii de antrenament."
       />
        <div className='oneRow-img'>
-      <img  src = "/images/concurs.jpg"/>
+      <img  src = "/images/Concurs.jpg"/>
       </div>
       </div>
-       </div>
+    <Footer />
+    </div>
      
      
        

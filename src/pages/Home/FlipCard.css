@@ -2,7 +2,6 @@
 
 body {
   font-family: 'Ubuntu', sans-serif;
-  background-image: radial-gradient(farthest-corner at 40px 40px, #f35 0%, #43e 100%);
 }
 
 .card {
@@ -13,7 +12,7 @@ body {
   transition: 0.6s;
   position: relative;
   margin: 25px 0;
-  z-index: 0;
+  z-index: 2;
 }
 
 .card:hover {
@@ -33,7 +32,12 @@ body {
   transform-style: preserve-3d;
   transition: .4s linear .1s;
 }
-
+.simpatizanti-image {
+  object-position: left center;  /* This will move the image more to the right */
+}
+.nostalgic-image {
+  object-position: left center;  /* This will move the image more to the right */
+}
 .card__face--front {
   background-color: #2d2d2d;
   color: white;
@@ -79,7 +83,7 @@ body {
 
 .card__clickme {
   text-align: center;
-  font-size: 18px;
+  font-size: 180%;
   padding-bottom: 10px;
 }
 

@@ -47,6 +47,8 @@
     "Thursday: 9:00 - 20:00": "Joi: 9:00 - 20:00",
     "Friday: 9:00 - 20:00": "Vineri: 9:00 - 20:00",
     "Saturday: 9:00 - 20:00": "Sâmbătă: 9:00 - 20:00",
-    "Sunday: 9:00 - 20:00": "Duminică: 9:00 - 20:00"
-  
+    "Sunday: 9:00 - 20:00": "Duminică: 9:00 - 20:00",
+  "Home":"Acasa",
+  "Menu":"Menu"
+
 }
