@@ -26,7 +26,7 @@ function HeroSection() {
             {t("Join Our Courses")}
           </Link>
           <Link to="/rent" className="hero-btn secondary">
-            {t("Rent Equipment")}
+            {t("Services")}
           </Link>
         </div>
       </div>

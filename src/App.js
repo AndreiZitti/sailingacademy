@@ -7,6 +7,7 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Placeholder from "./pages/Placeholder/Placeholder";
 import RegistrationWrapper from "./pages/Registration/RegistrationWrapper";
+import TestView from "./pages/Registration/TestView";
 import Rent from "./pages/Rent/Rent";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./i18n"; // path to your i18n.js
@@ -22,6 +23,7 @@ function App() {
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/registration" element={<RegistrationWrapper />} />
+            <Route path="/registration-test" element={<TestView />} />
             <Route path="/rent" element={<Rent />} />
           </Routes>
         </div>

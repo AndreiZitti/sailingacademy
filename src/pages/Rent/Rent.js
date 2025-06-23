@@ -9,17 +9,15 @@ function Rent() {
     <div className="rent-page">
       <div className="rent-container">
         <div className="coming-soon-content">
-          <h1>{t("Equipment Rental")}</h1>
+          <h1>{t("Services")}</h1>
           <div className="coming-soon-icon">🚧</div>
           <h2>{t("Coming Soon!")}</h2>
           <p>
-            {t(
-              "We are working on an amazing booking system for our equipment rental services."
-            )}
+            {t("We are working on an amazing booking system for our services.")}
           </p>
 
           <div className="equipment-preview">
-            <h3>{t("What you will be able to rent:")}</h3>
+            <h3>{t("What services we offer:")}</h3>
             <div className="equipment-grid">
               <div className="equipment-item">
                 <span className="equipment-emoji">🛶</span>
@@ -34,6 +32,11 @@ function Rent() {
               <div className="equipment-item">
                 <span className="equipment-emoji">⛵</span>
                 <h4>{t("Sailing Boats")}</h4>
+                <p>{t("50-100 lei/hour")}</p>
+              </div>
+              <div className="equipment-item">
+                <span className="equipment-emoji">👨‍🏫</span>
+                <h4>{t("Private Lessons")}</h4>
                 <p>{t("50-100 lei/hour")}</p>
               </div>
             </div>

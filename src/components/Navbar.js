@@ -28,13 +28,13 @@ function NavbarComponent() {
           className="nav-link d-none d-md-block navbar-link"
           to="/registration"
         >
-          {t("Registration")}
+          {t("Membership")}
         </RouterLink>
         <RouterLink
           className="nav-link d-none d-md-block navbar-link"
           to="/rent"
         >
-          {t("Rent Equipment")}
+          {t("Services")}
         </RouterLink>
         <RouterLink
           className="nav-link d-none d-md-block navbar-link"
@@ -60,10 +60,10 @@ function NavbarComponent() {
             </DropdownItem>
 
             <DropdownItem tag={RouterLink} to="/registration">
-              {t("Registration")}
+              {t("Membership")}
             </DropdownItem>
             <DropdownItem tag={RouterLink} to="/rent">
-              {t("Rent Equipment")}
+              {t("Services")}
             </DropdownItem>
             <DropdownItem tag={RouterLink} to="/contact-us">
               {t("Contact Us")}

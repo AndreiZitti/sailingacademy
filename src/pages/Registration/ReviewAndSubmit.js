@@ -6,45 +6,104 @@ const ReviewAndSubmit = ({ formData, onPrev }) => {
   const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
+
+  // Load reCAPTCHA script if not already loaded
+  const loadRecaptcha = () => {
+    return new Promise((resolve) => {
+      if (window.grecaptcha) {
+        resolve();
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.src =
+        "https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY_HERE";
+      script.onload = resolve;
+      document.head.appendChild(script);
+    });
+  };
+
+  // Execute reCAPTCHA v3
+  const executeRecaptcha = async () => {
+    await loadRecaptcha();
+    return new Promise((resolve) => {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha
+          .execute("YOUR_SITE_KEY_HERE", { action: "registration_submit" })
+          .then((token) => {
+            resolve(token);
+          });
+      });
+    });
+  };
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
 
     try {
-      // Here you would send the data to your backend
+      // Execute reCAPTCHA v3 (invisible to user)
+      const recaptchaToken = await executeRecaptcha();
+
+      // Get email for verification (parent email for trial/junior, member email for others)
+      const emailForVerification =
+        formData.type === "trial" || formData.memberTier === "junior"
+          ? formData.parentInfo?.email
+          : formData.memberInfo?.email;
+
+      // Send registration data with reCAPTCHA token
       const response = await fetch("/api/registration", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          recaptcha_token: recaptchaToken,
+          verification_email: emailForVerification,
+        }),
       });
 
       if (response.ok) {
+        const result = await response.json();
         setIsSubmitted(true);
+        setEmailSent(true);
       } else {
-        throw new Error("Registration failed");
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Registration failed");
       }
     } catch (error) {
       console.error("Error submitting registration:", error);
-      alert(
-        t("There was an error submitting your registration. Please try again.")
-      );
+
+      if (error.message.includes("recaptcha")) {
+        alert(t("Security verification failed. Please try again."));
+      } else {
+        alert(
+          t(
+            "There was an error submitting your registration. Please try again."
+          )
+        );
+      }
     } finally {
       setIsSubmitting(false);
     }
   };
 
   if (isSubmitted) {
+    const emailAddress =
+      formData.type === "trial" || formData.memberTier === "junior"
+        ? formData.parentInfo?.email
+        : formData.memberInfo?.email;
+
     return (
       <div className="success-container">
-        <div className="success-icon">
+        <div className="success-icon verification">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              d="M5 13l4 4L19 7"
+              d="M3 8l7.89 7.89a2 2 0 002.82 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
             ></path>
           </svg>
         </div>
@@ -53,18 +112,52 @@ const ReviewAndSubmit = ({ formData, onPrev }) => {
             {t("Registration Submitted Successfully!")}
           </h2>
           <p className="success-description">
+            {t("We've sent a verification email to")}{" "}
+            <strong>{emailAddress}</strong>
+          </p>
+          <p className="verification-note">
             {t(
-              "Thank you for registering with Sailing Academy. We will review your application and contact you soon."
+              "Please check your email and click the verification link to complete your registration."
             )}
           </p>
         </div>
         <div className="next-steps">
           <h3 className="next-steps-title">{t("Next Steps:")}</h3>
           <ul className="next-steps-list">
-            <li>{t("Check your email for a confirmation message")}</li>
-            <li>{t("We will contact you within 2-3 business days")}</li>
-            <li>{t("Payment instructions will be provided upon approval")}</li>
+            <li className="verification-step">
+              📧 {t("Check your email inbox (and spam folder)")}
+            </li>
+            <li className="verification-step">
+              🔗 {t("Click the verification link in the email")}
+            </li>
+            <li className="verification-step">
+              ⏰{" "}
+              {t(
+                "We will contact you within 2-3 business days after verification"
+              )}
+            </li>
+            <li className="verification-step">
+              💳{" "}
+              {formData.type === "trial"
+                ? t("Trial course details will be provided upon approval")
+                : t("Payment instructions will be provided upon approval")}
+            </li>
           </ul>
+        </div>
+        <div className="help-section">
+          <p className="help-text">
+            {t("Didn't receive the email?")}
+            <button
+              className="resend-btn"
+              onClick={() => window.location.reload()}
+            >
+              {t("Try submitting again")}
+            </button>
+          </p>
+          <p className="contact-info">
+            {t("Need help? Contact us at")}
+            <a href="mailto:info@sailingacademy.com">info@sailingacademy.com</a>
+          </p>
         </div>
       </div>
     );
@@ -89,7 +182,7 @@ const ReviewAndSubmit = ({ formData, onPrev }) => {
             <p className="membership-type">
               {formData.type === "yearlong"
                 ? t("Year-long Membership")
-                : t("1-Month Trial Membership")}
+                : t("1-Month Intro Course (for kids)")}
             </p>
             {formData.memberTier && (
               <p className="membership-tier">

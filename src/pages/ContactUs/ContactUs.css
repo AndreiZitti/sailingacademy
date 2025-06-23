@@ -28,13 +28,15 @@
   flex: 1;
   background-color: #f8f9fa;
   padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .quick-contact {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .quick-contact-btn {
@@ -69,8 +71,7 @@
   justify-content: space-between;
   gap: 2rem;
   align-items: stretch;
-  max-width: 1200px;
-  margin: 0 auto 3rem auto;
+  margin: 0 0 2rem 0;
 }
 
 .contact-card {
@@ -90,6 +91,14 @@
   color: #2c3e50;
   text-align: center;
   margin-bottom: 1rem;
+}
+
+.contact-intro {
+  color: #666;
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-size: 1rem;
 }
 
 .contact-item {
@@ -184,8 +193,7 @@
 }
 
 .contact-map-section {
-  max-width: 1200px;
-  margin: 0 auto 3rem auto;
+  margin: 0 0 2rem 0;
   background: white;
   padding: 2rem;
   border-radius: 15px;
@@ -193,16 +201,15 @@
 }
 
 .contact-map-section h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
   color: #2c3e50;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .reviews-section {
-  max-width: 1200px;
-  margin: 0 auto 3rem auto;
+  margin: 0 0 2rem 0;
   background: white;
   padding: 2rem;
   border-radius: 15px;
@@ -210,11 +217,11 @@
 }
 
 .reviews-section h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
   color: #2c3e50;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 @media only screen and (max-width: 768px) {

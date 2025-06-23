@@ -63,10 +63,9 @@ const RegistrationWrapper: React.FC<RegistrationWrapperProps> = ({ lng }) => {
     const prevStep = () => setCurrentStep(prev => prev - 1);
 
     const steps = [
-        { number: 1, title: 'Membership Type', icon: '🏆' },
-        { number: 2, title: 'Personal Info', icon: '👤' },
-        { number: 3, title: 'Consents', icon: '📋' },
-        { number: 4, title: 'Review & Submit', icon: '✅' }
+        { number: 1, title: 'Membership & Personal Info', icon: '🏆' },
+        { number: 2, title: 'Consents', icon: '📋' },
+        { number: 3, title: 'Review & Submit', icon: '✅' }
     ];
 
     const renderStep = () => {
@@ -81,24 +80,6 @@ const RegistrationWrapper: React.FC<RegistrationWrapperProps> = ({ lng }) => {
                     />
                 );
             case 2:
-                return formData.type === 'yearlong' ? (
-                    <YearForm
-                        lng={lng}
-                        formData={formData}
-                        updateFormData={updateFormData}
-                        onNext={nextStep}
-                        onPrev={prevStep}
-                    />
-                ) : (
-                    <TrialForm
-                        lng={lng}
-                        formData={formData}
-                        updateFormData={updateFormData}
-                        onNext={nextStep}
-                        onPrev={prevStep}
-                    />
-                );
-            case 3:
                 return (
                     <ConsentForm
                         lng={lng}
@@ -108,7 +89,7 @@ const RegistrationWrapper: React.FC<RegistrationWrapperProps> = ({ lng }) => {
                         onPrev={prevStep}
                     />
                 );
-            case 4:
+            case 3:
                 return (
                     <ReviewAndSubmit
                         lng={lng}
@@ -155,8 +136,8 @@ const RegistrationWrapper: React.FC<RegistrationWrapperProps> = ({ lng }) => {
                             <div key={step.number} className="relative z-10 flex flex-col items-center">
                                 <div
                                     className={`w-16 h-16 rounded-full border-4 flex items-center justify-center text-2xl transition-all duration-300 ${currentStep >= step.number
-                                            ? 'bg-gradient-to-r from-blue-600 to-cyan-600 border-blue-600 text-white shadow-lg scale-110'
-                                            : 'bg-white border-gray-300 text-gray-400 shadow-md'
+                                        ? 'bg-gradient-to-r from-blue-600 to-cyan-600 border-blue-600 text-white shadow-lg scale-110'
+                                        : 'bg-white border-gray-300 text-gray-400 shadow-md'
                                         }`}
                                 >
                                     {currentStep > step.number ? '✓' : step.icon}

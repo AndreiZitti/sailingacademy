@@ -29,10 +29,9 @@ const RegistrationWrapper = () => {
   const prevStep = () => setCurrentStep((prev) => prev - 1);
 
   const steps = [
-    { number: 1, title: "Membership Type", icon: "🏆" },
-    { number: 2, title: "Personal Info", icon: "👤" },
-    { number: 3, title: "Consents", icon: "📋" },
-    { number: 4, title: "Review & Submit", icon: "✅" },
+    { number: 1, title: "Membership & Personal Info", icon: "🏆" },
+    { number: 2, title: "Consents", icon: "📋" },
+    { number: 3, title: "Review & Submit", icon: "✅" },
   ];
 
   const renderStep = () => {
@@ -46,22 +45,6 @@ const RegistrationWrapper = () => {
           />
         );
       case 2:
-        return formData.type === "yearlong" ? (
-          <YearForm
-            formData={formData}
-            updateFormData={updateFormData}
-            onNext={nextStep}
-            onPrev={prevStep}
-          />
-        ) : (
-          <TrialForm
-            formData={formData}
-            updateFormData={updateFormData}
-            onNext={nextStep}
-            onPrev={prevStep}
-          />
-        );
-      case 3:
         return (
           <ConsentForm
             formData={formData}
@@ -70,7 +53,7 @@ const RegistrationWrapper = () => {
             onPrev={prevStep}
           />
         );
-      case 4:
+      case 3:
         return <ReviewAndSubmit formData={formData} onPrev={prevStep} />;
       default:
         return null;

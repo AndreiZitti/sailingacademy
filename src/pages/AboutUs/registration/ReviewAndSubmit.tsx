@@ -85,7 +85,7 @@ const ReviewAndSubmit: React.FC<ReviewAndSubmitProps> = ({ lng, formData, onPrev
                 <div className="bg-gray-50 p-4 rounded-lg">
                     <h3 className="text-lg font-medium text-gray-900 mb-2">Membership Type</h3>
                     <p className="text-gray-700">
-                        {formData.type === 'yearlong' ? 'Year-long Membership' : '1-Month Trial Membership'}
+                        {formData.type === 'yearlong' ? 'Year-long Membership' : '1-Month Intro Course (for kids)'}
                     </p>
                     {formData.memberTier && (
                         <p className="text-sm text-gray-600">

@@ -15,7 +15,8 @@
   "Requirements": "Requirements",
   "Benefits": "Benefits",
   "Click me!": "Click me!",
-  "Registration": "Registration",
+  "Membership": "Membership",
+  "Services": "Services",
   "Opening Hours": "Opening Hours",
   "Home": "Home",
 
@@ -55,7 +56,7 @@
   "Senior (50+)": "Senior (50+)",
   "Supporter (non-sailing supporters)": "Supporter (non-sailing supporters)",
   "Full access • Year-long": "Full access • Year-long",
-  "1-Month Trial Membership": "1-Month Trial Membership",
+  "1-Month Intro Course (for kids)": "1-Month Intro Course (for kids)",
   "Perfect for newcomers to sailing. One-time trial period to experience our courses and facilities before committing to full membership.": "Perfect for newcomers to sailing. One-time trial period to experience our courses and facilities before committing to full membership.",
   "1-month duration only": "1-month duration only",
   "For newcomers to sailing": "For newcomers to sailing",
@@ -167,5 +168,14 @@
   "You must agree to Photo/Video usage": "You must agree to Photo/Video usage",
   "You must accept the Covid-19 safety rules": "You must accept the Covid-19 safety rules",
   "You must consent to GDPR data handling": "You must consent to GDPR data handling",
-  "There was an error submitting your registration. Please try again.": "There was an error submitting your registration. Please try again."
+  "There was an error submitting your registration. Please try again.": "There was an error submitting your registration. Please try again.",
+  "Equipment Rental": "Services",
+  "We are working on an amazing booking system for our equipment rental services.": "We are working on an amazing booking system for our services.",
+  "What you will be able to rent:": "What services we offer:",
+  "Kayaks": "Kayaks",
+  "50 lei/hour": "50 lei/hour",
+  "Stand Up Paddles": "Stand Up Paddles",
+  "50-100 lei/hour": "50-100 lei/hour",
+  "Private Lessons": "Private Lessons",
+  "For now, please contact us directly to make a reservation:": "For now, please contact us directly to make a reservation:"
 }

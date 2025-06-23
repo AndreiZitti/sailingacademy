@@ -155,7 +155,7 @@ const StepSelector: React.FC<StepSelectorProps> = ({ lng, formData, updateFormDa
 
                             <div className="flex-1">
                                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                                    1-Month Trial Membership
+                                    1-Month Intro Course (for kids)
                                 </h3>
                                 <p className="text-gray-600 mb-4 leading-relaxed">
                                     Perfect for newcomers to sailing. One-time trial period to experience

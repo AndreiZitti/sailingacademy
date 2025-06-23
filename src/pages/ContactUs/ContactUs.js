@@ -44,38 +44,15 @@ function ContactUs() {
           </button>
         </div>
 
-        {/* Main Contact Info */}
+        {/* Opening Hours & Social */}
         <div className="contact-container">
           <div className="contact-card">
-            <h2>{t("Contact Information")}</h2>
-            <div className="contact-item">
-              <span className="contact-icon">📞</span>
-              <div>
-                <strong>{t("Phone")}</strong>
-                <p>
-                  <a href="tel:+40730333755">+40 730 333 755</a>
-                </p>
-              </div>
-            </div>
-            <div className="contact-item">
-              <span className="contact-icon">✉️</span>
-              <div>
-                <strong>{t("Email")}</strong>
-                <p>
-                  <a href="mailto:contact@sailingacademy.ro">
-                    contact@sailingacademy.ro
-                  </a>
-                </p>
-              </div>
-            </div>
-            <div className="contact-item">
-              <span className="contact-icon">📍</span>
-              <div>
-                <strong>{t("Address")}</strong>
-                <p>Herastrau, Șoseaua Nordului 7-9</p>
-                <p>București 014101, Romania</p>
-              </div>
-            </div>
+            <h2>{t("Stay Connected")}</h2>
+            <p className="contact-intro">
+              {t(
+                "Follow us for sailing tips, updates, and beautiful water adventures!"
+              )}
+            </p>
             <div className="social-links">
               <a
                 href="https://www.facebook.com/sailingacademy.ro/"
