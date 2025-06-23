@@ -5,20 +5,21 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  overflow: hidden;  /* Ensure SVG doesn't overflow */
+  overflow: hidden; /* Ensure SVG doesn't overflow */
 }
 
 .wave {
-  fill: white;  /* Adjust this color to match the background */
+  fill: white; /* Adjust this color to match the background */
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 10px;  /* Adjust this to control the height of the wave */
-  z-index: 1;  /* Make sure the wave is above the content, adjust as needed */
+  height: 10px; /* Adjust this to control the height of the wave */
+  z-index: 1; /* Make sure the wave is above the content, adjust as needed */
 }
 
-.cards__container, .cards__wrapper {
+.cards__container,
+.cards__wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -29,7 +30,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
   list-style-type: none;
-  width: 100%; 
+  width: 100%;
   padding: 0;
 }
 
@@ -42,7 +43,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
- 
 }
 
 .card-img {
@@ -57,13 +57,12 @@
 .card-img img {
   width: 100%;
   height: 300px;
-  object-fit:cover;
+  object-fit: cover;
 }
 
 .card-title {
   width: 90%;
   display: inline-block;
-
 }
 
 .card-title h5 {
@@ -71,7 +70,6 @@
   font-weight: bold;
   text-align: center;
   margin-top: 1.5rem;
- 
 }
 
 .card-description {
@@ -82,32 +80,54 @@
 .card-description p {
   font-size: 1.5em;
   text-align: center;
+}
 
+.card-action {
+  width: 90%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
 
+.card-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.card-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  color: white;
+  text-decoration: none;
 }
 
 .cards h1 {
-  font-family: 'Arial Black', Gadget, sans-serif;
+  font-family: "Arial Black", Gadget, sans-serif;
   font-size: 3em;
   font-weight: bold;
   text-align: center;
   margin: 20px 0;
 }
 
-
-
 @media (max-width: 768px) {
   .card-container {
     margin: 0.5rem;
     width: 45%;
-   
+
     border-radius: 1rem;
     box-shadow: 0px 10px 8px #999;
     background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-   
   }
   .card-img {
     width: 100%;
@@ -117,19 +137,18 @@
     border-radius: 1rem 1rem 0 0;
     overflow: hidden;
   }
-  
+
   .card-img img {
     width: 100%;
     height: 100%;
-    object-fit:cover;
+    object-fit: cover;
   }
-  
+
   .card-title {
     width: 90%;
     display: inline-block;
-  
   }
-  
+
   .card-title h5 {
     font-size: 150%;
     font-weight: bold;
@@ -137,29 +156,24 @@
     margin-top: 10%;
     margin-bottom: 10%;
   }
-  
+
   .card-description {
     width: 90%;
     display: inline-block;
   }
-  
+
   .card-description p {
     font-size: 100%;
     text-align: center;
     margin-top: 0.5rem;
     margin-bottom: 10%;
   }
-  
+
   .cards h1 {
-    font-family: 'Arial Black', Gadget, sans-serif;
+    font-family: "Arial Black", Gadget, sans-serif;
     font-size: 3em;
     font-weight: bold;
     text-align: center;
     margin: 20px 0;
   }
- 
-  
-  
-  
- 
-} 
+}

@@ -1,0 +1,49 @@
+.trial-form {
+  margin-bottom: 2rem;
+}
+
+.trial-form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.child-section,
+.course-section {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+}
+
+/* Checkbox styling specific to trial form */
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.form-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: #2563eb;
+  margin-top: 0.125rem;
+}
+
+.checkbox-text {
+  font-size: 0.875rem;
+  color: #374151;
+  line-height: 1.5;
+}
+
+/* Course section specific styling */
+.course-section .form-group:first-child {
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .trial-form-content {
+    gap: 1.5rem;
+  }
+}

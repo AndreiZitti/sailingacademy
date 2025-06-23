@@ -1,97 +1,252 @@
 .contact-page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* ensures footer stays at the bottom on short content pages */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contact-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.contact-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.contact-hero-content p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .contact-content {
-    flex: 1; /* allows this section to grow and take up all space before the footer */
-    background-color: white;
-    padding: 5%;
-    padding-bottom: 2%;;
-    display: flex;
-    flex-direction: column; /* This keeps the children stacked vertically */
-    justify-content: center; /* This vertically centers the children */
-    height: 100%; 
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 2rem;
+}
+
+.quick-contact {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.quick-contact-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 180px;
+}
+
+.quick-contact-btn.call {
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  color: white;
+}
+
+.quick-contact-btn.email {
+  background: linear-gradient(135deg, #3498db 0%, #5dade2 100%);
+  color: white;
+}
+
+.quick-contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .contact-container {
-    display: flex; 
-    flex-direction: row; /* Horizontal by default for larger screens */
-    justify-content: space-between;
-    gap: 2%;
-   /* To align the contact card and programm card at the top */
-    align-items: stretch;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
 }
-
-.contact-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-}
-
-.contact-info p {
-    font-size: 1.2em;
-}
-
-
 
 .contact-card {
-    flex: 1;
-    background-color: #fff;
-    padding: 2em;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
+  flex: 1;
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.contact-card h2,
-.programm-card h2 { /* Assuming programm-card has a h2 title called "Opening Hours" */
-    font-size: 2em; /* Adjust this based on your actual font size for the "Opening Hours" title */
-    font-weight: bold;
-    margin-bottom: 1em;
+.contact-card h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
-.contact-card p {
-    font-size: 1.2em;
-    text-align: center;
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(5px);
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  margin-top: 0.2rem;
+}
+
+.contact-item strong {
+  color: #2c3e50;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.contact-item p {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.contact-item a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
 }
 
 .social-links {
-    display: flex;
-    gap: 1em;
-    justify-content: center;
-    margin-top: 1em;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
-.social-links a {
-    color: #4285f4;
+.social-btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  color: white;
 }
 
+.social-btn.facebook {
+  background: linear-gradient(135deg, #1877f2 0%, #42a5f5 100%);
+}
+
+.social-btn.instagram {
+  background: linear-gradient(135deg, #e1306c 0%, #f56040 100%);
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-decoration: none;
+}
 
 .programm-card {
-    flex: 1;
-    background-color: #fff;
-    padding: 2em;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+  flex: 1;
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+.programm-card h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.contact-map-section {
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.contact-map-section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.reviews-section {
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 @media only screen and (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-        gap: 1.5em;
-    }
-    
-    .contact-info,
-    .programm-card {
-        width: 100%;
-    }
+  .contact-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .contact-hero-content p {
+    font-size: 1rem;
+  }
+
+  .quick-contact {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .quick-contact-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-content {
+    padding: 1rem;
+  }
+
+  .contact-map-section,
+  .reviews-section {
+    padding: 1.5rem;
+  }
 }

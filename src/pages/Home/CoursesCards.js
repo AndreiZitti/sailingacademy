@@ -1,25 +1,39 @@
-import React from 'react';
-import CardItem from './CardItem';
-import { useTranslation } from 'react-i18next';
-
+import React from "react";
+import CardItem from "./CardItem";
+import { useTranslation } from "react-i18next";
 
 function Courses() {
   const { t } = useTranslation();
   return (
     <div>
-      <h1>{t('For the more interested ones')}</h1>
-      <div className='cards__container'>
-        <div className='cards__wrapper'>
-          <div className='cards__items'>
+      <h1>{t("For the more interested ones")}</h1>
+      <div className="cards__container">
+        <div className="cards__wrapper">
+          <div className="cards__items">
             <CardItem
-              src='images/profil2.jpg'
-              text={t('We offer courses for kids/adults and for all levels. For more details contact us')}
-              label={t('Sailing Courses')}
+              src="images/profil2.jpg"
+              text={t("Learn to sail! Courses for all ages and skill levels.")}
+              label={t("Sailing Courses")}
+              buttonText={t("Register Now")}
+              buttonLink="/registration"
             />
             <CardItem
-              src='images/bigBoat.jpg'
-              text={t('Skipper courses for categories A, B, C, D, S for motor and/or sailboats. For more details contact us')}
-              label={t('Courses for Boat Skipper')}
+              src="images/bigBoat.jpg"
+              text={t(
+                "Get your boat license! Categories A, B, C, D, S available."
+              )}
+              label={t("Skipper License")}
+              buttonText={t("Register Now")}
+              buttonLink="/registration"
+            />
+            <CardItem
+              src="images/ClubPhoto.jpg"
+              text={t(
+                "Join our sailing community! From 1200 lei/year with great perks."
+              )}
+              label={t("Club Membership")}
+              buttonText={t("Learn More")}
+              buttonLink="#Membership"
             />
           </div>
         </div>
