@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { IconButton, Fade, useScrollTrigger } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import HeroSection from "./HeroSection";
-import Cards from "./Cards.js";
-import Footer from "./Footer";
-import "../../App.css";
+import HomeCards from "./sections/HomeCards";
+import Footer from "../../components/Footer";
 import LanguageSwitcher from "../../components/LanguageSwitcher";
-import "../Home/HeroSection.css";
+import "../../App.css";
+import "./HeroSection.css";
 
 function Home() {
   const [showArrow, setShowArrow] = useState(false);
@@ -29,8 +29,7 @@ function Home() {
     <div className="site-background">
       <LanguageSwitcher />
       <HeroSection />
-
-      <Cards />
+      <HomeCards />
 
       <Fade in={showArrow && !trigger}>
         <IconButton
@@ -39,7 +38,6 @@ function Home() {
           }`}
           style={{
             position: "fixed",
-
             left: "50%",
             zIndex: 20,
           }}

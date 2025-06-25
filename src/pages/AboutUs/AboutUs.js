@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AboutUsCard from "./AboutUsCard";
 import "./AboutUs.css";
-import Footer from "../Home/Footer";
+import Footer from "../../components/Footer";
 import { useTranslation } from "react-i18next";
 
 function AboutUs() {

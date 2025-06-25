@@ -1,6 +1,7 @@
 import React from "react";
-import CardItem from "./CardItem";
+import CardItem from "../../components/Cards/CardItem";
 import { useTranslation } from "react-i18next";
+import "./Cards.css";
 
 function Rent() {
   const { t } = useTranslation();

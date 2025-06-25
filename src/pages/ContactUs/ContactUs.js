@@ -1,7 +1,7 @@
 import React from "react";
 import ProgrammCard from "./ProgrammCard";
-import Footer from "../Home/Footer";
-import Map from "../Home/Map";
+import Footer from "../../components/Footer";
+import Map from "../../components/Map";
 import "./ContactUs.css";
 import "../../global.css";
 import Reviews from "./Reviews";
