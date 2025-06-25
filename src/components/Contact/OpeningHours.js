@@ -1,13 +1,13 @@
 import React from "react";
-import "./ProgrammCard.css";
+import "./OpeningHours.css";
 import { useTranslation } from "react-i18next";
 
-function ProgrammCard() {
+function OpeningHours() {
   const { t } = useTranslation();
 
   return (
-    <div className="programm-card">
-      <h2>{t("Opening Hours")}</h2>
+    <div className="opening-hours">
+      <h3>{t("Opening Hours")}</h3>
       <div className="hours-list">
         <div className="hour-item">
           <span className="day">{t("Monday")}</span>
@@ -42,4 +42,4 @@ function ProgrammCard() {
   );
 }
 
-export default ProgrammCard;
+export default OpeningHours;

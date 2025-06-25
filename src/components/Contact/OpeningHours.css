@@ -1,0 +1,85 @@
+.opening-hours {
+  /* Remove redundant card styling - handled by parent */
+}
+
+.opening-hours h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary, #2c3e50);
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
+.hours-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hour-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.hour-item:last-child {
+  border-bottom: none;
+}
+
+.hour-item:hover {
+  background: rgba(0, 0, 0, 0.02);
+  margin: 0 -0.5rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.day {
+  font-weight: 500;
+  color: var(--text-primary, #2c3e50);
+  font-size: 0.9rem;
+}
+
+.time {
+  color: var(--success-green, #27ae60);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.time.closed {
+  color: var(--danger-red, #e74c3c);
+  font-style: italic;
+  position: relative;
+}
+
+.time.closed::before {
+  content: "🚫";
+  font-size: 0.8rem;
+  margin-right: 0.25rem;
+}
+
+.time:not(.closed)::before {
+  content: "🕐";
+  font-size: 0.8rem;
+  margin-right: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .opening-hours h3 {
+    font-size: 1.1rem;
+  }
+
+  .day,
+  .time {
+    font-size: 0.85rem;
+  }
+
+  .hour-item {
+    padding: 0.4rem 0;
+  }
+}

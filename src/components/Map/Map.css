@@ -102,19 +102,41 @@
   border-radius: 12px;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  position: relative;
 }
 
-.contact-item:hover {
-  transform: translateX(5px);
-  border-color: #e0e0e0;
+.contact-item.clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.contact-item.clickable:hover {
+  transform: translateX(8px) translateY(-2px);
+  border-color: #667eea;
   background: #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+}
+
+.contact-item.clickable:active {
+  transform: translateX(6px) translateY(0px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+}
+
+.contact-item.clickable:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .contact-icon {
   font-size: 1.8rem;
   margin-right: 1.2rem;
   margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.contact-text {
+  flex: 1;
 }
 
 .contact-text strong {
@@ -134,31 +156,268 @@
   line-height: 1.5;
 }
 
-.contact-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+/* Click Indicator */
+.click-indicator {
+  font-size: 1.2rem;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+  flex-shrink: 0;
+  align-self: center;
 }
 
-.contact-btn {
-  padding: 1.2rem;
-  border: none;
+.contact-item.clickable:hover .click-indicator {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Add a subtle pulse animation to hint at clickability */
+.contact-item.clickable::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   border-radius: 12px;
-  font-weight: 600;
-  font-size: 1.05rem;
-  cursor: pointer;
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.1) 0%,
+    rgba(118, 75, 162, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.contact-item.clickable:hover::after {
+  opacity: 1;
+}
+
+/* Opening Hours Dropdown */
+.opening-hours-dropdown {
+  margin-bottom: 1.8rem;
+}
+
+.hours-toggle {
+  display: flex;
+  align-items: flex-start;
+  padding: 1.2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
   transition: all 0.3s ease;
-  text-decoration: none;
-  text-align: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.hours-toggle:hover {
+  transform: translateX(4px) translateY(-1px);
+  border-color: #667eea;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.12);
+}
+
+.hours-toggle:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.hours-icon {
+  font-size: 1.8rem;
+  margin-right: 1.2rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.hours-status {
+  flex: 1;
+}
+
+.hours-status strong {
+  color: #1a1a1a;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.2rem 0;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.status.open {
+  color: #27ae60;
+}
+
+.status.closed {
+  color: #e74c3c;
+}
+
+.status-indicator {
+  font-size: 0.8rem;
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.open {
+  animation: pulse-green 2s infinite;
+}
+
+.status-indicator.closed {
+  animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-green {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes pulse-red {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.next-change {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0.2rem 0 0 0;
+  font-style: italic;
+}
+
+.dropdown-arrow {
+  font-size: 1rem;
+  color: #666;
+  transition: transform 0.3s ease;
+  margin-left: 1rem;
+  align-self: center;
+}
+
+.dropdown-arrow.expanded {
+  transform: rotate(180deg);
+}
+
+.hours-details {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hour-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.2s ease;
+}
+
+.hour-item:last-child {
+  border-bottom: none;
+}
+
+.hour-item.today {
+  background: rgba(102, 126, 234, 0.05);
+  margin: 0 -0.5rem;
+  padding: 0.6rem 0.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.day-name {
+  color: #2c3e50;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.hour-item.today .day-name {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.time {
+  color: #27ae60;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.time.closed {
+  color: #e74c3c;
+  font-style: italic;
+}
+
+/* Social Follow Section */
+.social-follow {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
+  gap: 1rem;
+  padding: 1.2rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin-top: auto;
+}
+
+.follow-text {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.social-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  color: white;
   position: relative;
   overflow: hidden;
 }
 
-.contact-btn::before {
+.social-btn::before {
   content: "";
   position: absolute;
   top: 0;
@@ -169,53 +428,39 @@
   transition: left 0.3s ease;
 }
 
-.contact-btn:hover::before {
+.social-btn:hover::before {
   left: 100%;
 }
 
-.call-btn {
-  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+.social-btn.facebook {
+  background: linear-gradient(135deg, #1877f2 0%, #4267b2 100%);
+}
+
+.social-btn.instagram {
+  background: linear-gradient(135deg, #e1306c 0%, #f56040 100%);
+}
+
+.social-btn:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   color: white;
-}
-
-.call-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(39, 174, 96, 0.3);
-}
-
-.email-btn {
-  background: linear-gradient(135deg, #3498db 0%, #5dade2 100%);
-  color: white;
-}
-
-.email-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
-}
-
-.directions-btn.contact-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-}
-
-.directions-btn.contact-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  text-decoration: none;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
   .map-content.with-panel {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .map-wrapper {
-    min-height: 400px;
+    order: 2;
   }
 
   .contact-info-panel {
-    max-width: 600px;
-    margin: 0 auto;
+    order: 1;
+    padding: 2rem;
   }
 }
 
@@ -226,15 +471,15 @@
   }
 
   .map-container {
-    gap: 1.5rem;
+    padding: 0 1rem;
   }
 
   .contact-info-panel {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 
   .contact-header h3 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .contact-item {
@@ -242,20 +487,66 @@
     margin-bottom: 1.2rem;
   }
 
+  .contact-item.clickable:hover {
+    transform: translateX(4px) translateY(-1px);
+  }
+
   .contact-icon {
     font-size: 1.5rem;
   }
 
-  .contact-btn {
-    padding: 1rem;
-    font-size: 0.95rem;
+  .click-indicator {
+    font-size: 1rem;
+    margin-left: 0.5rem;
   }
 
   .map-wrapper {
-    min-height: 350px;
+    min-height: 400px;
   }
 
   .map-section.full-width .map-wrapper {
-    min-height: 400px;
+    min-height: 450px;
+  }
+
+  .social-follow {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+
+  .social-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  /* Mobile adjustments for opening hours */
+  .hours-toggle {
+    padding: 1rem;
+  }
+
+  .hours-icon {
+    font-size: 1.5rem;
+  }
+
+  .status {
+    font-size: 0.9rem;
+  }
+
+  .next-change {
+    font-size: 0.8rem;
+  }
+
+  .hours-details {
+    padding: 0.8rem;
+  }
+
+  .hour-item {
+    padding: 0.5rem 0;
+  }
+
+  .day-name,
+  .time {
+    font-size: 0.85rem;
   }
 }
