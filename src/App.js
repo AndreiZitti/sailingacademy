@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import NavbarComponent from "./components/Navbar";
 import Home from "./pages/Home/Home";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import RegistrationWrapper from "./pages/Registration/RegistrationWrapper";
-import TestView from "./pages/Registration/TestView";
 import Rent from "./pages/Rent/Rent";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./i18n"; // path to your i18n.js
@@ -42,7 +42,6 @@ function App() {
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/registration" element={<RegistrationWrapper />} />
-            <Route path="/registration-test" element={<TestView />} />
             <Route path="/rent" element={<Rent />} />
           </Routes>
         </div>

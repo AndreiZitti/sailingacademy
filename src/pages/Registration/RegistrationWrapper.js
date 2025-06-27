@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import StepSelector from "./StepSelector";
-import YearForm from "./YearForm";
-import TrialForm from "./TrialForm";
 import ConsentForm from "./ConsentForm";
 import ReviewAndSubmit from "./ReviewAndSubmit";
 import "./RegistrationWrapper.css";
