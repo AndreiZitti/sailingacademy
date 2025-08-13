@@ -1,7 +1,5 @@
 import React from "react";
-import RentCards from "../RentCards";
-import CoursesCards from "../CoursesCards";
-import MembershipCard from "../MembershipCard";
+import CardItem from "../../../components/Cards/CardItem";
 import Map from "../../../components/Map";
 import { useTranslation } from "react-i18next";
 import "./HomeCards.css";
@@ -12,20 +10,27 @@ function HomeCards() {
 
   return (
     <div className="home-cards">
-      <section id="Rent" className="section-spacing">
-        <RentCards />
-      </section>
-
-      <section id="Courses" className="section-spacing">
-        <CoursesCards />
-      </section>
-
-      <section
-        id="Membership"
-        className="section-spacing"
-        style={{ display: "none" }}
-      >
-        <MembershipCard />
+      <section id="Categories" className="section-spacing">
+        <div className="cards__container">
+          <div className="cards__wrapper">
+            <div className="cards__items">
+              <CardItem
+                src="images/canoe.jpeg"
+                label={t("Quick Rentals")}
+                text={t("Kayak, SUP, and sailboats. Book a quick session!")}
+                buttonText={t("Explore Services")}
+                buttonLink="/rent"
+              />
+              <CardItem
+                src="images/ClubPhoto.jpg"
+                label={t("Learn to Sail")}
+                text={t("Courses and memberships for all ages and levels.")}
+                buttonText={t("View Courses")}
+                buttonLink="/registration"
+              />
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="Map" className="map-full-section">
