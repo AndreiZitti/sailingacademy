@@ -9,6 +9,7 @@ function HeroSection() {
   return (
     <div className="hero-wrapper">
       <LanguageSwitcher />
+      <div className="hero-top-overlay" />
       <div className="hero-container">
         <LanguageSwitcher />
         <video
