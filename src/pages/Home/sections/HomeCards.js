@@ -10,28 +10,7 @@ function HomeCards() {
 
   return (
     <div className="home-cards">
-      <section id="Categories" className="section-spacing">
-        <div className="cards__container">
-          <div className="cards__wrapper">
-            <div className="cards__items">
-              <CardItem
-                src="images/canoe.jpeg"
-                label={t("Quick Rentals")}
-                text={t("Kayak, SUP, and sailboats. Book a quick session!")}
-                buttonText={t("Explore Services")}
-                buttonLink="/rent"
-              />
-              <CardItem
-                src="images/ClubPhoto.jpg"
-                label={t("Learn to Sail")}
-                text={t("Courses and memberships for all ages and levels.")}
-                buttonText={t("View Courses")}
-                buttonLink="/registration"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Primary actions moved into the hero section; keep scroll reveal minimal below */}
 
       <section id="Map" className="map-full-section">
         <div className="map-title-container">
