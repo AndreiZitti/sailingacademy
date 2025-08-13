@@ -18,7 +18,7 @@ function NavbarComponent() {
   const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   return (
-    <Navbar color="white" dark expand="md">
+    <Navbar dark expand="md">
       <RouterLink className="navbar-brand navbar-link" to="/">
         Sailing Academy
       </RouterLink>
@@ -51,7 +51,7 @@ function NavbarComponent() {
 
         {/* Mobile view dropdown */}
         <Dropdown isOpen={dropdownOpen} toggle={toggle} className="d-md-none">
-          <DropdownToggle nav caret style={{ color: "black" }}>
+          <DropdownToggle nav caret>
             {t("Menu")}
           </DropdownToggle>
           <DropdownMenu>

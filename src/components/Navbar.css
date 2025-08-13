@@ -1,14 +1,18 @@
-.navbar-link {
-  flex-grow: 1; /* This will make each link take up equal width */
-  text-align: center; /* Center the text of each link */
-  font-size: 150%; /* Increase the font size */
-  color: black !important;
-  margin-left: 10%;
-}
-
 .navbar {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 1000; /* Make sure it's above other content */
+  z-index: 1000;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-link {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 150%;
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  margin-left: 10%;
 }
