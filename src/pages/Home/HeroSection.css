@@ -28,17 +28,6 @@ video {
   pointer-events: none;
 }
 
-/* Extra top bar darkening under transparent navbar */
-.hero-top-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px; /* approx navbar height */
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1; /* below hero text (2) but above video (-1) */
-  pointer-events: none;
-}
 
 .hero-container {
   height: 100vh;
