@@ -113,6 +113,27 @@ video {
   opacity: 0.9;
 }
 
+/* Find Us card / scroll indicator */
+.find-us-card {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  color: #2c3e50;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  user-select: none;
+}
+
+.find-us-card:hover {
+  transform: translateX(-50%) translateY(-5px);
+}
+
 .hero-btns {
   margin-top: 32px;
 }
