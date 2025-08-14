@@ -8,32 +8,28 @@ function Rent() {
 
   useEffect(() => {
     // Page entrance animations
-    animate({
-      targets: ".services-header h1",
-      translateY: [-50, 0],
-      opacity: [0, 1],
-      duration: 1000,
-      easing: "easeOutBack",
-    });
+    animate(
+      ".services-header h1",
+      { translateY: [-50, 0], opacity: [0, 1] },
+      { duration: 1000, easing: "easeOutBack" }
+    );
 
-    animate({
-      targets: ".services-header p",
-      translateY: [30, 0],
-      opacity: [0, 1],
-      duration: 800,
-      delay: 300,
-      easing: "easeOutExpo",
-    });
+    animate(
+      ".services-header p",
+      { translateY: [30, 0], opacity: [0, 1] },
+      { duration: 800, delay: 300, easing: "easeOutExpo" }
+    );
 
     // Service categories staggered entrance
-    animate({
-      targets: ".service-category",
-      translateY: [60, 0],
-      opacity: [0, 1],
-      duration: 800,
-      delay: stagger(400, { start: 600 }),
-      easing: "easeOutExpo",
-    });
+    animate(
+      ".service-category",
+      { translateY: [60, 0], opacity: [0, 1] },
+      {
+        duration: 800,
+        delay: stagger(400, { start: 600 }),
+        easing: "easeOutExpo",
+      }
+    );
 
     // Service cards animation with intersection observer
     const observerOptions = {
@@ -44,15 +40,11 @@ function Rent() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          animate({
-            targets: entry.target.querySelectorAll(".service-card"),
-            scale: [0.8, 1],
-            opacity: [0, 1],
-            translateY: [30, 0],
-            duration: 600,
-            delay: stagger(150),
-            easing: "easeOutElastic(1, .8)",
-          });
+          animate(
+            entry.target.querySelectorAll(".service-card"),
+            { scale: [0.8, 1], opacity: [0, 1], translateY: [30, 0] },
+            { duration: 600, delay: stagger(150), easing: "easeOutQuad" }
+          );
         }
       });
     }, observerOptions);
@@ -62,48 +54,50 @@ function Rent() {
     });
 
     // Floating effect for service cards
-    animate({
-      targets: ".service-card",
-      translateY: [-3, 3, -3],
-      duration: 3000,
-      loop: true,
-      direction: "alternate",
-      easing: "easeInOutSine",
-      delay: stagger(500),
-    });
+    animate(
+      ".service-card",
+      { translateY: [-3, 3, -3] },
+      {
+        duration: 3000,
+        loop: true,
+        direction: "alternate",
+        easing: "easeInOutSine",
+        delay: stagger(500),
+      }
+    );
 
     // CTA button pulse
-    animate({
-      targets: ".cta-btn.primary",
-      scale: [1, 1.02, 1],
-      duration: 2000,
-      loop: true,
-      easing: "easeInOutSine",
-    });
+    animate(
+      ".cta-btn.primary",
+      { scale: [1, 1.02, 1] },
+      { duration: 2000, loop: true, easing: "easeInOutSine" }
+    );
 
     // Enhanced hover animations
     const setupHoverAnimations = () => {
       document.querySelectorAll(".service-card").forEach((card) => {
         card.addEventListener("mouseenter", () => {
-          animate({
-            targets: card,
-            scale: 1.05,
-            translateY: -8,
-            boxShadow: "0 15px 35px rgba(0,0,0,0.2)",
-            duration: 300,
-            easing: "easeOutBack",
-          });
+          animate(
+            card,
+            {
+              scale: 1.05,
+              translateY: -8,
+              boxShadow: "0 15px 35px rgba(0,0,0,0.2)",
+            },
+            { duration: 300, easing: "easeOutBack" }
+          );
         });
 
         card.addEventListener("mouseleave", () => {
-          animate({
-            targets: card,
-            scale: 1,
-            translateY: 0,
-            boxShadow: "0 8px 25px rgba(0,0,0,0.1)",
-            duration: 300,
-            easing: "easeOutQuad",
-          });
+          animate(
+            card,
+            {
+              scale: 1,
+              translateY: 0,
+              boxShadow: "0 8px 25px rgba(0,0,0,0.1)",
+            },
+            { duration: 300, easing: "easeOutQuad" }
+          );
         });
       });
     };
