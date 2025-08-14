@@ -6,6 +6,8 @@ video {
   top: 0;
   left: 0;
   z-index: -1;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
 .hero-wrapper {
@@ -138,25 +140,24 @@ video {
   padding: 3rem 2rem;
   min-height: 350px;
   border-radius: var(--radius-lg);
-  background: var(--glass-bg);
-  background-color: rgba(255, 255, 255, 0.8); /* High visibility fallback */
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: #ffffff !important;
   text-align: center;
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   position: relative;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
   animation: float 4s ease-in-out infinite alternate;
   z-index: 10;
 }
 
 .service-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  background: rgba(255, 255, 255, 0.24);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 45px rgba(31, 38, 135, 0.3);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .service-card h3 {
@@ -192,19 +193,25 @@ video {
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.9);
-  color: #2c3e50;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
   padding: 12px 24px;
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 2;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
   user-select: none;
+  font-weight: 600;
 }
 
 .find-us-card:hover {
   transform: translateX(-50%) translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 45px rgba(31, 38, 135, 0.3);
 }
 
 .hero-btns {

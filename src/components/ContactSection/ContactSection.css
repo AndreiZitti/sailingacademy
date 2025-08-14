@@ -2,7 +2,9 @@
   padding: 3rem 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  background: linear-gradient(180deg, #f8fafc 0%, #e0f2fe 100%);
+  background: transparent;
+  position: relative;
+  z-index: 15;
 }
 
 .section-header {
@@ -10,9 +12,14 @@
   margin-bottom: 3rem;
 }
 
+.section-header p {
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
 .section-header h2 {
   font-size: 2.5rem;
-  color: #0f172a;
+  color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
@@ -23,16 +30,34 @@
   margin-bottom: 2rem;
 }
 
-/* Each column card with glassmorphism */
+/* Each column card with enhanced glassmorphism */
 .map-card,
 .landmark-card,
 .info-hub {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   padding: 1.5rem;
-  box-shadow: 0 10px 40px rgba(0, 100, 200, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  color: #ffffff;
+}
+
+.map-card h3,
+.landmark-card h3,
+.info-hub h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.map-card:hover,
+.landmark-card:hover,
+.info-hub:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
 }
 
 /* Map Card */
@@ -132,8 +157,10 @@
 
 /* Status Card */
 .status-card {
-  background: #f0fdf4;
-  border: 1px solid #86efac;
+  background: rgba(240, 253, 244, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(134, 239, 172, 0.2);
   padding: 1rem;
   border-radius: 12px;
   margin-bottom: 1rem;
@@ -162,11 +189,13 @@
   flex: 1;
   padding: 0.75rem;
   text-align: center;
-  background: white;
-  border: 2px solid #e5e7eb;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   text-decoration: none;
-  color: #0f172a;
+  color: #ffffff;
   font-weight: 600;
   transition: all 0.3s ease;
 }
@@ -187,52 +216,60 @@
 .getting-here {
   margin-top: 1rem;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
   font-size: 0.9rem;
 }
 
 .getting-here p {
   margin: 0.5rem 0;
-  color: #475569;
+  color: #ffffff;
 }
 
 .map-footer {
   margin-top: 1rem;
   text-align: center;
   font-size: 0.9rem;
-  color: #64748b;
+  color: #ffffff;
 }
 
 .map-footer p {
   margin: 0.25rem 0;
+  color: #ffffff;
 }
 
 /* Hours Toggle Button */
 .hours-toggle {
   width: 100%;
-  background: transparent;
-  border: 1px solid #e5e7eb;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 0.75rem;
   margin-top: 0.5rem;
   cursor: pointer;
   font-size: 0.9rem;
-  color: #6b7280;
+  color: #ffffff;
   transition: all 0.3s ease;
 }
 
 .hours-toggle:hover {
-  background: #f3f4f6;
-  border-color: #d1d5db;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .hours-details {
   margin-top: 0.5rem;
   padding: 0.75rem;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   border-radius: 8px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hour-item {
@@ -240,15 +277,16 @@
   justify-content: space-between;
   padding: 0.25rem 0;
   font-size: 0.85rem;
+  color: #ffffff;
 }
 
 .hour-item.today {
   font-weight: 600;
-  color: #0284c7;
+  color: #60a5fa;
 }
 
 .hour-item .time.closed {
-  color: #ef4444;
+  color: #fca5a5;
 }
 
 /* Social Compact */
@@ -258,13 +296,17 @@
   gap: 0.75rem;
   margin-top: 1rem;
   padding: 0.75rem;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
   font-size: 0.9rem;
+  color: #ffffff;
 }
 
 .social-compact a {
-  color: #0284c7;
+  color: #60a5fa;
   text-decoration: none;
   font-weight: 600;
   padding: 0.25rem 0.5rem;
@@ -283,17 +325,17 @@
   font-weight: 600;
 }
 
-/* Info Bar */
+/* Info Bar - Transparent without white background */
 .info-bar {
   display: flex;
   justify-content: center;
   gap: 2rem;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
+  background: transparent;
   font-size: 0.95rem;
-  color: #475569;
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Responsive */

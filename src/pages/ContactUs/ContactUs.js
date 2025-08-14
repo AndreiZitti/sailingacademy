@@ -13,6 +13,17 @@ function ContactUs() {
     <div className="page-background">
       <div className="page-content">
         <div className="contact-page">
+          {/* Video Background */}
+          <video
+            className="background-video"
+            src="/videos/HeroVideo.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/boat_preview.png"
+          />
+
           {/* Hero Section */}
           <header className="contact-hero" role="banner">
             <div className="contact-hero-content">
