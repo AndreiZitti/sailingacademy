@@ -42,12 +42,6 @@ function NavbarComponent() {
         >
           {t("Contact Us")}
         </RouterLink>
-        <RouterLink
-          className="nav-link d-none d-md-block navbar-link"
-          to="/about-us"
-        >
-          {t("About Us")}
-        </RouterLink>
 
         {/* Mobile view dropdown */}
         <Dropdown isOpen={dropdownOpen} toggle={toggle} className="d-md-none">
@@ -67,9 +61,6 @@ function NavbarComponent() {
             </DropdownItem>
             <DropdownItem tag={RouterLink} to="/contact-us">
               {t("Contact Us")}
-            </DropdownItem>
-            <DropdownItem tag={RouterLink} to="/about-us">
-              {t("About Us")}
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>

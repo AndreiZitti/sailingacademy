@@ -12,14 +12,14 @@ function Rent() {
         <div className="cards__wrapper">
           <div className="cards__items">
             <CardItem
-              src="images/canoe.jpeg"
+              src="/images/canoe.jpeg"
               text={t("Paddle your way around the lake! 50 lei/hour")}
               label="Kayak"
               buttonText={t("Book Now")}
               buttonLink="/rent"
             />
             <CardItem
-              src="images/SUPstock.jpeg"
+              src="/images/SUPstock.jpeg"
               text={t(
                 "Stand up and explore! Perfect for beginners. 50 lei/hour"
               )}
@@ -28,7 +28,7 @@ function Rent() {
               buttonLink="/rent"
             />
             <CardItem
-              src="images/profil3.jpg"
+              src="/images/profil3.jpg"
               text={t(
                 "Feel the wind in your sails! For all skill levels. 50-100 lei/hour"
               )}

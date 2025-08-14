@@ -42,15 +42,18 @@ video {
 }
 
 .hero-text {
-  margin-bottom: 4rem;
-  z-index: 2;
+  margin-bottom: 2rem;
+  z-index: 15;
   text-align: center;
+  position: relative;
 }
 
 .hero-text h1 {
-  color: #fff;
-  font-size: 100px;
+  color: var(--color-white);
+  font-size: var(--text-5xl); /* Down from 100px to 60px */
+  font-weight: 700;
   margin-top: -100px;
+  letter-spacing: -0.02em;
 }
 
 .hero-text p {
@@ -61,6 +64,59 @@ video {
     "Lucida Sans", Arial, sans-serif;
 }
 
+/* Rotating subtitle */
+.rotating-subtitle {
+  height: 50px; /* Fixed height to prevent layout shift */
+  overflow: hidden;
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+.rotate-text {
+  position: absolute;
+  width: 100%;
+  animation: rotateText 12s infinite;
+  opacity: 0;
+  transform: translateY(20px);
+  font-size: 24px !important;
+  margin: 0 !important;
+}
+
+.rotate-text:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.rotate-text:nth-child(2) {
+  animation-delay: 4s;
+}
+
+.rotate-text:nth-child(3) {
+  animation-delay: 8s;
+}
+
+@keyframes rotateText {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  8.33% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  33.33% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
 /* Service cards inside hero */
 .service-cards {
   display: grid;
@@ -68,8 +124,10 @@ video {
   gap: 3rem;
   max-width: 1000px;
   width: 90%;
-  margin-top: 4rem;
-  z-index: 2;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  z-index: 15;
+  position: relative;
 }
 
 .service-card {
@@ -79,18 +137,20 @@ video {
   justify-content: center;
   padding: 3rem 2rem;
   min-height: 350px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  background-color: rgba(255, 255, 255, 0.8); /* High visibility fallback */
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  color: #ffffff;
+  border: 1px solid var(--glass-border);
+  color: #ffffff !important;
   text-align: center;
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   position: relative;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow-lg);
   animation: float 4s ease-in-out infinite alternate;
+  z-index: 10;
 }
 
 .service-card:hover {
@@ -102,12 +162,14 @@ video {
 .service-card h3 {
   margin: 0 0 1.5rem 0;
   font-size: 2rem;
+  color: #ffffff !important;
 }
 
 .service-card p {
   margin: 0 0 2rem 0;
   opacity: 0.96;
   font-size: 1.2rem;
+  color: #ffffff !important;
 }
 
 /* subtle floating like boats on water */
@@ -159,8 +221,7 @@ video {
 
 @media screen and (max-width: 768px) {
   .hero-text h1 {
-    font-size: 250%;
-    margin-top: -100px;
+    font-size: var(--text-4xl); /* 48px instead of 250% */
   }
   .hero-text p {
     font-size: 170%;
@@ -173,5 +234,13 @@ video {
   .service-card {
     min-height: 280px;
     padding: 2rem 1.5rem;
+  }
+
+  .rotating-subtitle {
+    height: 40px; /* Smaller height for mobile */
+  }
+
+  .rotate-text {
+    font-size: 18px !important; /* Smaller font for mobile */
   }
 }

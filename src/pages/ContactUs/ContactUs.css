@@ -1,57 +1,22 @@
-/* CSS Variables for Design System */
-:root {
-  --primary-blue: #667eea;
-  --primary-blue-dark: #4c63d2;
-  --secondary-purple: #764ba2;
-  --success-green: #27ae60;
-  --success-green-dark: #219a52;
-  --info-blue: #3498db;
-  --info-blue-dark: #2980b9;
-  --danger-red: #e74c3c;
-  --text-primary: #2c3e50;
-  --text-secondary: #666;
-  --text-muted: #999;
-  --bg-light: #f8f9fa;
-  --bg-white: #ffffff;
-  --border-light: #e9ecef;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 3rem;
-  --spacing-2xl: 4rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 2rem;
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
+/* Using global design tokens from design-tokens.css */
 
 /* Base Layout */
 .contact-page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: var(--bg-light);
+  background: var(--color-gray-50);
 }
 
 /* Hero Section */
 .contact-hero {
   background: linear-gradient(
     135deg,
-    var(--primary-blue) 0%,
-    var(--secondary-purple) 100%
+    var(--color-primary) 0%,
+    var(--color-primary-dark) 100%
   );
-  color: white;
-  padding: var(--spacing-xl) var(--spacing-lg);
+  color: var(--color-white);
+  padding: var(--space-xl) var(--space-lg);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -76,14 +41,14 @@
 }
 
 .contact-hero-content h1 {
-  font-size: var(--font-size-3xl);
+  font-size: var(--text-4xl);
   font-weight: 700;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--space-sm);
   letter-spacing: -0.025em;
 }
 
 .contact-hero-content p {
-  font-size: var(--font-size-lg);
+  font-size: var(--text-lg);
   opacity: 0.95;
   margin: 0;
   line-height: 1.6;
@@ -94,7 +59,7 @@
   flex: 1;
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--spacing-lg);
+  padding: var(--space-lg);
   width: 100%;
   box-sizing: border-box;
 }
@@ -108,27 +73,27 @@
 /* Section Headers */
 .section-header {
   text-align: center;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--space-xl);
 }
 
 .section-header h2 {
-  font-size: var(--font-size-2xl);
+  font-size: var(--text-2xl);
   font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-sm);
+  color: var(--color-gray-900);
+  margin-bottom: var(--space-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-sm);
+  gap: var(--space-sm);
 }
 
 .section-icon {
-  font-size: var(--font-size-xl);
+  font-size: var(--text-xl);
 }
 
 .section-description {
-  font-size: var(--font-size-base);
-  color: var(--text-secondary);
+  font-size: var(--text-base);
+  color: var(--color-gray-900);
   margin: 0;
   max-width: 600px;
   margin: 0 auto;
@@ -137,48 +102,48 @@
 
 /* Map Section Wrapper */
 .map-section-wrapper {
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--space-2xl);
 }
 
 .reviews-section {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--space-xl);
 }
 
 .reviews-content {
-  margin-top: var(--spacing-lg);
+  margin-top: var(--space-lg);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .contact-hero {
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--space-lg) var(--space-md);
   }
 
   .contact-hero-content h1 {
-    font-size: var(--font-size-2xl);
+    font-size: var(--text-2xl);
   }
 
   .contact-content {
-    padding: var(--spacing-md);
+    padding: var(--space-md);
   }
 
   .map-section-wrapper,
   .reviews-section {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--space-xl);
   }
 
   .section-header h2 {
-    font-size: var(--font-size-xl);
+    font-size: var(--text-xl);
   }
 }
 
 @media (max-width: 480px) {
   .contact-hero {
-    padding: var(--spacing-md) var(--spacing-sm);
+    padding: var(--space-md) var(--space-sm);
   }
 
   .contact-content {
-    padding: var(--spacing-sm);
+    padding: var(--space-sm);
   }
 }
 

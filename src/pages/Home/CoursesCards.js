@@ -12,14 +12,14 @@ function Courses() {
         <div className="cards__wrapper">
           <div className="cards__items">
             <CardItem
-              src="images/profil2.jpg"
+              src="/images/profil2.jpg"
               text={t("Learn to sail! Courses for all ages and skill levels.")}
               label={t("Sailing Courses")}
               buttonText={t("Register Now")}
               buttonLink="/registration"
             />
             <CardItem
-              src="images/bigBoat.jpg"
+              src="/images/bigBoat.jpg"
               text={t(
                 "Get your boat license! Categories A, B, C, D, S available."
               )}
@@ -28,7 +28,7 @@ function Courses() {
               buttonLink="/registration"
             />
             <CardItem
-              src="images/ClubPhoto.jpg"
+              src="/images/ClubPhoto.jpg"
               text={t(
                 "Join our sailing community! From 1200 lei/year with great perks."
               )}

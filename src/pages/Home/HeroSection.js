@@ -24,11 +24,22 @@ function HeroSection() {
           loop
           muted
           playsInline
-          poster="images/placeholderBoat.png"
+          poster="/images/boat_preview.png"
         />
         <div className="hero-text">
           <h1>{t("ADVENTURE AWAITS")}</h1>
           <p>{t("What are you waiting for?")}</p>
+          <div className="rotating-subtitle">
+            <p className="rotate-text">
+              {t("Kayak • SUP • Sailing at Lake Herăstrău")}
+            </p>
+            <p className="rotate-text">
+              {t("No experience needed • Open daily 9-20")}
+            </p>
+            <p className="rotate-text">
+              {t("Rentals from 50 lei • All ages welcome")}
+            </p>
+          </div>
         </div>
         <div className="service-cards">
           <Link to="/rent" className="service-card">

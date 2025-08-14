@@ -1,6 +1,6 @@
 import React from "react";
 import CardItem from "../../../components/Cards/CardItem";
-import Map from "../../../components/Map";
+import ContactSection from "../../../components/ContactSection";
 import { useTranslation } from "react-i18next";
 import "./HomeCards.css";
 import "../Cards.css";
@@ -16,7 +16,7 @@ function HomeCards() {
         <div className="map-title-container">
           <h1 className="map-title">{t("Come visit us !")}</h1>
         </div>
-        <Map fullWidth={false} showContactPanel={true} />
+        <ContactSection />
       </section>
     </div>
   );

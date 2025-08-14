@@ -1,48 +1,39 @@
-.NavTitle{
-  font-family: 'Roboto', sans-serif;
-  font-size: 160%;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
+h1 {
+  font-family: system-ui, -apple-system, sans-serif; /* Modern, clean */
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: var(--color-gray-900);
+  margin: var(--space-lg) 0;
+}
 
+.custom-icon-btn {
+  padding: 0 !important; /* override padding */
+  margin: 0 !important; /* override margin if any */
+}
 
-* {
-  
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'PT Sans', sans-serif;
-    
-   
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
   }
-  a {
-    cursor: url(/src/Assets/Cursor3.png),pointer;
+  40% {
+    transform: translateX(-50%) translateY(-20px);
   }
-  
-  .site-wrapper {
-    position: relative;  /* establishes a new stacking context */
-    z-index: 2;  /* base z-index */
+  60% {
+    transform: translateX(-50%) translateY(-10px);
   }
-  .custom-icon-btn {
-    padding: 0 !important;  /* override padding */
-    margin: 0 !important;  /* override margin if any */
-  }
-  
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateX(-50%) translateY(0);
-    }
-    40% {
-      transform: translateX(-50%) translateY(-20px);
-    }
-    60% {
-      transform: translateX(-50%) translateY(-10px);
-    }
-  }
-  
-  .bouncing {
-    animation: bounce 2s infinite;
-  }
+}
 
-  
-
-  
+.bouncing {
+  animation: bounce 2s infinite;
+}
