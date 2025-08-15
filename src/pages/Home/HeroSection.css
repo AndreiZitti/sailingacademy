@@ -82,15 +82,10 @@ video {
 
 .hero-text p {
   margin-top: 8px;
-  color: #ffffff; /* Pure white for maximum contrast - same as other pages */
-  font-size: var(--text-lg); /* Consistent with other pages */
-  font-family: system-ui, -apple-system, sans-serif; /* Modern system font */
-  opacity: 0.95;
-  line-height: 1.6;
-  /* Add subtle text-shadow for depth */
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  /* Delayed fade-in animation */
-  animation: fadeInFromTop 1.2s ease-out 0.3s both;
+  color: #fff;
+  font-size: 32px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 /* Rotating subtitle */
