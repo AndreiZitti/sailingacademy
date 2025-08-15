@@ -9,15 +9,17 @@ function HomeCards() {
   const { t } = useTranslation();
 
   return (
-    <div className="home-cards">
-      {/* Primary actions moved into the hero section; keep scroll reveal minimal below */}
+    <div className="page-content">
+      <div className="home-cards">
+        {/* Primary actions moved into the hero section; keep scroll reveal minimal below */}
 
-      <section id="Map" className="map-full-section">
-        <div className="map-title-container">
-          <h1 className="map-title">{t("Come visit us !")}</h1>
+        <div id="Map" className="map-full-section">
+          <div className="map-title-container">
+            <h1 className="map-title">{t("Come visit us !")}</h1>
+          </div>
+          <ContactSection />
         </div>
-        <ContactSection />
-      </section>
+      </div>
     </div>
   );
 }

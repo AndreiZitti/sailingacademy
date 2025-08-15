@@ -231,106 +231,129 @@ function ContactSection() {
             <h3>{t("Plan Your Visit")}</h3>
           </div>
 
-          {/* Status Section (40% of card) */}
-          <div className="status-section">
-            <div className="status-main">
+          {/* Main Content Area */}
+          <div className="status-content">
+            {/* Status & Weather Section */}
+            <div className="status-weather-section">
               <div
-                className={`status-indicator ${
-                  currentStatus.isOpen ? "open" : "closed"
+                className={`status-display ${
+                  isHoursExpanded ? "expanded" : ""
                 }`}
               >
-                <span className="status-dot">
-                  {currentStatus.isOpen ? "🟢" : "🔴"}
-                </span>
-                <span className="status-text">
-                  {currentStatus.isOpen ? t("OPEN NOW") : t("CLOSED")}
-                </span>
-              </div>
-              <div className="status-time">{currentStatus.nextChange}</div>
-            </div>
-            <button className="view-week-btn" onClick={toggleHours}>
-              {t("View week")} {isHoursExpanded ? "↑" : "↓"}
-            </button>
-            {isHoursExpanded && (
-              <div className="week-schedule">
-                {Object.entries(openingHours).map(([day, hours]) => (
-                  <div
-                    key={day}
-                    className={`schedule-day ${
-                      day === getDayName(new Date().getDay()) ? "today" : ""
-                    }`}
-                  >
-                    <span className="day">{getTranslatedDayName(day)}</span>
-                    <span className="time">
-                      {hours.isOpen
-                        ? `${hours.hours.open} - ${hours.hours.close}`
-                        : t("Closed")}
+                <button
+                  className={`view-week-btn ${isHoursExpanded ? "active" : ""}`}
+                  onClick={toggleHours}
+                >
+                  {t("View week")} <span className="arrow-icon">▼</span>
+                </button>
+
+                <div className="status-main-content">
+                  <div className="status-info">
+                    <div
+                      className={`status-indicator ${
+                        currentStatus.isOpen ? "open" : "closed"
+                      }`}
+                    >
+                      <span className="status-dot"></span>
+                      <span className="status-text">
+                        {currentStatus.isOpen ? t("OPEN NOW") : t("CLOSED")}
+                      </span>
+                    </div>
+
+                    <div className="status-time">
+                      {currentStatus.nextChange}
+                    </div>
+                  </div>
+
+                  <div className="weather-info">
+                    <span className="temperature">☀️ {weather.temp}°C</span>
+                    <span className="weather-detail">Perfect</span>
+                    <span className="weather-detail">
+                      🌬️ {weather.wind}km/h
                     </span>
                   </div>
-                ))}
+                </div>
               </div>
-            )}
-          </div>
 
-          {/* Weather Section (20% of card) */}
-          <div className="weather-section">
-            <div className="weather-compact">
-              <div className="weather-line">
-                ☀️ <span className="temperature">{weather.temp}°C</span> Perfect
-                | 💨 {weather.wind}km/h Calm
+              {/* Week Schedule (Hidden by default) */}
+              <div
+                className={`week-schedule ${isHoursExpanded ? "expanded" : ""}`}
+              >
+                <div className="schedule-grid">
+                  {Object.entries(openingHours).map(([day, hours]) => (
+                    <div
+                      key={day}
+                      className={`schedule-day ${
+                        day === getDayName(new Date().getDay()) ? "today" : ""
+                      }`}
+                    >
+                      <span className="day-name">
+                        {getTranslatedDayName(day)}
+                      </span>
+                      <span className="day-hours">
+                        {hours.isOpen
+                          ? `${hours.hours.open} - ${hours.hours.close}`
+                          : t("Closed")}
+                      </span>
+                      <span className="day-status">
+                        {day === getDayName(new Date().getDay())
+                          ? t("Today")
+                          : hours.isOpen
+                          ? t("Open")
+                          : t("Closed")}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Social Section (40% of card) */}
-          <div className="social-section">
-            <div className="social-grid">
-              <a
-                href="https://www.facebook.com/sailingacademy.ro/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon-btn facebook"
-              >
-                <div className="social-icon">📘</div>
-                <div className="social-text">Facebook</div>
-              </a>
-              <a
-                href="https://www.instagram.com/sailing_academy_ro/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon-btn instagram"
-              >
-                <div className="social-icon">📷</div>
-                <div className="social-text">Instagram</div>
-              </a>
-              <a
-                href="#"
-                onClick={handleWhatsAppClick}
-                className="social-icon-btn whatsapp"
-              >
-                <div className="social-icon">💬</div>
-                <div className="social-text">WhatsApp</div>
-              </a>
-              <a
-                href="https://g.page/r/CZyxWXPKFzQ8EBM/review"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon-btn google"
-              >
-                <div className="social-icon">⭐</div>
-                <div className="social-text">Reviews</div>
-              </a>
-              <a
-                href="mailto:info@sailingacademy.ro"
-                className="social-icon-btn email"
-              >
-                <div className="social-icon">✉️</div>
-                <div className="social-text">Email</div>
-              </a>
-              <a href="tel:+40730333755" className="social-icon-btn call">
-                <div className="social-icon">📞</div>
-                <div className="social-text">Call</div>
-              </a>
+            {/* Social Section */}
+            <div className="social-section">
+              <div className="social-grid">
+                {/* Top row - 3 social icons */}
+                <a
+                  href="https://www.facebook.com/sailingacademy.ro/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-icon-btn facebook"
+                >
+                  <span className="social-icon">📘</span>
+                  <span className="social-text">Facebook</span>
+                </a>
+                <a
+                  href="https://www.instagram.com/sailing_academy_ro/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-icon-btn instagram"
+                >
+                  <span className="social-icon">📷</span>
+                  <span className="social-text">Instagram</span>
+                </a>
+                <a
+                  href="#"
+                  onClick={handleWhatsAppClick}
+                  className="social-icon-btn whatsapp"
+                >
+                  <span className="social-icon">💬</span>
+                  <span className="social-text">WhatsApp</span>
+                </a>
+
+                {/* Bottom row - 2 contact icons */}
+                <div className="bottom-row">
+                  <a
+                    href="mailto:info@sailingacademy.ro"
+                    className="social-icon-btn email"
+                  >
+                    <span className="social-icon">✉️</span>
+                    <span className="social-text">Email</span>
+                  </a>
+                  <a href="tel:+40730333755" className="social-icon-btn call">
+                    <span className="social-icon">📞</span>
+                    <span className="social-text">Call</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

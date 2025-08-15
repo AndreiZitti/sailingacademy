@@ -8,53 +8,92 @@ function Rent() {
   const [openFAQ, setOpenFAQ] = useState(null);
 
   const services = [
+    // Row 1: Top performers
     {
       id: 1,
       name: t("Kayaks"),
       price: "50 lei/hr",
       icon: "🛶",
-      description: t("Perfect for lake exploration"),
-      importance: "secondary",
+      description: t("Perfect for beginners"),
+      availability: t("Available now"),
+      status: "available",
+      family: "quick-rentals",
+      bgImage: "/images/canoe.jpeg",
+      action: t("Walk in or call"),
     },
     {
       id: 2,
       name: t("Stand Up Paddles"),
       price: "50 lei/hr",
       icon: "🏄‍♂️",
-      description: t("Great for beginners"),
-      importance: "secondary",
+      description: t("Great workout"),
+      availability: t("5 boards ready"),
+      status: "available",
+      family: "quick-rentals",
+      bgImage: "/images/SUPstock.jpeg",
+      action: t("Walk in or call"),
     },
     {
       id: 3,
+      name: t("Waterverse"),
+      price: t("From 200 lei/hr"),
+      icon: "🚤",
+      description: t("Premium boats via app"),
+      availability: t("Partner service"),
+      status: "partner",
+      family: "partner",
+      bgImage: "/images/bigBoat.JPG",
+      action: t("Download app"),
+    },
+    // Row 2: Core offerings
+    {
+      id: 4,
       name: t("Sailing Boats"),
       price: "50-100 lei/hr",
       icon: "⛵",
-      description: t("All skill levels welcome"),
-      importance: "secondary",
-    },
-    {
-      id: 4,
-      name: t("Private Lessons"),
-      price: "50-100 lei/hr",
-      icon: "👨‍🏫",
-      description: t("One-on-one instruction"),
-      importance: "secondary",
+      description: t("All skill levels"),
+      availability: t("Weather dependent"),
+      status: "booking",
+      family: "sailing-core",
+      bgImage: "/images/VantTare.jpg",
+      action: t("Book online"),
     },
     {
       id: 5,
-      name: t("Group Lessons"),
-      price: t("Contact us"),
-      icon: "👥",
-      description: t("Learn with friends"),
-      importance: "secondary",
+      name: t("Sailing Lessons"),
+      price: t("From 80 lei"),
+      icon: "👨‍🏫",
+      description: t("Professional instructors"),
+      availability: t("Book ahead"),
+      status: "booking",
+      family: "sailing-core",
+      bgImage: "/images/Curso1.webp",
+      action: t("View schedule"),
     },
+    // Row 3: Specialized
     {
       id: 6,
-      name: t("License Course"),
+      name: t("Sailing Permit"),
       price: t("Full program"),
       icon: "📜",
       description: t("Official certification"),
-      importance: "primary",
+      availability: t("Next course: Feb 15"),
+      status: "certification",
+      family: "programs",
+      bgImage: "/images/Concurs.jpg",
+      action: t("View schedule"),
+    },
+    {
+      id: 7,
+      name: t("Corporate Events"),
+      price: t("Custom pricing"),
+      icon: "🏢",
+      description: t("Team building"),
+      availability: t("Up to 30 people"),
+      status: "booking",
+      family: "programs",
+      bgImage: "/images/ClubPhoto.jpg",
+      action: t("Get quote"),
     },
   ];
 
@@ -130,28 +169,149 @@ function Rent() {
             {/* Section 1: Services Grid */}
             <section className="services-section">
               <div className="container">
-                <div className="services-grid">
-                  {services.map((service) => (
+                {/* Section Divider: Instant Rentals */}
+                <div className="section-divider">
+                  <span>{t("Instant Rentals")}</span>
+                </div>
+
+                {/* Row 1: Top performers (3 cards) */}
+                <div className="services-row services-row--top">
+                  {services.slice(0, 3).map((service) => (
                     <div
                       key={service.id}
-                      className={`service-card service-card--${service.importance}`}
+                      className={`service-card service-card--${service.family}`}
+                      style={{ backgroundImage: `url(${service.bgImage})` }}
                     >
-                      <div className="service-icon">{service.icon}</div>
-                      <h3>{service.name}</h3>
-                      <div className="service-price">{service.price}</div>
-                      <p>{service.description}</p>
+                      <div className="card-background-overlay"></div>
+                      <div className="card-content">
+                        <div className="service-status">
+                          <span
+                            className={`status-badge status-badge--${service.status}`}
+                          >
+                            {service.status === "available" && "🟢"}
+                            {service.status === "partner" && "🤝"}
+                            {service.status === "popular" && "🔥"}
+                          </span>
+                        </div>
+                        <div className="service-icon">{service.icon}</div>
+                        <h3>{service.name}</h3>
+                        <div className="service-price">{service.price}</div>
+                        <p className="service-description">
+                          {service.description}
+                        </p>
+                        <div className="service-availability">
+                          {service.availability}
+                        </div>
+                        <div className="service-action">{service.action}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Section Divider: Sailing Experiences */}
+                <div className="section-divider">
+                  <span>{t("Sailing Experiences")}</span>
+                </div>
+
+                {/* Row 2: Core offerings (2 cards) */}
+                <div className="services-row services-row--middle">
+                  {services.slice(3, 5).map((service) => (
+                    <div
+                      key={service.id}
+                      className={`service-card service-card--${service.family}`}
+                      style={{ backgroundImage: `url(${service.bgImage})` }}
+                    >
+                      <div className="card-background-overlay"></div>
+                      <div className="card-content">
+                        <div className="service-status">
+                          <span
+                            className={`status-badge status-badge--${service.status}`}
+                          >
+                            {service.status === "booking" && "📅"}
+                          </span>
+                        </div>
+                        <div className="service-icon">{service.icon}</div>
+                        <h3>{service.name}</h3>
+                        <div className="service-price">{service.price}</div>
+                        <p className="service-description">
+                          {service.description}
+                        </p>
+                        <div className="service-availability">
+                          {service.availability}
+                        </div>
+                        <div className="service-action">{service.action}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Section Divider: Programs & Events */}
+                <div className="section-divider">
+                  <span>{t("Programs & Events")}</span>
+                </div>
+
+                {/* Row 3: Specialized (2 cards) */}
+                <div className="services-row services-row--bottom">
+                  {services.slice(5, 7).map((service) => (
+                    <div
+                      key={service.id}
+                      className={`service-card service-card--${service.family}`}
+                      style={{ backgroundImage: `url(${service.bgImage})` }}
+                    >
+                      <div className="card-background-overlay"></div>
+                      <div className="card-content">
+                        <div className="service-status">
+                          <span
+                            className={`status-badge status-badge--${service.status}`}
+                          >
+                            {service.status === "certification" && "🎓"}
+                            {service.status === "booking" && "📅"}
+                          </span>
+                        </div>
+                        <div className="service-icon">{service.icon}</div>
+                        <h3>{service.name}</h3>
+                        <div className="service-price">{service.price}</div>
+                        <p className="service-description">
+                          {service.description}
+                        </p>
+                        <div className="service-availability">
+                          {service.availability}
+                        </div>
+                        <div className="service-action">{service.action}</div>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
             </section>
 
-            {/* Scroll Indicator */}
-            <div className="scroll-indicator">
-              <span className="scroll-indicator-text">
-                {t("More Info Below")}
-              </span>
-              <div className="scroll-arrow">↓</div>
+            {/* Quick Answers Banner */}
+            <div className="quick-answers-banner">
+              <div className="quick-answers-content">
+                <span className="quick-answers-title">
+                  {t("Quick Answers")}:
+                </span>
+                <div className="quick-answers-buttons">
+                  <button
+                    className="quick-answer-btn"
+                    onClick={() => toggleFAQ(0)}
+                  >
+                    {t("Do I need experience?")}
+                  </button>
+                  <button
+                    className="quick-answer-btn"
+                    onClick={() => toggleFAQ(5)}
+                  >
+                    {t("What's included?")}
+                  </button>
+                  <button
+                    className="quick-answer-btn"
+                    onClick={() => toggleFAQ(2)}
+                  >
+                    {t("How to book?")}
+                  </button>
+                </div>
+              </div>
             </div>
 
             {/* Section 2: FAQ Accordion */}

@@ -1,4 +1,4 @@
-/* Services Page - Enhanced Glassmorphism with Layer Cake Architecture */
+/* Services Page - Enhanced Glassmorphism with 3-2-2 Pyramid Layout */
 
 /* Netflix Principle Animation - Fade in from top */
 @keyframes fadeInFromTop {
@@ -9,6 +9,30 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Breathing effect for available items */
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Purple glow pulse for partner service */
+@keyframes purpleGlow {
+  0%,
+  100% {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25), 0 4px 16px rgba(0, 0, 0, 0.15),
+      0 2px 8px rgba(0, 0, 0, 0.1), 0 0 0 rgba(147, 51, 234, 0);
+  }
+  50% {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25), 0 4px 16px rgba(0, 0, 0, 0.15),
+      0 2px 8px rgba(0, 0, 0, 0.1), 0 0 20px rgba(147, 51, 234, 0.4);
   }
 }
 
@@ -57,93 +81,41 @@
 /* Hero Section - Netflix Principle: Text as Design Element */
 .services-hero {
   color: var(--color-white);
-  padding: var(--space-xl) 0; /* Remove horizontal padding for alignment */
+  padding: var(--space-xl) 0;
   text-align: center;
   position: relative;
   z-index: 15;
-  /* Optical alignment with card grid below */
-  max-width: 1200px; /* Same as services-content */
-  margin: 2rem auto; /* Center with auto margins */
-  /* Structural properties only - no background/borders/shadows */
+  max-width: 1200px;
+  margin: 2rem auto;
 }
-
-/* Remove hover effects for Netflix principle - text floats freely */
 
 .services-hero-content {
   position: relative;
   z-index: 1;
   max-width: 800px;
   margin: 0 auto;
-  /* Align with services-section padding for optical consistency */
-  padding: 0 var(--space-2xl); /* Same padding as services-section */
+  padding: 0 var(--space-2xl);
 }
 
 .services-hero-content h1 {
-  font-size: calc(
-    var(--text-4xl) * 1.2
-  ); /* 20% increase for Netflix principle */
+  font-size: calc(var(--text-4xl) * 1.2);
   font-weight: 700;
-  color: #ffffff; /* Pure white for maximum contrast - same as Home page */
+  color: #ffffff;
   margin-bottom: var(--space-sm);
   letter-spacing: -0.025em;
-  /* Text-shadow for depth - Netflix style floating text */
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3),
     0 8px 16px rgba(0, 0, 0, 0.2);
-  /* Subtle fade-in animation */
   animation: fadeInFromTop 1.2s ease-out;
 }
 
 .services-hero-content p {
   font-size: var(--text-lg);
-  color: #ffffff; /* Pure white for maximum contrast - same as Home page */
+  color: #ffffff;
   opacity: 0.95;
   margin: 0;
   line-height: 1.6;
-  /* Add subtle text-shadow for depth */
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  /* Delayed fade-in animation */
   animation: fadeInFromTop 1.2s ease-out 0.3s both;
-}
-
-/* Scroll Indicator - Helps users know there's more content */
-.scroll-indicator {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: var(--space-lg) 0;
-  position: relative;
-  z-index: 20;
-}
-
-.scroll-indicator-text {
-  color: #ffffff;
-  font-size: var(--text-sm);
-  margin-bottom: var(--space-xs);
-  opacity: 0.8;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
-
-.scroll-arrow {
-  color: #3b9eff;
-  font-size: var(--text-xl);
-  animation: bounce 2s infinite;
-  text-shadow: 0 0 10px rgba(59, 158, 255, 0.5);
-}
-
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
 }
 
 /* Main Content - 8-Point Grid System */
@@ -157,7 +129,7 @@
   position: relative;
   z-index: 15;
   display: grid;
-  gap: var(--space-xl); /* 48px - Reduced spacing for better flow */
+  gap: var(--space-xl);
 }
 
 .container {
@@ -167,166 +139,364 @@
   position: relative;
 }
 
-/* Section 1: Services Grid - Clean Container for Individual Cards */
-.services-section {
-  padding: var(--space-md) var(--space-2xl) var(--space-2xl) var(--space-2xl); /* Reduced top padding: 24px top, 64px sides/bottom */
+/* Section Dividers - Subtle grouping cues */
+.section-divider {
   text-align: center;
-  /* Remove all background/blur - let individual cards handle styling */
+  margin: var(--space-lg) 0 var(--space-md) 0;
+  position: relative;
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-lg); /* 32px - Medium spacing between cards */
-  margin-top: var(--space-xl); /* 48px */
+.section-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  z-index: 1;
 }
 
-/* Service Cards - Depth Layers Approach */
-.service-card {
-  background: rgba(40, 40, 60, 0.35); /* Lighter blue-gray glass */
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-  border: 2px solid rgba(255, 255, 255, 0.3); /* White borders for depth */
+.section-divider span {
+  background: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+  padding: var(--space-xs) var(--space-md);
   border-radius: 20px;
-  padding: var(--space-lg); /* 32px - Breathing Room principle */
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Services Section */
+.services-section {
+  padding: var(--space-md) var(--space-2xl) var(--space-2xl) var(--space-2xl);
+  text-align: center;
+}
+
+/* Service Rows - 3-2-2 Pyramid Layout */
+.services-row {
+  display: grid;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  justify-items: center;
+}
+
+.services-row--top {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1000px;
+  margin: 0 auto var(--space-xl) auto;
+}
+
+.services-row--middle {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 700px;
+  margin: 0 auto var(--space-xl) auto;
+}
+
+.services-row--bottom {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 700px;
+  margin: 0 auto var(--space-xl) auto;
+}
+
+/* Service Cards - Glassmorphism with Background Images */
+.service-card {
+  position: relative;
+  border-radius: 20px;
   text-align: center;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Enhanced shadow depth - Material Design Elevation */
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25), 0 4px 16px rgba(0, 0, 0, 0.15),
-    0 2px 8px rgba(0, 0, 0, 0.1);
-  min-height: 320px; /* Golden Ratio: 320px height for better proportions */
+  min-height: 320px;
+  cursor: pointer;
+  min-width: 280px;
+  width: 100%;
+  max-width: 350px;
+  overflow: hidden;
+
+  /* Background image properties */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Glassmorphism base */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Background overlay with gradient */
+.card-background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+/* Card content container */
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-lg);
+  height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
-  cursor: pointer;
-  /* Fitts's Law: Larger clickable areas */
-  min-width: 280px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
 }
 
-/* Primary Cards - License Course (Enhanced Depth) */
-.service-card--primary {
-  background: rgba(59, 158, 255, 0.15); /* Subtle brand blue tint */
-  border: 2px solid rgba(255, 255, 255, 0.4); /* Stronger white border */
-  /* Enhanced elevation for primary importance */
-  box-shadow: 0 16px 60px rgba(59, 158, 255, 0.2), 0 8px 32px rgba(0, 0, 0, 0.2),
-    0 4px 16px rgba(0, 0, 0, 0.15);
-  transform: scale(1.02);
+/* Service Family Color Coding */
+.service-card--quick-rentals {
+  background-color: rgba(135, 206, 235, 0.15);
+  border-color: rgba(135, 206, 235, 0.3);
 }
 
-/* Secondary Cards - Standard dark glass */
-.service-card--secondary {
-  transform: scale(0.98);
+.service-card--quick-rentals .card-content {
+  background: rgba(135, 206, 235, 0.2);
 }
 
-/* Micro-interactions - Enhanced Depth States */
-.service-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  background: rgba(40, 40, 60, 0.45); /* Slightly more opaque on hover */
-  /* Enhanced elevation on hover */
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 8px 32px rgba(0, 0, 0, 0.2),
-    0 4px 16px rgba(0, 0, 0, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
+.service-card--partner {
+  background-color: rgba(147, 51, 234, 0.15);
+  border-color: rgba(147, 51, 234, 0.3);
+  animation: purpleGlow 3s ease-in-out infinite;
 }
 
-.service-card--primary:hover {
-  transform: translateY(-10px) scale(1.04);
-  background: rgba(59, 158, 255, 0.25); /* More brand blue on hover */
-  /* Maximum elevation for primary */
-  box-shadow: 0 32px 80px rgba(59, 158, 255, 0.25),
-    0 16px 48px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
+.service-card--partner .card-content {
+  background: rgba(147, 51, 234, 0.2);
 }
 
-.service-card:active {
-  transform: translateY(-2px) scale(0.98);
-  transition-duration: 0.1s;
+.service-card--sailing-core {
+  background-color: rgba(59, 158, 255, 0.15);
+  border-color: rgba(59, 158, 255, 0.3);
 }
 
-.service-card:focus-visible {
-  outline: 3px solid rgba(59, 158, 255, 0.8);
-  outline-offset: 2px;
+.service-card--sailing-core .card-content {
+  background: rgba(59, 158, 255, 0.2);
+}
+
+.service-card--programs {
+  background-color: rgba(30, 64, 175, 0.15);
+  border-color: rgba(30, 64, 175, 0.3);
+}
+
+.service-card--programs .card-content {
+  background: rgba(30, 64, 175, 0.2);
+}
+
+/* Status badges - Top right corner */
+.service-status {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  z-index: 3;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 12px;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.status-badge--partner::after {
+  content: "Partner";
+  margin-left: var(--space-xs);
+}
+
+/* Subtle animations for available items */
+.service-card--quick-rentals:not(:hover) {
+  animation: breathe 4s ease-in-out infinite;
 }
 
 /* Icon Optimization - Enhanced with White Glow */
 .service-icon {
-  font-size: 5.6rem; /* 40% increase for visibility */
-  margin-bottom: var(--space-md); /* 24px */
+  font-size: 4rem;
+  margin-bottom: var(--space-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px; /* 48px minimum touch target */
+  min-height: 48px;
   transition: transform 0.3s ease;
-  /* White glow effect for icons */
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5),
-    0 0 40px rgba(255, 255, 255, 0.3), 0 0 60px rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.3);
   filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.2));
-}
-
-.service-card:hover .service-icon {
-  transform: scale(1.15) rotate(5deg);
-  /* Enhanced glow on hover */
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.7),
-    0 0 50px rgba(255, 255, 255, 0.4), 0 0 80px rgba(255, 255, 255, 0.3);
 }
 
 /* Typography Hierarchy - Maximum Contrast */
 .service-card h3 {
-  font-size: var(--text-xl); /* 24px - Bold headings */
+  font-size: var(--text-xl);
   font-weight: 700;
-  color: #ffffff; /* Pure white for maximum contrast */
-  margin-bottom: var(--space-xs); /* 8px - Small spacing */
+  color: #ffffff;
+  margin-bottom: var(--space-xs);
   letter-spacing: -0.025em;
   line-height: 1.3;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* Prices - POP with Bright Colors */
 .service-price {
-  font-size: var(--text-2xl); /* 32-36px range */
+  font-size: var(--text-lg);
   font-weight: 600;
-  color: #3b9eff; /* Bright blue that POPS */
-  margin-bottom: var(--space-sm); /* 16px */
+  color: #3b9eff;
+  margin-bottom: var(--space-sm);
   letter-spacing: -0.02em;
   text-shadow: 0 0 20px rgba(59, 158, 255, 0.5),
     0 2px 8px rgba(59, 158, 255, 0.3);
 }
 
-.service-card--primary .service-price {
-  font-size: var(--text-3xl); /* Larger for primary */
-  color: #ffd700; /* Gold that POPS */
+.service-card--partner .service-price {
+  color: #a855f7; /* Purple for partner service */
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.5),
+    0 2px 8px rgba(168, 85, 247, 0.3);
+}
+
+.service-card--programs .service-price {
+  color: #ffd700; /* Gold for specialized programs */
   text-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 2px 8px rgba(255, 215, 0, 0.4);
 }
 
-/* Descriptions - High Contrast */
-.service-card p {
-  font-size: var(--text-base); /* 14-16px */
-  color: #f0f0f0; /* Slightly off-white for descriptions */
-  margin: 0;
-  opacity: 1; /* Full opacity for readability */
-  line-height: 1.6;
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+/* Descriptions */
+.service-description {
+  font-size: var(--text-base);
+  color: #f0f0f0;
+  margin: 0 0 var(--space-xs) 0;
+  line-height: 1.5;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
-/* Section 2: FAQ - Information Architecture Solution with 80% Opaque Band */
+/* Availability indicator */
+.service-availability {
+  font-size: var(--text-sm);
+  color: #e0e0e0;
+  margin-bottom: var(--space-sm);
+  opacity: 0.9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Action buttons */
+.service-action {
+  font-size: var(--text-sm);
+  color: #3b9eff;
+  font-weight: 500;
+  text-shadow: 0 0 10px rgba(59, 158, 255, 0.5);
+  margin-top: auto;
+}
+
+/* Hover effects */
+.service-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 8px 32px rgba(0, 0, 0, 0.2),
+    0 4px 16px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.service-card:hover .card-content {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.15) rotate(5deg);
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.9),
+    0 0 50px rgba(255, 255, 255, 0.6), 0 0 80px rgba(255, 255, 255, 0.4);
+}
+
+.service-card:hover .card-background-overlay {
+  background: linear-gradient(
+    transparent 0%,
+    transparent 30%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+/* Quick Answers Banner */
+.quick-answers-banner {
+  margin: var(--space-xl) 0;
+  padding: var(--space-lg);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.quick-answers-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.quick-answers-title {
+  color: #ffffff;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.quick-answers-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+.quick-answer-btn {
+  background: rgba(59, 158, 255, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(59, 158, 255, 0.4);
+  border-radius: 20px;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.quick-answer-btn:hover {
+  background: rgba(59, 158, 255, 0.3);
+  border-color: rgba(59, 158, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* FAQ Section - Information Architecture Solution with 80% Opaque Band */
 .faq-section {
-  padding: var(--space-2xl); /* 64px for more presence */
-  background: rgba(255, 255, 255, 0.85); /* 85% opaque white band */
-  backdrop-filter: blur(10px); /* Less blur for solid feel */
+  padding: var(--space-2xl);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.9); /* Nearly solid border */
+  border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); /* Stronger shadow for separation */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Visual Zone separation from services - reduced for better flow */
 }
 
 .faq-section:hover {
-  background: rgba(255, 255, 255, 0.9); /* Full opacity on hover */
+  background: rgba(255, 255, 255, 0.9);
   transform: translateY(-2px);
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
 }
@@ -334,11 +504,11 @@
 .faq-section h2 {
   font-size: var(--text-2xl);
   font-weight: 700;
-  color: #1a1a1a; /* Near black for maximum contrast on white */
+  color: #1a1a1a;
   text-align: center;
-  margin-bottom: var(--space-xl); /* 48px */
+  margin-bottom: var(--space-xl);
   letter-spacing: -0.025em;
-  text-shadow: none; /* Remove any text shadow */
+  text-shadow: none;
 }
 
 .faq-accordion {
@@ -346,85 +516,84 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: var(--space-lg); /* 32px - Better spacing for grid */
-  align-items: start; /* Align cards to top */
+  gap: var(--space-lg);
+  align-items: start;
 }
 
 /* FAQ Items - Compact Pills Design */
 .faq-item {
-  background: rgba(255, 255, 255, 0.7); /* More opaque for grid cards */
-  backdrop-filter: blur(5px); /* Minimal blur for solid feel */
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Dark border for definition */
-  border-radius: 20px; /* Larger radius for card feel */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Compact pill styling */
-  min-height: 80px; /* Much smaller minimum height */
+  min-height: 80px;
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
 .faq-item:hover {
-  background: rgba(255, 255, 255, 0.85); /* More solid on hover */
-  transform: translateY(-4px); /* More pronounced lift */
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  border-color: rgba(59, 158, 255, 0.3); /* Brand blue border on hover */
+  border-color: rgba(59, 158, 255, 0.3);
 }
 
 /* FAQ Questions - Compact Pill Design */
 .faq-question {
   width: 100%;
-  padding: var(--space-md) var(--space-lg); /* More balanced, compact padding */
+  padding: var(--space-md) var(--space-lg);
   background: transparent;
   border: none;
   text-align: left;
-  font-size: var(--text-base); /* Smaller font for compact feel */
-  font-weight: 600; /* Slightly lighter weight */
-  color: #1a1a1a; /* Near black for maximum contrast */
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: #1a1a1a;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Center align for compact pills */
+  align-items: center;
   transition: all 0.3s ease;
-  min-height: 48px; /* Smaller touch target for compact pills */
-  line-height: 1.3; /* Tighter line height */
-  flex-shrink: 0; /* Don't shrink the question area */
+  min-height: 48px;
+  line-height: 1.3;
+  flex-shrink: 0;
 }
 
 .faq-question:hover {
-  background: rgba(59, 158, 255, 0.05); /* Brand blue hover */
-  border-radius: 20px 20px 0 0; /* Round top corners on hover */
+  background: rgba(59, 158, 255, 0.05);
+  border-radius: 20px 20px 0 0;
 }
 
 .faq-question:focus-visible {
-  outline: 2px solid rgba(59, 158, 255, 0.8); /* Brand blue outline */
+  outline: 2px solid rgba(59, 158, 255, 0.8);
   outline-offset: 2px;
   border-radius: 20px 20px 0 0;
 }
 
 /* FAQ Icons - Enhanced for Grid Cards */
 .faq-icon {
-  font-size: var(--text-2xl); /* Larger for better visibility */
+  font-size: var(--text-2xl);
   font-weight: 500;
-  color: #3b9eff; /* Brand blue for expand arrows */
+  color: #3b9eff;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 1;
-  margin-left: var(--space-sm); /* Space from question text */
-  flex-shrink: 0; /* Don't shrink the icon */
-  width: 32px; /* Fixed width for consistent alignment */
+  margin-left: var(--space-sm);
+  flex-shrink: 0;
+  width: 32px;
   text-align: center;
 }
 
 .faq-question[aria-expanded="true"] .faq-icon {
   transform: rotate(135deg);
-  color: #2563eb; /* Darker blue when expanded */
+  color: #2563eb;
 }
 
 .faq-item:hover .faq-icon {
-  color: #1d4ed8; /* Even darker blue on card hover */
+  color: #1d4ed8;
   transform: scale(1.1);
 }
 
@@ -440,26 +609,25 @@
     padding 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease,
     background-color 0.3s ease;
   opacity: 0;
-  background: rgba(255, 255, 255, 0.2); /* Subtle background for answers */
-  border-top: 1px solid rgba(0, 0, 0, 0.05); /* Subtle separator */
-  flex-grow: 1; /* Take remaining space in the card */
+  background: rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  flex-grow: 1;
 }
 
 .faq-answer.open {
-  max-height: 400px; /* More space for grid cards */
+  max-height: 400px;
   padding: var(--space-md) var(--space-lg) var(--space-lg) var(--space-lg);
   opacity: 1;
-  background: rgba(255, 255, 255, 0.4); /* More visible when open */
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .faq-answer p {
   font-size: var(--text-base);
-  color: #2d2d2d; /* Dark gray for answer text */
-  line-height: 1.6; /* Optimized for card reading */
+  color: #2d2d2d;
+  line-height: 1.6;
   margin: 0;
-  opacity: 1; /* Full opacity for readability */
-  padding-top: var(--space-xs); /* 8px - Small breathing space */
-  /* Better typography for cards */
+  opacity: 1;
+  padding-top: var(--space-xs);
   font-weight: 400;
   letter-spacing: 0.01em;
 }
@@ -467,12 +635,11 @@
 /* Mobile Responsive - Tablet (768px and below) */
 @media (max-width: 768px) {
   .services-hero {
-    padding: var(--space-lg) 0; /* Maintain no horizontal padding */
-    margin: var(--space-md) auto; /* Keep centered alignment */
+    padding: var(--space-lg) 0;
+    margin: var(--space-md) auto;
   }
 
   .services-hero-content {
-    /* Align with tablet services-section padding */
     padding: 0 var(--space-xl);
   }
 
@@ -482,16 +649,37 @@
 
   .services-content {
     padding: var(--space-md);
-    gap: var(--space-lg); /* Further reduced spacing on tablet */
+    gap: var(--space-lg);
   }
 
   .services-section {
-    padding: var(--space-sm) var(--space-xl) var(--space-xl) var(--space-xl); /* Reduced top padding on tablet */
+    padding: var(--space-sm) var(--space-xl) var(--space-xl) var(--space-xl);
+  }
+
+  .services-row--top {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+
+  .services-row--middle,
+  .services-row--bottom {
+    grid-template-columns: 1fr;
+    max-width: 400px;
   }
 
   .service-card {
+    min-height: 280px;
+    max-width: 100%;
+  }
+
+  .card-content {
     padding: var(--space-md);
-    min-height: 280px; /* Slightly smaller on tablet */
+    height: 280px;
+  }
+
+  .quick-answers-buttons {
+    flex-direction: column;
+    align-items: center;
   }
 
   .faq-section {
@@ -503,33 +691,31 @@
     margin-bottom: var(--space-lg);
   }
 
-  /* FAQ Grid Responsive - Tablet */
   .faq-accordion {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-md); /* Smaller gap on tablet */
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
   }
 
   .faq-question {
     padding: var(--space-md);
     font-size: var(--text-base);
-    min-height: 50px; /* Smaller touch target on tablet */
+    min-height: 50px;
   }
 
   .faq-icon {
-    font-size: var(--text-xl); /* Smaller icon on tablet */
-    width: 28px; /* Smaller fixed width */
+    font-size: var(--text-xl);
+    width: 28px;
   }
 }
 
 /* Mobile (480px and below) */
 @media (max-width: 480px) {
   .services-hero {
-    padding: var(--space-md) 0; /* Maintain no horizontal padding */
-    margin: var(--space-sm) auto; /* Keep centered alignment */
+    padding: var(--space-md) 0;
+    margin: var(--space-sm) auto;
   }
 
   .services-hero-content {
-    /* Align with mobile services-section padding */
     padding: 0 var(--space-lg);
   }
 
@@ -539,57 +725,56 @@
 
   .services-content {
     padding: var(--space-sm);
-    gap: var(--space-md); /* Compact spacing on mobile */
+    gap: var(--space-md);
   }
 
   .services-section {
-    padding: var(--space-xs) var(--space-lg) var(--space-lg) var(--space-lg); /* Minimal top padding on mobile */
+    padding: var(--space-xs) var(--space-lg) var(--space-lg) var(--space-lg);
   }
 
   .service-card {
+    min-height: 240px;
+  }
+
+  .card-content {
     padding: var(--space-md);
-    min-height: 240px; /* Compact on mobile */
+    height: 240px;
   }
 
   .service-icon {
-    font-size: 4.5rem; /* Maintain larger size for visibility even on mobile */
+    font-size: 3.5rem;
   }
 
   .service-price {
-    font-size: var(--text-xl);
-  }
-
-  .service-card--primary .service-price {
-    font-size: var(--text-2xl);
+    font-size: var(--text-base);
   }
 
   .faq-section {
     padding: var(--space-lg);
   }
 
-  /* FAQ Grid Responsive - Mobile */
   .faq-accordion {
-    grid-template-columns: 1fr; /* Single column on mobile */
-    gap: var(--space-sm); /* Smallest gap on mobile */
-    max-width: 100%; /* Full width on mobile */
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    max-width: 100%;
   }
 
   .faq-item {
-    min-height: 70px; /* Very compact pills on mobile */
+    min-height: 70px;
   }
 
   .faq-question {
     padding: var(--space-md);
     font-size: var(--text-base);
-    min-height: 44px; /* Minimum iOS touch target */
+    min-height: 44px;
   }
 
   .faq-icon {
-    font-size: var(--text-lg); /* Smaller icon on mobile */
-    width: 24px; /* Smallest fixed width */
+    font-size: var(--text-lg);
+    width: 24px;
   }
 
   .faq-answer.open {
-    max-height: 350px; /* More space for mobile reading */
+    max-height: 350px;
   }
 }
