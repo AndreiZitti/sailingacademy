@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./HeroSection.css";
 import { useTranslation } from "react-i18next";
-import LanguageSwitcher from "../../components/LanguageSwitcher";
 
 function HeroSection() {
   const { t } = useTranslation();
@@ -16,7 +15,6 @@ function HeroSection() {
   };
   return (
     <div className="hero-wrapper">
-      <LanguageSwitcher />
       <div className="hero-container">
         <video
           src="/videos/HeroVideo.mp4"
@@ -24,7 +22,7 @@ function HeroSection() {
           loop
           muted
           playsInline
-          poster="/images/boat_preview.png"
+          poster="/images/pierPreview.jpeg"
         />
         <div className="hero-text">
           <h1>{t("ADVENTURE AWAITS")}</h1>

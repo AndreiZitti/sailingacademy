@@ -7,9 +7,9 @@ function ContactSection() {
   const [isHoursExpanded, setIsHoursExpanded] = useState(false);
   const [weather, setWeather] = useState({
     temp: 24,
-    condition: 'Clear',
+    condition: "Clear",
     wind: 5,
-    waveHeight: 'Calm'
+    waveHeight: "Calm",
   });
   const [currentStatus, setCurrentStatus] = useState({
     isOpen: false,
@@ -65,7 +65,9 @@ function ContactSection() {
 
     if (todayHours.isOpen && todayHours.hours) {
       const [openHour, openMin] = todayHours.hours.open.split(":").map(Number);
-      const [closeHour, closeMin] = todayHours.hours.close.split(":").map(Number);
+      const [closeHour, closeMin] = todayHours.hours.close
+        .split(":")
+        .map(Number);
       const openTime = openHour * 60 + openMin;
       const closeTime = closeHour * 60 + closeMin;
 
@@ -84,7 +86,9 @@ function ContactSection() {
           const nextDayHours = openingHours[nextDayName];
           if (nextDayHours.isOpen) {
             const translatedDay = getTranslatedDayName(nextDayName);
-            nextChange = `${t("Opens")} ${translatedDay} ${t("at")} ${nextDayHours.hours.open}`;
+            nextChange = `${t("Opens")} ${translatedDay} ${t("at")} ${
+              nextDayHours.hours.open
+            }`;
             break;
           }
           nextDay = (nextDay + 1) % 7;
@@ -100,7 +104,9 @@ function ContactSection() {
         const nextDayHours = openingHours[nextDayName];
         if (nextDayHours.isOpen) {
           const translatedDay = getTranslatedDayName(nextDayName);
-          nextChange = `${t("Opens")} ${translatedDay} ${t("at")} ${nextDayHours.hours.open}`;
+          nextChange = `${t("Opens")} ${translatedDay} ${t("at")} ${
+            nextDayHours.hours.open
+          }`;
           break;
         }
         nextDay = (nextDay + 1) % 7;
@@ -119,7 +125,7 @@ function ContactSection() {
   useEffect(() => {
     calculateCurrentStatus();
     const interval = setInterval(calculateCurrentStatus, 60000);
-    
+
     // Mock weather update - replace with real API call if needed
     // fetch(`https://api.openweathermap.org/data/2.5/weather?lat=44.4826&lon=26.0834&appid=YOUR_API_KEY`)
     //   .then(res => res.json())
@@ -166,7 +172,6 @@ function ContactSection() {
 
       {/* Three Column Grid */}
       <div className="contact-grid">
-        
         {/* Column 1: Compact Map */}
         <div className="map-card">
           <h3>📍 {t("Location")}</h3>
@@ -201,9 +206,15 @@ function ContactSection() {
             </div>
           </div>
           <div className="getting-here">
-            <p><strong>{t("By Car")}:</strong> {t("Free parking")}</p>
-            <p><strong>{t("By Bus")}:</strong> {t("Lines 131, 335")}</p>
-            <p><strong>{t("By Foot")}:</strong> {t("10min from Metro")}</p>
+            <p>
+              <strong>{t("By Car")}:</strong> {t("Free parking")}
+            </p>
+            <p>
+              <strong>{t("By Bus")}:</strong> {t("Lines 131, 335")}
+            </p>
+            <p>
+              <strong>{t("By Foot")}:</strong> {t("10min from Metro")}
+            </p>
           </div>
         </div>
 
@@ -218,8 +229,12 @@ function ContactSection() {
                 <span className="condition">{t("Perfect")}</span>
               </div>
               <div className="weather-details">
-                <span>💨 {t("Wind")}: {weather.wind} km/h</span>
-                <span>🌊 {t("Waves")}: {t(weather.waveHeight)}</span>
+                <span>
+                  💨 {t("Wind")}: {weather.wind} km/h
+                </span>
+                <span>
+                  🌊 {t("Waves")}: {t(weather.waveHeight)}
+                </span>
               </div>
             </div>
           </div>
@@ -227,13 +242,19 @@ function ContactSection() {
           {/* Status & Hours */}
           <div className="status-card">
             <div className="open-status">
-              <span className={`status-badge ${currentStatus.isOpen ? 'open' : 'closed'}`}>
-                {currentStatus.isOpen ? '🟢 ' + t("OPEN NOW") : '🔴 ' + t("CLOSED")}
+              <span
+                className={`status-badge ${
+                  currentStatus.isOpen ? "open" : "closed"
+                }`}
+              >
+                {currentStatus.isOpen
+                  ? "🟢 " + t("OPEN NOW")
+                  : "🔴 " + t("CLOSED")}
               </span>
               <span className="hours">{currentStatus.nextChange}</span>
             </div>
             <button className="hours-toggle" onClick={toggleHours}>
-              {t("View all hours")} {isHoursExpanded ? '▲' : '▼'}
+              {t("View all hours")} {isHoursExpanded ? "▲" : "▼"}
             </button>
             {isHoursExpanded && (
               <div className="hours-details">
@@ -263,7 +284,11 @@ function ContactSection() {
             <a href="tel:+40730333755" className="contact-btn">
               📞 {t("Call Us")}
             </a>
-            <a href="#" className="contact-btn whatsapp" onClick={handleWhatsAppClick}>
+            <a
+              href="#"
+              className="contact-btn whatsapp"
+              onClick={handleWhatsAppClick}
+            >
               💬 WhatsApp
             </a>
           </div>
@@ -271,17 +296,22 @@ function ContactSection() {
           {/* Social */}
           <div className="social-compact">
             <span>{t("Follow")}:</span>
-            <a href="https://www.facebook.com/sailingacademy.ro/" target="_blank" rel="noopener noreferrer">FB</a>
-            <a href="https://www.instagram.com/sailing_academy_ro/" target="_blank" rel="noopener noreferrer">IG</a>
+            <a
+              href="https://www.facebook.com/sailingacademy.ro/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              FB
+            </a>
+            <a
+              href="https://www.instagram.com/sailing_academy_ro/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              IG
+            </a>
           </div>
         </div>
-      </div>
-
-      {/* Bottom Info Bar */}
-      <div className="info-bar">
-        <span>✓ {t("No booking needed for rentals")}</span>
-        <span>✓ {t("Equipment provided")}</span>
-        <span>✓ {t("All ages welcome")}</span>
       </div>
     </section>
   );

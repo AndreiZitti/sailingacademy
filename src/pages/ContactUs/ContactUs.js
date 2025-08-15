@@ -21,7 +21,7 @@ function ContactUs() {
             loop
             muted
             playsInline
-            poster="/images/boat_preview.png"
+            poster="/images/pierPreview.jpeg"
           />
 
           {/* Hero Section */}

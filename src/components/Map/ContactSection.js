@@ -313,13 +313,6 @@ function ContactSection() {
           </div>
         </div>
       </div>
-
-      {/* Bottom Info Bar */}
-      <div className="info-bar">
-        <span>✓ {t("No booking needed for rentals")}</span>
-        <span>✓ {t("Equipment provided")}</span>
-        <span>✓ {t("All ages welcome")}</span>
-      </div>
     </section>
   );
 }

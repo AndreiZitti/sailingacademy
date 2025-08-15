@@ -14,6 +14,7 @@ function Rent() {
       price: "50 lei/hr",
       icon: "🛶",
       description: t("Perfect for lake exploration"),
+      importance: "secondary",
     },
     {
       id: 2,
@@ -21,6 +22,7 @@ function Rent() {
       price: "50 lei/hr",
       icon: "🏄‍♂️",
       description: t("Great for beginners"),
+      importance: "secondary",
     },
     {
       id: 3,
@@ -28,6 +30,7 @@ function Rent() {
       price: "50-100 lei/hr",
       icon: "⛵",
       description: t("All skill levels welcome"),
+      importance: "secondary",
     },
     {
       id: 4,
@@ -35,6 +38,7 @@ function Rent() {
       price: "50-100 lei/hr",
       icon: "👨‍🏫",
       description: t("One-on-one instruction"),
+      importance: "secondary",
     },
     {
       id: 5,
@@ -42,6 +46,7 @@ function Rent() {
       price: t("Contact us"),
       icon: "👥",
       description: t("Learn with friends"),
+      importance: "secondary",
     },
     {
       id: 6,
@@ -49,6 +54,7 @@ function Rent() {
       price: t("Full program"),
       icon: "📜",
       description: t("Official certification"),
+      importance: "primary",
     },
   ];
 
@@ -107,7 +113,7 @@ function Rent() {
             loop
             muted
             playsInline
-            poster="/images/boat_preview.png"
+            poster="/images/pierPreview.jpeg"
           />
 
           {/* Hero Section */}
@@ -126,7 +132,10 @@ function Rent() {
               <div className="container">
                 <div className="services-grid">
                   {services.map((service) => (
-                    <div key={service.id} className="service-card">
+                    <div
+                      key={service.id}
+                      className={`service-card service-card--${service.importance}`}
+                    >
                       <div className="service-icon">{service.icon}</div>
                       <h3>{service.name}</h3>
                       <div className="service-price">{service.price}</div>
@@ -164,27 +173,6 @@ function Rent() {
                       </div>
                     </div>
                   ))}
-                </div>
-              </div>
-            </section>
-
-            {/* Section 3: Simple CTA Bar */}
-            <section className="cta-section">
-              <div className="container">
-                <div className="cta-bar">
-                  <div className="cta-main">
-                    <h3>{t("Ready to get on the water?")}</h3>
-                    <p>
-                      {t("Call us at")} <strong>+40 730 333 755</strong>{" "}
-                      {t("or visit us at")}{" "}
-                      <strong>{t("Lake Herăstrău, Bucharest")}</strong>
-                    </p>
-                  </div>
-                  <div className="cta-hours">
-                    <h4>{t("Opening Hours")}</h4>
-                    <p>{t("Tue-Sun: 9:00 - 20:00")}</p>
-                    <p>{t("Monday: Closed")}</p>
-                  </div>
                 </div>
               </div>
             </section>

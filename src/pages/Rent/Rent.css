@@ -1,4 +1,4 @@
-/* Services Page - Glassmorphism with Video Background */
+/* Services Page - Enhanced Glassmorphism with Layer Cake Architecture */
 
 /* Base Layout with Video Background */
 .services-page {
@@ -8,6 +8,7 @@
   position: relative;
 }
 
+/* Layer Cake Approach - Dark Overlay (15-20% opacity for better contrast) */
 .services-page::before {
   content: "";
   position: absolute;
@@ -16,9 +17,9 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    rgba(0, 0, 0, 0.35) 0%,
-    rgba(0, 0, 0, 0.25) 30%,
-    rgba(0, 0, 0, 0.2) 60%,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.16) 30%,
+    rgba(0, 0, 0, 0.15) 60%,
     rgba(0, 0, 0, 0.15) 100%
   );
   z-index: 1;
@@ -38,12 +39,12 @@
   min-width: 100vw;
 }
 
-/* Hero Section */
+/* Hero Section - Depth Layers Approach */
 .services-hero {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(40, 40, 60, 0.35); /* Lighter glass for depth */
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 2px solid rgba(255, 255, 255, 0.3); /* White border for depth */
   color: var(--color-white);
   padding: var(--space-xl) var(--space-lg);
   text-align: center;
@@ -51,14 +52,17 @@
   z-index: 15;
   margin: 2rem;
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  /* Material Design elevation */
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .services-hero:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+  background: rgba(40, 40, 60, 0.45); /* Slightly more opaque on hover */
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.2),
+    0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .services-hero-content {
@@ -82,7 +86,7 @@
   line-height: 1.6;
 }
 
-/* Main Content */
+/* Main Content - 8-Point Grid System */
 .services-content {
   flex: 1;
   max-width: 1200px;
@@ -92,6 +96,8 @@
   box-sizing: border-box;
   position: relative;
   z-index: 15;
+  display: grid;
+  gap: var(--space-3xl); /* 96px - Luxury spacing between sections */
 }
 
 .container {
@@ -101,236 +107,324 @@
   position: relative;
 }
 
-/* Section 1: Services Grid */
+/* Section 1: Services Grid - Depth Layers Approach */
 .services-section {
-  padding: 2rem;
+  padding: var(--space-2xl); /* 64px */
   text-align: center;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  margin-bottom: var(--space-2xl);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  background: rgba(40, 40, 60, 0.3); /* Lighter glass background */
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 2px solid rgba(255, 255, 255, 0.25); /* White border for depth */
+  border-radius: 24px;
+  /* Enhanced elevation with multiple shadow layers */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 10px 30px rgba(0, 0, 0, 0.15),
+    0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .services-section:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+  background: rgba(40, 40, 60, 0.4); /* Slightly more opaque on hover */
+  transform: translateY(-6px);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.25), 0 16px 40px rgba(0, 0, 0, 0.2),
+    0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  gap: var(--space-lg); /* 32px - Medium spacing between cards */
+  margin-top: var(--space-xl); /* 48px */
 }
 
+/* Service Cards - Depth Layers Approach */
 .service-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(40, 40, 60, 0.35); /* Lighter blue-gray glass */
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 2px solid rgba(255, 255, 255, 0.3); /* White borders for depth */
   border-radius: 20px;
-  padding: 2rem;
+  padding: var(--space-lg); /* 32px - Breathing Room principle */
   text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Enhanced shadow depth - Material Design Elevation */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25), 0 4px 16px rgba(0, 0, 0, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 320px; /* Golden Ratio: 320px height for better proportions */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+  /* Fitts's Law: Larger clickable areas */
+  min-width: 280px;
 }
 
+/* Primary Cards - License Course (Enhanced Depth) */
+.service-card--primary {
+  background: rgba(59, 158, 255, 0.15); /* Subtle brand blue tint */
+  border: 2px solid rgba(255, 255, 255, 0.4); /* Stronger white border */
+  /* Enhanced elevation for primary importance */
+  box-shadow: 0 16px 60px rgba(59, 158, 255, 0.2), 0 8px 32px rgba(0, 0, 0, 0.2),
+    0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+}
+
+/* Secondary Cards - Standard dark glass */
+.service-card--secondary {
+  transform: scale(0.98);
+}
+
+/* Micro-interactions - Enhanced Depth States */
 .service-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(40, 40, 60, 0.45); /* Slightly more opaque on hover */
+  /* Enhanced elevation on hover */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 8px 32px rgba(0, 0, 0, 0.2),
+    0 4px 16px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
+.service-card--primary:hover {
+  transform: translateY(-10px) scale(1.04);
+  background: rgba(59, 158, 255, 0.25); /* More brand blue on hover */
+  /* Maximum elevation for primary */
+  box-shadow: 0 32px 80px rgba(59, 158, 255, 0.25),
+    0 16px 48px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.service-card:active {
+  transform: translateY(-2px) scale(0.98);
+  transition-duration: 0.1s;
+}
+
+.service-card:focus-visible {
+  outline: 3px solid rgba(59, 158, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* Icon Optimization - Enhanced with White Glow */
 .service-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  display: block;
+  font-size: 5.6rem; /* 40% increase for visibility */
+  margin-bottom: var(--space-md); /* 24px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px; /* 48px minimum touch target */
+  transition: transform 0.3s ease;
+  /* White glow effect for icons */
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 40px rgba(255, 255, 255, 0.3), 0 0 60px rgba(255, 255, 255, 0.2);
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.2));
 }
 
+.service-card:hover .service-icon {
+  transform: scale(1.15) rotate(5deg);
+  /* Enhanced glow on hover */
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.7),
+    0 0 50px rgba(255, 255, 255, 0.4), 0 0 80px rgba(255, 255, 255, 0.3);
+}
+
+/* Typography Hierarchy - Maximum Contrast */
 .service-card h3 {
-  font-size: var(--text-xl);
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-}
-
-.service-price {
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl); /* 24px - Bold headings */
   font-weight: 700;
-  color: #60a5fa;
-  margin-bottom: 0.5rem;
+  color: #ffffff; /* Pure white for maximum contrast */
+  margin-bottom: var(--space-xs); /* 8px - Small spacing */
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
 }
 
+/* Prices - POP with Bright Colors */
+.service-price {
+  font-size: var(--text-2xl); /* 32-36px range */
+  font-weight: 600;
+  color: #3b9eff; /* Bright blue that POPS */
+  margin-bottom: var(--space-sm); /* 16px */
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 20px rgba(59, 158, 255, 0.5),
+    0 2px 8px rgba(59, 158, 255, 0.3);
+}
+
+.service-card--primary .service-price {
+  font-size: var(--text-3xl); /* Larger for primary */
+  color: #ffd700; /* Gold that POPS */
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 2px 8px rgba(255, 215, 0, 0.4);
+}
+
+/* Descriptions - High Contrast */
 .service-card p {
-  font-size: var(--text-base);
-  color: #ffffff;
+  font-size: var(--text-base); /* 14-16px */
+  color: #f0f0f0; /* Slightly off-white for descriptions */
   margin: 0;
-  opacity: 0.9;
+  opacity: 1; /* Full opacity for readability */
+  line-height: 1.6;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Section 2: FAQ Accordion */
+/* Section 2: FAQ - Information Architecture Solution with 80% Opaque Band */
 .faq-section {
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  margin-bottom: var(--space-xl);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  padding: var(--space-2xl); /* 64px for more presence */
+  background: rgba(255, 255, 255, 0.85); /* 85% opaque white band */
+  backdrop-filter: blur(10px); /* Less blur for solid feel */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.9); /* Nearly solid border */
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); /* Stronger shadow for separation */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Create clear Visual Zone separation from glass services */
+  margin-top: var(--space-3xl); /* Extra space to separate zones */
 }
 
 .faq-section:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.9); /* Full opacity on hover */
   transform: translateY(-2px);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
 }
 
 .faq-section h2 {
   font-size: var(--text-2xl);
   font-weight: 700;
-  color: #ffffff;
+  color: #1a1a1a; /* Near black for maximum contrast on white */
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-xl); /* 48px */
+  letter-spacing: -0.025em;
+  text-shadow: none; /* Remove any text shadow */
 }
 
 .faq-accordion {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--space-lg); /* 32px - Better spacing for grid */
+  align-items: start; /* Align cards to top */
 }
 
+/* FAQ Items - Compact Pills Design */
 .faq-item {
-  margin-bottom: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.7); /* More opaque for grid cards */
+  backdrop-filter: blur(5px); /* Minimal blur for solid feel */
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Dark border for definition */
+  border-radius: 20px; /* Larger radius for card feel */
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Compact pill styling */
+  min-height: 80px; /* Much smaller minimum height */
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .faq-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.85); /* More solid on hover */
+  transform: translateY(-4px); /* More pronounced lift */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-color: rgba(59, 158, 255, 0.3); /* Brand blue border on hover */
 }
 
+/* FAQ Questions - Compact Pill Design */
 .faq-question {
   width: 100%;
-  padding: 1.5rem;
+  padding: var(--space-md) var(--space-lg); /* More balanced, compact padding */
   background: transparent;
   border: none;
   text-align: left;
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: #ffffff;
+  font-size: var(--text-base); /* Smaller font for compact feel */
+  font-weight: 600; /* Slightly lighter weight */
+  color: #1a1a1a; /* Near black for maximum contrast */
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; /* Center align for compact pills */
   transition: all 0.3s ease;
+  min-height: 48px; /* Smaller touch target for compact pills */
+  line-height: 1.3; /* Tighter line height */
+  flex-shrink: 0; /* Don't shrink the question area */
 }
 
 .faq-question:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(59, 158, 255, 0.05); /* Brand blue hover */
+  border-radius: 20px 20px 0 0; /* Round top corners on hover */
 }
 
+.faq-question:focus-visible {
+  outline: 2px solid rgba(59, 158, 255, 0.8); /* Brand blue outline */
+  outline-offset: 2px;
+  border-radius: 20px 20px 0 0;
+}
+
+/* FAQ Icons - Enhanced for Grid Cards */
 .faq-icon {
-  font-size: var(--text-xl);
-  font-weight: 300;
-  color: #60a5fa;
-  transition: transform 0.3s ease;
+  font-size: var(--text-2xl); /* Larger for better visibility */
+  font-weight: 500;
+  color: #3b9eff; /* Brand blue for expand arrows */
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  margin-left: var(--space-sm); /* Space from question text */
+  flex-shrink: 0; /* Don't shrink the icon */
+  width: 32px; /* Fixed width for consistent alignment */
+  text-align: center;
 }
 
 .faq-question[aria-expanded="true"] .faq-icon {
-  transform: rotate(45deg);
+  transform: rotate(135deg);
+  color: #2563eb; /* Darker blue when expanded */
 }
 
+.faq-item:hover .faq-icon {
+  color: #1d4ed8; /* Even darker blue on card hover */
+  transform: scale(1.1);
+}
+
+.faq-question[aria-expanded="true"]:hover .faq-icon {
+  transform: rotate(135deg) scale(1.1);
+}
+
+/* FAQ Answers - Enhanced for Grid Cards */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease,
+    background-color 0.3s ease;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.2); /* Subtle background for answers */
+  border-top: 1px solid rgba(0, 0, 0, 0.05); /* Subtle separator */
+  flex-grow: 1; /* Take remaining space in the card */
 }
 
 .faq-answer.open {
-  max-height: 200px;
-  padding: 0 1.5rem 1.5rem 1.5rem;
+  max-height: 400px; /* More space for grid cards */
+  padding: var(--space-md) var(--space-lg) var(--space-lg) var(--space-lg);
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.4); /* More visible when open */
 }
 
 .faq-answer p {
   font-size: var(--text-base);
-  color: #ffffff;
-  line-height: 1.6;
+  color: #2d2d2d; /* Dark gray for answer text */
+  line-height: 1.6; /* Optimized for card reading */
   margin: 0;
-  opacity: 0.9;
+  opacity: 1; /* Full opacity for readability */
+  padding-top: var(--space-xs); /* 8px - Small breathing space */
+  /* Better typography for cards */
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
-/* Section 3: CTA Bar */
-.cta-section {
-  margin-bottom: var(--space-xl);
-}
-
-.cta-bar {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.cta-bar:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
-}
-
-.cta-main h3 {
-  font-size: var(--text-xl);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.cta-main p {
-  font-size: var(--text-base);
-  margin: 0;
-  opacity: 0.9;
-}
-
-.cta-hours {
-  text-align: right;
-}
-
-.cta-hours h4 {
-  font-size: var(--text-lg);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.cta-hours p {
-  font-size: var(--text-sm);
-  margin: 0.25rem 0;
-  opacity: 0.9;
-}
-
-/* Mobile Responsive */
+/* Mobile Responsive - Tablet (768px and below) */
 @media (max-width: 768px) {
   .services-hero {
     padding: var(--space-lg) var(--space-md);
-    margin: 1rem;
+    margin: var(--space-md);
   }
 
   .services-hero-content h1 {
@@ -339,61 +433,109 @@
 
   .services-content {
     padding: var(--space-md);
+    gap: var(--space-2xl); /* Reduce luxury spacing on tablet */
   }
 
   .services-section {
-    padding: 1.5rem;
-    margin-bottom: var(--space-xl);
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    padding: var(--space-xl);
   }
 
   .service-card {
-    padding: 1.5rem;
+    padding: var(--space-md);
+    min-height: 280px; /* Slightly smaller on tablet */
   }
 
   .faq-section {
-    padding: 1.5rem;
-    margin-bottom: var(--space-xl);
+    padding: var(--space-xl);
   }
 
   .faq-section h2 {
     font-size: var(--text-xl);
+    margin-bottom: var(--space-lg);
+  }
+
+  /* FAQ Grid Responsive - Tablet */
+  .faq-accordion {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-md); /* Smaller gap on tablet */
   }
 
   .faq-question {
-    padding: 1rem;
+    padding: var(--space-md);
     font-size: var(--text-base);
+    min-height: 50px; /* Smaller touch target on tablet */
   }
 
-  .cta-bar {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.5rem;
-  }
-
-  .cta-hours {
-    text-align: center;
+  .faq-icon {
+    font-size: var(--text-xl); /* Smaller icon on tablet */
+    width: 28px; /* Smaller fixed width */
   }
 }
 
+/* Mobile (480px and below) */
 @media (max-width: 480px) {
   .services-hero {
     padding: var(--space-md) var(--space-sm);
+    margin: var(--space-sm);
+  }
+
+  .services-hero-content h1 {
+    font-size: var(--text-xl);
   }
 
   .services-content {
     padding: var(--space-sm);
+    gap: var(--space-xl); /* Further reduce spacing on mobile */
+  }
+
+  .services-section {
+    padding: var(--space-lg);
+  }
+
+  .service-card {
+    padding: var(--space-md);
+    min-height: 240px; /* Compact on mobile */
+  }
+
+  .service-icon {
+    font-size: 4.5rem; /* Maintain larger size for visibility even on mobile */
   }
 
   .service-price {
     font-size: var(--text-xl);
   }
 
-  .cta-bar {
-    padding: 1.5rem;
+  .service-card--primary .service-price {
+    font-size: var(--text-2xl);
+  }
+
+  .faq-section {
+    padding: var(--space-lg);
+  }
+
+  /* FAQ Grid Responsive - Mobile */
+  .faq-accordion {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: var(--space-sm); /* Smallest gap on mobile */
+    max-width: 100%; /* Full width on mobile */
+  }
+
+  .faq-item {
+    min-height: 70px; /* Very compact pills on mobile */
+  }
+
+  .faq-question {
+    padding: var(--space-md);
+    font-size: var(--text-base);
+    min-height: 44px; /* Minimum iOS touch target */
+  }
+
+  .faq-icon {
+    font-size: var(--text-lg); /* Smaller icon on mobile */
+    width: 24px; /* Smallest fixed width */
+  }
+
+  .faq-answer.open {
+    max-height: 350px; /* More space for mobile reading */
   }
 }
