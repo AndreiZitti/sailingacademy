@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Footer from "../../components/Footer";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
 import "./Rent.css";
 
 function Rent() {
@@ -15,11 +16,11 @@ function Rent() {
       price: "50 lei/hr",
       icon: "🛶",
       description: t("Perfect for beginners"),
-      availability: t("Available now"),
-      status: "available",
+      badges: ["rental"],
       family: "quick-rentals",
       bgImage: "/images/canoe.jpeg",
       action: t("Walk in or call"),
+      gradientStrength: "light", // Darker photo - lighter gradients
     },
     {
       id: 2,
@@ -27,11 +28,11 @@ function Rent() {
       price: "50 lei/hr",
       icon: "🏄‍♂️",
       description: t("Great workout"),
-      availability: t("5 boards ready"),
-      status: "available",
+      badges: ["rental"],
       family: "quick-rentals",
       bgImage: "/images/SUPstock.jpeg",
       action: t("Walk in or call"),
+      gradientStrength: "strong", // Brighter photo - stronger gradients
     },
     {
       id: 3,
@@ -39,11 +40,11 @@ function Rent() {
       price: t("From 200 lei/hr"),
       icon: "🚤",
       description: t("Premium boats via app"),
-      availability: t("Partner service"),
-      status: "partner",
+      badges: ["partner", "rental"],
       family: "partner",
       bgImage: "/images/bigBoat.JPG",
       action: t("Download app"),
+      gradientStrength: "medium",
     },
     // Row 2: Core offerings
     {
@@ -52,11 +53,11 @@ function Rent() {
       price: "50-100 lei/hr",
       icon: "⛵",
       description: t("All skill levels"),
-      availability: t("Weather dependent"),
-      status: "booking",
+      badges: ["rental"],
       family: "sailing-core",
       bgImage: "/images/VantTare.jpg",
-      action: t("Book online"),
+      action: t("Book now"),
+      gradientStrength: "medium",
     },
     {
       id: 5,
@@ -64,11 +65,11 @@ function Rent() {
       price: t("From 80 lei"),
       icon: "👨‍🏫",
       description: t("Professional instructors"),
-      availability: t("Book ahead"),
-      status: "booking",
+      badges: ["lessons"],
       family: "sailing-core",
       bgImage: "/images/Curso1.webp",
-      action: t("View schedule"),
+      action: t("Contact us"),
+      gradientStrength: "strong", // Brighter photo - stronger gradients
     },
     // Row 3: Specialized
     {
@@ -77,11 +78,11 @@ function Rent() {
       price: t("Full program"),
       icon: "📜",
       description: t("Official certification"),
-      availability: t("Next course: Feb 15"),
-      status: "certification",
+      badges: ["certification"],
       family: "programs",
       bgImage: "/images/Concurs.jpg",
       action: t("View schedule"),
+      gradientStrength: "medium",
     },
     {
       id: 7,
@@ -89,11 +90,11 @@ function Rent() {
       price: t("Custom pricing"),
       icon: "🏢",
       description: t("Team building"),
-      availability: t("Up to 30 people"),
-      status: "booking",
+      badges: ["events"],
       family: "programs",
       bgImage: "/images/ClubPhoto.jpg",
       action: t("Get quote"),
+      gradientStrength: "medium",
     },
   ];
 
@@ -142,6 +143,7 @@ function Rent() {
 
   return (
     <div className="page-background">
+      <LanguageSwitcher />
       <div className="page-content">
         <div className="services-page">
           {/* Video Background */}
@@ -179,19 +181,24 @@ function Rent() {
                   {services.slice(0, 3).map((service) => (
                     <div
                       key={service.id}
-                      className={`service-card service-card--${service.family}`}
+                      className={`service-card service-card--${service.family} service-card--${service.gradientStrength}`}
                       style={{ backgroundImage: `url(${service.bgImage})` }}
                     >
                       <div className="card-background-overlay"></div>
                       <div className="card-content">
-                        <div className="service-status">
-                          <span
-                            className={`status-badge status-badge--${service.status}`}
-                          >
-                            {service.status === "available" && "🟢"}
-                            {service.status === "partner" && "🤝"}
-                            {service.status === "popular" && "🔥"}
-                          </span>
+                        <div className="service-badges">
+                          {service.badges.map((badge, index) => (
+                            <span
+                              key={index}
+                              className={`service-badge service-badge--${badge}`}
+                            >
+                              {badge === "rental" && "🛶"}
+                              {badge === "partner" && "🤝"}
+                              {badge === "lessons" && "👨‍🏫"}
+                              {badge === "certification" && "🎓"}
+                              {badge === "events" && "🏢"}
+                            </span>
+                          ))}
                         </div>
                         <div className="service-icon">{service.icon}</div>
                         <h3>{service.name}</h3>
@@ -199,9 +206,6 @@ function Rent() {
                         <p className="service-description">
                           {service.description}
                         </p>
-                        <div className="service-availability">
-                          {service.availability}
-                        </div>
                         <div className="service-action">{service.action}</div>
                       </div>
                     </div>
@@ -218,17 +222,24 @@ function Rent() {
                   {services.slice(3, 5).map((service) => (
                     <div
                       key={service.id}
-                      className={`service-card service-card--${service.family}`}
+                      className={`service-card service-card--${service.family} service-card--${service.gradientStrength}`}
                       style={{ backgroundImage: `url(${service.bgImage})` }}
                     >
                       <div className="card-background-overlay"></div>
                       <div className="card-content">
-                        <div className="service-status">
-                          <span
-                            className={`status-badge status-badge--${service.status}`}
-                          >
-                            {service.status === "booking" && "📅"}
-                          </span>
+                        <div className="service-badges">
+                          {service.badges.map((badge, index) => (
+                            <span
+                              key={index}
+                              className={`service-badge service-badge--${badge}`}
+                            >
+                              {badge === "rental" && "🛶"}
+                              {badge === "partner" && "🤝"}
+                              {badge === "lessons" && "👨‍🏫"}
+                              {badge === "certification" && "🎓"}
+                              {badge === "events" && "🏢"}
+                            </span>
+                          ))}
                         </div>
                         <div className="service-icon">{service.icon}</div>
                         <h3>{service.name}</h3>
@@ -236,9 +247,6 @@ function Rent() {
                         <p className="service-description">
                           {service.description}
                         </p>
-                        <div className="service-availability">
-                          {service.availability}
-                        </div>
                         <div className="service-action">{service.action}</div>
                       </div>
                     </div>
@@ -255,18 +263,24 @@ function Rent() {
                   {services.slice(5, 7).map((service) => (
                     <div
                       key={service.id}
-                      className={`service-card service-card--${service.family}`}
+                      className={`service-card service-card--${service.family} service-card--${service.gradientStrength}`}
                       style={{ backgroundImage: `url(${service.bgImage})` }}
                     >
                       <div className="card-background-overlay"></div>
                       <div className="card-content">
-                        <div className="service-status">
-                          <span
-                            className={`status-badge status-badge--${service.status}`}
-                          >
-                            {service.status === "certification" && "🎓"}
-                            {service.status === "booking" && "📅"}
-                          </span>
+                        <div className="service-badges">
+                          {service.badges.map((badge, index) => (
+                            <span
+                              key={index}
+                              className={`service-badge service-badge--${badge}`}
+                            >
+                              {badge === "rental" && "🛶"}
+                              {badge === "partner" && "🤝"}
+                              {badge === "lessons" && "👨‍🏫"}
+                              {badge === "certification" && "🎓"}
+                              {badge === "events" && "🏢"}
+                            </span>
+                          ))}
                         </div>
                         <div className="service-icon">{service.icon}</div>
                         <h3>{service.name}</h3>
@@ -274,9 +288,6 @@ function Rent() {
                         <p className="service-description">
                           {service.description}
                         </p>
-                        <div className="service-availability">
-                          {service.availability}
-                        </div>
                         <div className="service-action">{service.action}</div>
                       </div>
                     </div>
@@ -284,35 +295,6 @@ function Rent() {
                 </div>
               </div>
             </section>
-
-            {/* Quick Answers Banner */}
-            <div className="quick-answers-banner">
-              <div className="quick-answers-content">
-                <span className="quick-answers-title">
-                  {t("Quick Answers")}:
-                </span>
-                <div className="quick-answers-buttons">
-                  <button
-                    className="quick-answer-btn"
-                    onClick={() => toggleFAQ(0)}
-                  >
-                    {t("Do I need experience?")}
-                  </button>
-                  <button
-                    className="quick-answer-btn"
-                    onClick={() => toggleFAQ(5)}
-                  >
-                    {t("What's included?")}
-                  </button>
-                  <button
-                    className="quick-answer-btn"
-                    onClick={() => toggleFAQ(2)}
-                  >
-                    {t("How to book?")}
-                  </button>
-                </div>
-              </div>
-            </div>
 
             {/* Section 2: FAQ Accordion */}
             <section className="faq-section">

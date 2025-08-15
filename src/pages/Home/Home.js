@@ -12,6 +12,9 @@ function Home() {
   const [showArrow, setShowArrow] = useState(false);
 
   useEffect(() => {
+    // Ensure page starts at the top when component mounts
+    window.scrollTo(0, 0);
+
     const timer = setTimeout(() => {
       setShowArrow(true);
     }, 15000);

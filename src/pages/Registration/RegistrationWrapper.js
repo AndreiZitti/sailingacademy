@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import StepSelector from "./StepSelector";
 import ConsentForm from "./ConsentForm";
 import ReviewAndSubmit from "./ReviewAndSubmit";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
 import "./RegistrationWrapper.css";
 
 const RegistrationWrapper = () => {
@@ -60,6 +61,7 @@ const RegistrationWrapper = () => {
 
   return (
     <div className="page-background">
+      <LanguageSwitcher />
       <div className="page-content">
         <div className="registration-wrapper">
           <div className="registration-container">

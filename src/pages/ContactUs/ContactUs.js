@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../../components/Footer";
 import ContactSection from "../../components/ContactSection";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
 import "./ContactUs.css";
 import "../../global.css";
 import Reviews from "../../components/Contact/Reviews";
@@ -11,6 +12,7 @@ function ContactUs() {
 
   return (
     <div className="page-background">
+      <LanguageSwitcher />
       <div className="page-content">
         <div className="contact-page">
           {/* Video Background */}

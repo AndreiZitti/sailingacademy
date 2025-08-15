@@ -127,6 +127,29 @@ function ContactSection() {
     calculateCurrentStatus();
     const interval = setInterval(calculateCurrentStatus, 60000);
 
+    // Auto-scroll to current date in program schedule - decoupled from global scroll
+    const scrollToCurrentDate = () => {
+      const today = getDayName(new Date().getDay());
+      const todayElement = document.querySelector(`[data-day="${today}"]`);
+      const scheduleGrid = document.querySelector(".schedule-grid");
+
+      if (todayElement && scheduleGrid) {
+        // Calculate the position of today's element relative to the schedule grid
+        const gridRect = scheduleGrid.getBoundingClientRect();
+        const todayRect = todayElement.getBoundingClientRect();
+        const relativeTop = todayRect.top - gridRect.top;
+
+        // Scroll within the schedule grid container
+        scheduleGrid.scrollTo({
+          top: relativeTop - gridRect.height / 2 + todayRect.height / 2,
+          behavior: "smooth",
+        });
+      }
+    };
+
+    // Auto-scroll after a short delay to ensure DOM is ready
+    setTimeout(scrollToCurrentDate, 500);
+
     // Mock weather update - replace with real API call if needed
     // fetch(`https://api.openweathermap.org/data/2.5/weather?lat=44.4826&lon=26.0834&appid=YOUR_API_KEY`)
     //   .then(res => res.json())
@@ -235,20 +258,11 @@ function ContactSection() {
           <div className="status-content">
             {/* Status & Weather Section */}
             <div className="status-weather-section">
-              <div
-                className={`status-display ${
-                  isHoursExpanded ? "expanded" : ""
-                }`}
-              >
-                <button
-                  className={`view-week-btn ${isHoursExpanded ? "active" : ""}`}
-                  onClick={toggleHours}
-                >
-                  {t("View week")} <span className="arrow-icon">▼</span>
-                </button>
-
-                <div className="status-main-content">
-                  <div className="status-info">
+              <div className="status-display">
+                {/* Left side - Status and Weather stacked vertically */}
+                <div className="status-weather-stack">
+                  {/* Block 1 - Status Block */}
+                  <div className="status-block">
                     <div
                       className={`status-indicator ${
                         currentStatus.isOpen ? "open" : "closed"
@@ -259,51 +273,55 @@ function ContactSection() {
                         {currentStatus.isOpen ? t("OPEN NOW") : t("CLOSED")}
                       </span>
                     </div>
-
                     <div className="status-time">
                       {currentStatus.nextChange}
                     </div>
                   </div>
 
-                  <div className="weather-info">
-                    <span className="temperature">☀️ {weather.temp}°C</span>
-                    <span className="weather-detail">Perfect</span>
-                    <span className="weather-detail">
-                      🌬️ {weather.wind}km/h
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Week Schedule (Hidden by default) */}
-              <div
-                className={`week-schedule ${isHoursExpanded ? "expanded" : ""}`}
-              >
-                <div className="schedule-grid">
-                  {Object.entries(openingHours).map(([day, hours]) => (
-                    <div
-                      key={day}
-                      className={`schedule-day ${
-                        day === getDayName(new Date().getDay()) ? "today" : ""
-                      }`}
-                    >
-                      <span className="day-name">
-                        {getTranslatedDayName(day)}
-                      </span>
-                      <span className="day-hours">
-                        {hours.isOpen
-                          ? `${hours.hours.open} - ${hours.hours.close}`
-                          : t("Closed")}
-                      </span>
-                      <span className="day-status">
-                        {day === getDayName(new Date().getDay())
-                          ? t("Today")
-                          : hours.isOpen
-                          ? t("Open")
-                          : t("Closed")}
+                  {/* Block 2 - Weather Block */}
+                  <div className="weather-block">
+                    <div className="weather-primary">
+                      <span className="temperature">☀️ {weather.temp}°C</span>
+                      <span className="weather-detail">Perfect</span>
+                    </div>
+                    <div className="weather-secondary">
+                      <span className="weather-detail">
+                        🌬️ {weather.wind}km/h
                       </span>
                     </div>
-                  ))}
+                  </div>
+                </div>
+
+                {/* Right side - Always visible program schedule */}
+                <div className="program-schedule">
+                  <div className="program-header">{t("This Week")}</div>
+                  <div className="schedule-grid">
+                    {Object.entries(openingHours).map(([day, hours]) => (
+                      <div
+                        key={day}
+                        data-day={day}
+                        className={`schedule-day ${
+                          day === getDayName(new Date().getDay()) ? "today" : ""
+                        }`}
+                      >
+                        <span className="day-name">
+                          {getTranslatedDayName(day)}
+                        </span>
+                        <span className="day-hours">
+                          {hours.isOpen
+                            ? `${hours.hours.open} - ${hours.hours.close}`
+                            : t("Closed")}
+                        </span>
+                        <span className="day-status">
+                          {day === getDayName(new Date().getDay())
+                            ? t("Today")
+                            : hours.isOpen
+                            ? t("Open")
+                            : t("Closed")}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
