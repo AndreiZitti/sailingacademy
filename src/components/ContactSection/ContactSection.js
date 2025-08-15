@@ -164,111 +164,84 @@ function ContactSection() {
 
   return (
     <section className="contact-section">
-      {/* Header */}
-      <div className="section-header">
-        <h2>{t("Find Your Adventure")}</h2>
-        <p>{t("We're the only pier on Lake Herăstrău - you can't miss us!")}</p>
-      </div>
+      {/* 2-Box Grid Layout */}
+      <div className="contact-grid-redesign">
+        {/* LEFT BOX: Find Us - Location Hub */}
+        <div className="location-hub">
+          <div className="box-header">
+            <h3>📍 {t("Find Us")}</h3>
+          </div>
 
-      {/* Three Column Grid */}
-      <div className="contact-grid">
-        {/* Column 1: Compact Map */}
-        <div className="map-card">
-          <h3>📍 {t("Location")}</h3>
-          <div className="map-embed">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11390.776778268777!2d26.0834405!3d44.4825637!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201f24158a8c9%3A0x12345678!2sF3JM%2BW5%20Bucharest%2C%20Romania!5e0!3m2!1sen!2s!4v1699000000000!5m2!1sen!2s"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Sailing Academy - Herastrau, Șoseaua Nordului 7-9, București 014101"
-            />
-            <button className="map-overlay-btn" onClick={handleDirectionsClick}>
-              🗺️ {t("Get Directions")}
+          {/* Map Section (60% of box height) */}
+          <div className="map-section">
+            <div className="map-embed-compact">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11390.776778268777!2d26.0834405!3d44.4825637!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201f24158a8c9%3A0x12345678!2sF3JM%2BW5%20Bucharest%2C%20Romania!5e0!3m2!1sen!2s!4v1699000000000!5m2!1sen!2s"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Sailing Academy Location"
+              />
+            </div>
+            {/* Pier Photo Overlay */}
+            <div
+              className="pier-photo-overlay"
+              title={t("Only pier on the lake!")}
+            >
+              <img src="/images/entrance.jpg" alt={t("Our pier")} />
+            </div>
+          </div>
+
+          {/* Info Footer (40% of box) */}
+          <div className="location-info">
+            <div className="address">Șoseaua Nordului 7-9</div>
+            <div className="benefits">✓ {t("Free Parking")}</div>
+            <div className="transport">
+              {t("Bus")}: 131, 335 • {t("10min from Metro")}
+            </div>
+            <button className="directions-btn" onClick={handleDirectionsClick}>
+              {t("Get Directions")} →
             </button>
           </div>
-          <div className="map-footer">
-            <p>Șoseaua Nordului 7-9</p>
-            <p>{t("Free parking available")}</p>
-          </div>
         </div>
 
-        {/* Column 2: Landmark Photo */}
-        <div className="landmark-card">
-          <h3>🎯 {t("Find This Pier")}</h3>
-          <div className="pier-photo">
-            <img src="/images/entrance.jpg" alt={t("Our distinctive pier")} />
-            <div className="photo-caption">
-              {t("The only pier on the lake - your adventure starts here!")}
-            </div>
-          </div>
-          <div className="getting-here">
-            <p>
-              <strong>{t("By Car")}:</strong> {t("Free parking")}
-            </p>
-            <p>
-              <strong>{t("By Bus")}:</strong> {t("Lines 131, 335")}
-            </p>
-            <p>
-              <strong>{t("By Foot")}:</strong> {t("10min from Metro")}
-            </p>
-          </div>
-        </div>
-
-        {/* Column 3: Info Hub */}
-        <div className="info-hub">
-          {/* Weather Widget */}
-          <div className="weather-widget">
-            <h3>🌤️ {t("Lake Conditions")}</h3>
-            <div className="weather-display">
-              <div className="weather-main">
-                <span className="temp">{weather.temp}°C</span>
-                <span className="condition">{t("Perfect")}</span>
-              </div>
-              <div className="weather-details">
-                <span>
-                  💨 {t("Wind")}: {weather.wind} km/h
-                </span>
-                <span>
-                  🌊 {t("Waves")}: {t(weather.waveHeight)}
-                </span>
-              </div>
-            </div>
+        {/* RIGHT BOX: Visit Info - Status Dashboard */}
+        <div className="status-dashboard">
+          <div className="box-header">
+            <h3>{t("Plan Your Visit")}</h3>
           </div>
 
-          {/* Status & Hours */}
-          <div className="status-card">
-            <div className="open-status">
-              <span
-                className={`status-badge ${
+          {/* Status Section (top 50%) */}
+          <div className="status-section">
+            <div className="status-main">
+              <div
+                className={`status-indicator ${
                   currentStatus.isOpen ? "open" : "closed"
                 }`}
               >
                 {currentStatus.isOpen
                   ? "🟢 " + t("OPEN NOW")
                   : "🔴 " + t("CLOSED")}
-              </span>
-              <span className="hours">{currentStatus.nextChange}</span>
+              </div>
+              <div className="status-time">{currentStatus.nextChange}</div>
             </div>
-            <button className="hours-toggle" onClick={toggleHours}>
-              {t("View all hours")} {isHoursExpanded ? "▲" : "▼"}
+            <button className="view-week-btn" onClick={toggleHours}>
+              {t("View week")} {isHoursExpanded ? "↑" : "↓"}
             </button>
             {isHoursExpanded && (
-              <div className="hours-details">
+              <div className="week-schedule">
                 {Object.entries(openingHours).map(([day, hours]) => (
                   <div
                     key={day}
-                    className={`hour-item ${
+                    className={`schedule-day ${
                       day === getDayName(new Date().getDay()) ? "today" : ""
                     }`}
                   >
-                    <span className="day-name">
-                      {getTranslatedDayName(day)}
-                    </span>
-                    <span className={`time ${!hours.isOpen ? "closed" : ""}`}>
+                    <span className="day">{getTranslatedDayName(day)}</span>
+                    <span className="time">
                       {hours.isOpen
                         ? `${hours.hours.open} - ${hours.hours.close}`
                         : t("Closed")}
@@ -279,27 +252,46 @@ function ContactSection() {
             )}
           </div>
 
-          {/* Quick Contact */}
-          <div className="quick-contact">
-            <a href="tel:+40730333755" className="contact-btn">
-              📞 {t("Call Us")}
-            </a>
-            <a
-              href="#"
-              className="contact-btn whatsapp"
-              onClick={handleWhatsAppClick}
-            >
-              💬 WhatsApp
-            </a>
+          {/* Conditions Section (bottom 50%) */}
+          <div className="conditions-section">
+            <div className="weather-compact">
+              <div className="weather-line">
+                ☀️ {weather.temp}°C | {t("Perfect conditions")}
+              </div>
+              <div className="weather-details">
+                💨 {t("Wind")}: {weather.wind}km/h | 🌊 {t(weather.waveHeight)}
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
 
-          {/* Social */}
-          <div className="social-compact">
-            <span>{t("Follow")}:</span>
+      {/* BOTTOM BAR: Connection - Unified Action Strip */}
+      <div className="connection-bar">
+        <div className="contact-actions">
+          <a href="tel:+40730333755" className="action-btn">
+            📞 {t("Call")}
+          </a>
+          <a
+            href="#"
+            className="action-btn whatsapp"
+            onClick={handleWhatsAppClick}
+          >
+            💬 WhatsApp
+          </a>
+          <a href="mailto:info@sailingacademy.ro" className="action-btn">
+            ✉️ {t("Email")}
+          </a>
+        </div>
+
+        <div className="social-follow">
+          <span className="follow-text">{t("Follow")}:</span>
+          <div className="social-links">
             <a
               href="https://www.facebook.com/sailingacademy.ro/"
               target="_blank"
               rel="noopener noreferrer"
+              className="social-link"
             >
               FB
             </a>
@@ -307,6 +299,7 @@ function ContactSection() {
               href="https://www.instagram.com/sailing_academy_ro/"
               target="_blank"
               rel="noopener noreferrer"
+              className="social-link"
             >
               IG
             </a>
