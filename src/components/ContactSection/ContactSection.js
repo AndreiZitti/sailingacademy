@@ -5,6 +5,7 @@ import "./ContactSection.css";
 function ContactSection() {
   const { t } = useTranslation();
   const [isHoursExpanded, setIsHoursExpanded] = useState(false);
+  const [isMapToggled, setIsMapToggled] = useState(true); // Default to pier view (toggled)
   const [weather, setWeather] = useState({
     temp: 24,
     condition: "Clear",
@@ -162,6 +163,10 @@ function ContactSection() {
     setIsHoursExpanded(!isHoursExpanded);
   };
 
+  const toggleMapPhoto = () => {
+    setIsMapToggled(!isMapToggled);
+  };
+
   return (
     <section className="contact-section">
       {/* 2-Box Grid Layout */}
@@ -173,13 +178,21 @@ function ContactSection() {
           </div>
 
           {/* Map Section (60% of box height) */}
-          <div className="map-section">
-            <div className="map-embed-compact">
+          <div className={`map-section ${isMapToggled ? "toggled" : ""}`}>
+            <div
+              className="map-embed-compact"
+              onClick={isMapToggled ? toggleMapPhoto : undefined}
+              title={isMapToggled ? t("Click to view map") : undefined}
+              style={{ cursor: isMapToggled ? "pointer" : "default" }}
+            >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11390.776778268777!2d26.0834405!3d44.4825637!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201f24158a8c9%3A0x12345678!2sF3JM%2BW5%20Bucharest%2C%20Romania!5e0!3m2!1sen!2s!4v1699000000000!5m2!1sen!2s"
                 width="100%"
                 height="100%"
-                style={{ border: 0 }}
+                style={{
+                  border: 0,
+                  pointerEvents: isMapToggled ? "none" : "auto",
+                }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -189,18 +202,22 @@ function ContactSection() {
             {/* Pier Photo Overlay */}
             <div
               className="pier-photo-overlay"
-              title={t("Only pier on the lake!")}
+              onClick={!isMapToggled ? toggleMapPhoto : undefined}
+              title={
+                !isMapToggled
+                  ? t("Click to view pier photo")
+                  : t("Only pier on the lake!")
+              }
+              style={{ cursor: !isMapToggled ? "pointer" : "default" }}
             >
-              <img src="/images/entrance.jpg" alt={t("Our pier")} />
+              <img src="/images/pierPreview.jpeg" alt={t("Our pier")} />
             </div>
           </div>
 
           {/* Info Footer (40% of box) */}
           <div className="location-info">
-            <div className="address">Șoseaua Nordului 7-9</div>
-            <div className="benefits">✓ {t("Free Parking")}</div>
-            <div className="transport">
-              {t("Bus")}: 131, 335 • {t("10min from Metro")}
+            <div className="address">
+              Șoseaua Nordului 7-9, Behind the big wheel at Zexe
             </div>
             <button className="directions-btn" onClick={handleDirectionsClick}>
               {t("Get Directions")} →
@@ -214,7 +231,7 @@ function ContactSection() {
             <h3>{t("Plan Your Visit")}</h3>
           </div>
 
-          {/* Status Section (top 50%) */}
+          {/* Status Section (40% of card) */}
           <div className="status-section">
             <div className="status-main">
               <div
@@ -222,9 +239,12 @@ function ContactSection() {
                   currentStatus.isOpen ? "open" : "closed"
                 }`}
               >
-                {currentStatus.isOpen
-                  ? "🟢 " + t("OPEN NOW")
-                  : "🔴 " + t("CLOSED")}
+                <span className="status-dot">
+                  {currentStatus.isOpen ? "🟢" : "🔴"}
+                </span>
+                <span className="status-text">
+                  {currentStatus.isOpen ? t("OPEN NOW") : t("CLOSED")}
+                </span>
               </div>
               <div className="status-time">{currentStatus.nextChange}</div>
             </div>
@@ -252,57 +272,66 @@ function ContactSection() {
             )}
           </div>
 
-          {/* Conditions Section (bottom 50%) */}
-          <div className="conditions-section">
+          {/* Weather Section (20% of card) */}
+          <div className="weather-section">
             <div className="weather-compact">
               <div className="weather-line">
-                ☀️ {weather.temp}°C | {t("Perfect conditions")}
-              </div>
-              <div className="weather-details">
-                💨 {t("Wind")}: {weather.wind}km/h | 🌊 {t(weather.waveHeight)}
+                ☀️ <span className="temperature">{weather.temp}°C</span> Perfect
+                | 💨 {weather.wind}km/h Calm
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* BOTTOM BAR: Connection - Unified Action Strip */}
-      <div className="connection-bar">
-        <div className="contact-actions">
-          <a href="tel:+40730333755" className="action-btn">
-            📞 {t("Call")}
-          </a>
-          <a
-            href="#"
-            className="action-btn whatsapp"
-            onClick={handleWhatsAppClick}
-          >
-            💬 WhatsApp
-          </a>
-          <a href="mailto:info@sailingacademy.ro" className="action-btn">
-            ✉️ {t("Email")}
-          </a>
-        </div>
-
-        <div className="social-follow">
-          <span className="follow-text">{t("Follow")}:</span>
-          <div className="social-links">
-            <a
-              href="https://www.facebook.com/sailingacademy.ro/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-            >
-              FB
-            </a>
-            <a
-              href="https://www.instagram.com/sailing_academy_ro/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-link"
-            >
-              IG
-            </a>
+          {/* Social Section (40% of card) */}
+          <div className="social-section">
+            <div className="social-grid">
+              <a
+                href="https://www.facebook.com/sailingacademy.ro/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon-btn facebook"
+              >
+                <div className="social-icon">📘</div>
+                <div className="social-text">Facebook</div>
+              </a>
+              <a
+                href="https://www.instagram.com/sailing_academy_ro/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon-btn instagram"
+              >
+                <div className="social-icon">📷</div>
+                <div className="social-text">Instagram</div>
+              </a>
+              <a
+                href="#"
+                onClick={handleWhatsAppClick}
+                className="social-icon-btn whatsapp"
+              >
+                <div className="social-icon">💬</div>
+                <div className="social-text">WhatsApp</div>
+              </a>
+              <a
+                href="https://g.page/r/CZyxWXPKFzQ8EBM/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon-btn google"
+              >
+                <div className="social-icon">⭐</div>
+                <div className="social-text">Reviews</div>
+              </a>
+              <a
+                href="mailto:info@sailingacademy.ro"
+                className="social-icon-btn email"
+              >
+                <div className="social-icon">✉️</div>
+                <div className="social-text">Email</div>
+              </a>
+              <a href="tel:+40730333755" className="social-icon-btn call">
+                <div className="social-icon">📞</div>
+                <div className="social-text">Call</div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
