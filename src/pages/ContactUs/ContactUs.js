@@ -27,10 +27,10 @@ function ContactUs() {
           {/* Hero Section */}
           <header className="contact-hero" role="banner">
             <div className="contact-hero-content">
-              <h1>{t("Get in Touch")}</h1>
+              <h1>{t("Find Your Adventure")}</h1>
               <p>
                 {t(
-                  "Ready to start your sailing adventure? We're here to help!"
+                  "We're the only pier on Lake Herăstrău - you can't miss us!"
                 )}
               </p>
             </div>

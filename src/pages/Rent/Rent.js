@@ -146,6 +146,14 @@ function Rent() {
               </div>
             </section>
 
+            {/* Scroll Indicator */}
+            <div className="scroll-indicator">
+              <span className="scroll-indicator-text">
+                {t("More Info Below")}
+              </span>
+              <div className="scroll-arrow">↓</div>
+            </div>
+
             {/* Section 2: FAQ Accordion */}
             <section className="faq-section">
               <div className="container">
