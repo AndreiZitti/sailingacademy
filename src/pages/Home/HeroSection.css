@@ -1,3 +1,15 @@
+/* Netflix Principle Animation - Fade in from top */
+@keyframes fadeInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 video {
   object-fit: cover;
   width: 100%;
@@ -54,19 +66,31 @@ video {
 }
 
 .hero-text h1 {
-  color: var(--color-white);
-  font-size: var(--text-5xl); /* Down from 100px to 60px */
+  color: #ffffff; /* Pure white for maximum contrast - same as other pages */
+  font-size: calc(
+    var(--text-4xl) * 1.2
+  ); /* 20% increase for Netflix principle - same as other pages */
   font-weight: 700;
   margin-top: 20px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em; /* Same as other pages */
+  /* Text-shadow for depth - Netflix style floating text */
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Subtle fade-in animation */
+  animation: fadeInFromTop 1.2s ease-out;
 }
 
 .hero-text p {
   margin-top: 8px;
-  color: #fff;
-  font-size: 32px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  color: #ffffff; /* Pure white for maximum contrast - same as other pages */
+  font-size: var(--text-lg); /* Consistent with other pages */
+  font-family: system-ui, -apple-system, sans-serif; /* Modern system font */
+  opacity: 0.95;
+  line-height: 1.6;
+  /* Add subtle text-shadow for depth */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  /* Delayed fade-in animation */
+  animation: fadeInFromTop 1.2s ease-out 0.3s both;
 }
 
 /* Rotating subtitle */
