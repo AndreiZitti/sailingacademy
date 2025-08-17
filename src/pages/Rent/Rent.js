@@ -30,7 +30,7 @@ function Rent() {
       description: t("Great workout"),
       badges: ["rental"],
       family: "quick-rentals",
-      bgImage: "/images/SUPstock.jpeg",
+      bgImage: "/images/SUP_Service.jpg",
       action: t("Walk in or call"),
       gradientStrength: "strong", // Brighter photo - stronger gradients
     },
@@ -42,7 +42,7 @@ function Rent() {
       description: t("Premium boats via app"),
       badges: ["partner", "rental"],
       family: "partner",
-      bgImage: "/images/bigBoat.JPG",
+      bgImage: "/images/waterverse_service.jpeg",
       action: t("Download app"),
       gradientStrength: "medium",
     },
@@ -55,7 +55,7 @@ function Rent() {
       description: t("All skill levels"),
       badges: ["rental"],
       family: "sailing-core",
-      bgImage: "/images/VantTare.jpg",
+      bgImage: "/images/Concurs.jpg",
       action: t("Book now"),
       gradientStrength: "medium",
     },
@@ -67,7 +67,7 @@ function Rent() {
       description: t("Professional instructors"),
       badges: ["lessons"],
       family: "sailing-core",
-      bgImage: "/images/Curso1.webp",
+      bgImage: "/images/entrance.jpg",
       action: t("Contact us"),
       gradientStrength: "strong", // Brighter photo - stronger gradients
     },
@@ -80,7 +80,7 @@ function Rent() {
       description: t("Official certification"),
       badges: ["certification"],
       family: "programs",
-      bgImage: "/images/Concurs.jpg",
+      bgImage: "/images/sailingpermit_service.jpg",
       action: t("View schedule"),
       gradientStrength: "medium",
     },
@@ -92,7 +92,7 @@ function Rent() {
       description: t("Team building"),
       badges: ["events"],
       family: "programs",
-      bgImage: "/images/ClubPhoto.jpg",
+      bgImage: "/images/corporateevent_service.jpg",
       action: t("Get quote"),
       gradientStrength: "medium",
     },
@@ -141,6 +141,27 @@ function Rent() {
     setOpenFAQ(openFAQ === index ? null : index);
   };
 
+  // Action handlers for service cards
+  const handleServiceAction = (service) => {
+    switch (service.name) {
+      case t("Kayaks"):
+      case t("Stand Up Paddles"):
+      case t("Sailing Boats"):
+        window.location.href = "tel:+40730333755";
+        break;
+      case t("Sailing Lessons"):
+      case t("Sailing Permit"):
+      case t("Corporate Events"):
+        window.location.href = "mailto:info@sailingacademy.ro";
+        break;
+      case t("Waterverse"):
+        window.open("https://app.waterverse-eu.com/login", "_blank");
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className="page-background">
       <LanguageSwitcher />
@@ -183,6 +204,7 @@ function Rent() {
                       key={service.id}
                       className={`service-card service-card--${service.family} service-card--${service.gradientStrength}`}
                       style={{ backgroundImage: `url(${service.bgImage})` }}
+                      onClick={() => handleServiceAction(service)}
                     >
                       <div className="card-background-overlay"></div>
                       <div className="card-content">
@@ -224,6 +246,7 @@ function Rent() {
                       key={service.id}
                       className={`service-card service-card--${service.family} service-card--${service.gradientStrength}`}
                       style={{ backgroundImage: `url(${service.bgImage})` }}
+                      onClick={() => handleServiceAction(service)}
                     >
                       <div className="card-background-overlay"></div>
                       <div className="card-content">
@@ -265,6 +288,7 @@ function Rent() {
                       key={service.id}
                       className={`service-card service-card--${service.family} service-card--${service.gradientStrength}`}
                       style={{ backgroundImage: `url(${service.bgImage})` }}
+                      onClick={() => handleServiceAction(service)}
                     >
                       <div className="card-background-overlay"></div>
                       <div className="card-content">

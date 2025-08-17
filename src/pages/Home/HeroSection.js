@@ -5,14 +5,6 @@ import { useTranslation } from "react-i18next";
 
 function HeroSection() {
   const { t } = useTranslation();
-  const handleFindUsClick = () => {
-    const mapSection = document.getElementById("Map");
-    if (mapSection) {
-      mapSection.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-    }
-  };
   return (
     <div className="hero-wrapper">
       <div className="hero-container">
@@ -48,22 +40,6 @@ function HeroSection() {
             <h3>{t("Learn to Sail")}</h3>
             <p>{t("Courses and memberships for all ages and levels.")}</p>
           </Link>
-        </div>
-        <div
-          className="find-us-card"
-          role="button"
-          tabIndex={0}
-          onClick={handleFindUsClick}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              handleFindUsClick();
-            }
-          }}
-          aria-label={t("Find Us")}
-          title={t("Find Us")}
-        >
-          ⚓ {t("Find Us")} ↓
         </div>
       </div>
     </div>

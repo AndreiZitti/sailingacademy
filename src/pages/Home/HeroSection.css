@@ -20,6 +20,7 @@ video {
   z-index: -1;
   min-height: 100vh;
   min-width: 100vw;
+  overflow: hidden;
 }
 
 .hero-wrapper {
@@ -50,16 +51,17 @@ video {
   background-color: transparent !important;
   width: 100%;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   object-fit: cover;
+  padding-top: 15vh;
 }
 
 .hero-text {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   z-index: 5; /* Reduced to be below navbar */
   text-align: center;
   position: relative;
@@ -71,7 +73,7 @@ video {
     var(--text-4xl) * 1.2
   ); /* 20% increase for Netflix principle - same as other pages */
   font-weight: 700;
-  margin-top: 20px;
+  margin-top: 10px;
   letter-spacing: -0.025em; /* Same as other pages */
   /* Text-shadow for depth - Netflix style floating text */
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3),
@@ -93,7 +95,7 @@ video {
   height: 50px; /* Fixed height to prevent layout shift */
   overflow: hidden;
   position: relative;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .rotate-text {
@@ -145,10 +147,10 @@ video {
 .service-cards {
   display: flex;
   flex-direction: row;
-  gap: 3rem;
-  max-width: 1000px;
-  width: min(90%, 1000px);
-  margin: 3rem auto;
+  gap: 2rem;
+  max-width: 900px;
+  width: min(90%, 900px);
+  margin: 1.5rem auto;
   justify-content: center; /* Center the flex items */
   align-items: stretch; /* Equal heights */
   z-index: 5;
@@ -157,13 +159,13 @@ video {
 
 .service-card {
   flex: 1; /* Each card takes equal space in flex container */
-  max-width: 450px; /* Prevent cards from getting too wide */
+  max-width: 400px; /* Prevent cards from getting too wide */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem 2rem;
-  min-height: 350px;
+  padding: 2rem 1.5rem;
+  min-height: 280px;
   box-sizing: border-box;
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.08);
@@ -187,15 +189,15 @@ video {
 }
 
 .service-card h3 {
-  margin: 0 0 1.5rem 0;
-  font-size: 2rem;
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
   color: #ffffff !important;
 }
 
 .service-card p {
-  margin: 0 0 2rem 0;
+  margin: 0 0 1.5rem 0;
   opacity: 0.96;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #ffffff !important;
 }
 
@@ -211,33 +213,6 @@ video {
 
 .service-cards .service-card:nth-child(2) {
   animation-delay: 1s;
-}
-
-/* Find Us card / scroll indicator */
-.find-us-card {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  padding: 12px 24px;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 5; /* Reduced to be below navbar */
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
-  user-select: none;
-  font-weight: 600;
-}
-
-.find-us-card:hover {
-  transform: translateX(-50%) translateY(-5px);
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 15px 45px rgba(31, 38, 135, 0.3);
 }
 
 .hero-btns {

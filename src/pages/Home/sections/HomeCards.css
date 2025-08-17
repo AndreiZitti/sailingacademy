@@ -44,21 +44,22 @@
 }
 
 .map-full-section {
-  padding: 2rem 2rem 1rem 2rem;
+  padding: 0.5rem 2rem 1rem 2rem;
   background: transparent;
   position: relative;
   overflow: visible;
-  margin-top: 0;
-  z-index: 15; /* Higher z-index to be above the fixed hero overlay */
+  margin-top: -2rem;
+  z-index: 15;
 }
 
 /* Remove map section overlay - now handled by hero overlay */
 
 .map-title-container {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   position: relative;
   z-index: 15;
+  margin-top: -1rem;
 }
 
 /* Ensure ContactSection is properly positioned in home context */
@@ -72,13 +73,14 @@
   font-family: "Arial Black", Gadget, sans-serif;
   font-size: 3em;
   font-weight: bold;
-  margin: 20px 0 40px 0;
+  margin: 10px 0 20px 0;
   background: none;
   padding: 0;
   border-radius: 0;
   backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   box-shadow: none;
-  text-shadow: none;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   display: block;
 }
 
@@ -109,6 +111,7 @@
 
   .map-full-section {
     padding: 1.5rem 1rem 0.5rem 1rem;
+    margin-top: -1.5rem;
   }
 
   .map-title {
