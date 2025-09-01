@@ -1,17 +1,37 @@
 .language-switcher {
   display: flex;
   align-items: center;
-  position: fixed; /* Changed to fixed for better visibility */
-  top: 80px; /* Moved below navbar (navbar height + margin) */
-  right: 20px; /* More space from right */
-  z-index: 50; /* Lower than navbar but still visible */
-  background: rgba(255, 255, 255, 0.15); /* Subtle background */
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1050;
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 25px;
-  padding: 8px 12px;
+  border-radius: 20px;
+  padding: 6px 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Responsive positioning to avoid menu overlap */
+@media (max-width: 768px) {
+  .language-switcher {
+    top: 70px; /* Position below navbar on mobile */
+    right: 15px;
+    padding: 5px 8px;
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .language-switcher {
+    top: 65px;
+    right: 10px;
+    padding: 4px 6px;
+    border-radius: 16px;
+  }
 }
 
 .language-switcher button {
@@ -30,9 +50,26 @@
 }
 
 .language-switcher img {
-  width: 32px; /* Slightly larger flags */
+  width: 32px;
   height: 32px;
   object-fit: cover;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive flag sizes */
+@media (max-width: 768px) {
+  .language-switcher img {
+    width: 28px;
+    height: 28px;
+    border-radius: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .language-switcher img {
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+  }
 }

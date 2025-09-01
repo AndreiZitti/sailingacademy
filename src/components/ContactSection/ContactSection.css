@@ -278,22 +278,25 @@
   gap: 6px;
 }
 
-/* Right side - Always visible program schedule */
+/* Right side - Enhanced Program Schedule */
 .program-schedule {
   flex: 1;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.25); /* Darker background for better contrast */
   border-radius: 12px;
-  padding: 16px;
-  max-height: 180px;
+  padding: 14px; /* Slightly reduced padding */
+  max-height: 170px; /* Slightly reduced height for better fit */
   overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Added border for definition */
 }
 
 .program-header {
   color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: 13px; /* Slightly smaller */
+  font-weight: 700; /* Bolder */
+  margin-bottom: 10px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+  text-align: center; /* Center the header */
+  letter-spacing: 0.5px; /* Better spacing */
 }
 
 /* Hide the old toggle button and week schedule */
@@ -414,76 +417,83 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 10px;
-  background: rgba(255, 255, 255, 0.05);
+  padding: 5px 8px; /* Slightly reduced padding for more compact view */
+  background: rgba(255, 255, 255, 0.08); /* More visible background */
   border-radius: 6px;
   transition: all 0.2s ease;
+  margin-bottom: 4px; /* Added margin for better separation */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Added border */
 }
 
 .schedule-day:last-child {
-  margin-bottom: 0; /* Ensure no extra margin on last item */
+  margin-bottom: 0;
 }
 
 .schedule-day:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(3px); /* Slightly reduced movement */
 }
 
 .schedule-day.today {
-  background: rgba(34, 197, 94, 0.15);
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  background: rgba(34, 197, 94, 0.2); /* More visible today highlight */
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.3); /* Added glow */
 }
 
 .day-name {
-  color: #e5e7eb;
-  font-size: 12px;
-  font-weight: 500;
+  color: #ffffff; /* Pure white for better visibility */
+  font-size: 11px;
+  font-weight: 600; /* Bolder */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Added shadow */
 }
 
 .day-hours {
-  color: #60a5fa;
-  font-size: 12px;
-  font-weight: 600;
+  color: #7dd3fc; /* Lighter blue for better visibility */
+  font-size: 11px;
+  font-weight: 700; /* Bolder */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Added shadow */
 }
 
 .day-status {
-  font-size: 10px;
-  color: #9ca3af;
-  padding: 2px 6px;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+  font-size: 9px;
+  color: #d1d5db; /* Lighter gray for better visibility */
+  padding: 2px 5px;
+  background: rgba(0, 0, 0, 0.3); /* Darker background */
+  border-radius: 3px;
+  font-weight: 500;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5); /* Added shadow */
 }
 
-/* Social Section - Clean Design */
+/* Social Section - Enhanced Visibility */
 .social-section {
   flex: 1;
-  min-height: 0; /* Allow shrinking */
-  padding: 16px 12px 40px 12px; /* Further increased bottom padding for more space */
+  min-height: 0;
+  padding: 16px 12px 20px 12px; /* Reduced bottom padding for more compact layout */
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 32px; /* Increased from 22px for more breathing room */
+  margin-top: 20px; /* Reduced margin for better spacing */
 }
 
 .social-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px; /* Increased from 16px */
+  gap: 14px; /* Slightly reduced gap for better fit */
   width: 100%;
-  max-width: 320px;
+  max-width: 300px; /* Slightly smaller for better proportions */
 }
 
 .social-grid .bottom-row {
   grid-column: span 3;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: 14px;
 }
 
 .social-icon-btn {
-  height: 60px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
+  height: 50px; /* Reduced from 60px for better visibility */
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2); /* Increased opacity for better visibility */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -491,20 +501,22 @@
   color: white;
   text-decoration: none;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3); /* More visible border */
   cursor: pointer;
-  gap: 4px;
-  backdrop-filter: blur(10px);
+  gap: 2px; /* Tighter gap */
+  backdrop-filter: blur(15px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
 }
 
 .social-icon {
-  font-size: 18px;
+  font-size: 16px; /* Slightly smaller for better proportions */
 }
 
 .social-text {
-  font-size: 9px;
-  opacity: 0.8;
-  font-weight: 500;
+  font-size: 8px; /* Slightly smaller but still readable */
+  opacity: 0.9; /* Increased opacity for better visibility */
+  font-weight: 600; /* Bolder text */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Added text shadow for clarity */
 }
 
 .social-icon-btn:hover {
@@ -548,61 +560,52 @@
 /* Tablet and below */
 @media (max-width: 768px) {
   .contact-grid-redesign {
-    grid-template-columns: 1fr; /* Stack vertically */
+    grid-template-columns: 1fr;
     gap: 16px;
   }
 
   .location-hub,
   .status-dashboard {
-    height: 380px; /* Increased from 350px for better mobile spacing */
+    height: 450px; /* Further increased height for better mobile layout */
   }
 
-  .social-grid {
-    gap: 10px;
-    max-width: 180px;
+  /* Better mobile layout for status dashboard */
+  .status-content {
+    gap: 16px;
+    padding: 0 8px 16px 8px;
   }
 
-  .social-icon-btn {
-    width: 50px;
-    height: 60px;
-    gap: 1px;
+  .status-display {
+    padding: 16px 8px 12px 8px;
+    gap: 16px;
+    flex-direction: column; /* Stack vertically on tablet */
   }
 
-  .social-icon {
-    font-size: 16px;
+  .status-weather-stack {
+    width: 100%;
+    align-items: center;
+    text-align: center;
   }
 
-  .social-text {
-    font-size: 8px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  .contact-section {
-    padding: 16px;
-  }
-
-  .location-hub,
-  .status-dashboard {
-    height: 340px; /* Increased from 320px */
-    padding: 16px;
+  .program-schedule {
+    width: 100%;
+    max-height: 120px;
+    margin-top: 12px;
   }
 
   .social-section {
-    padding: 16px;
+    margin-top: 16px;
+    padding: 12px;
   }
 
   .social-grid {
-    gap: 8px;
-    max-width: 160px;
+    gap: 12px;
+    max-width: 250px;
   }
 
   .social-icon-btn {
-    width: 45px;
-    height: 55px;
-    gap: 1px;
-    padding: 2px;
+    height: 45px;
+    gap: 2px;
   }
 
   .social-icon {
@@ -611,6 +614,88 @@
 
   .social-text {
     font-size: 7px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 12px;
+  }
+
+  .location-hub,
+  .status-dashboard {
+    height: 480px; /* Significantly increased to prevent overlap */
+    padding: 14px;
+  }
+
+  /* Mobile optimized status dashboard */
+  .status-content {
+    gap: 12px;
+    padding: 0 6px 12px 6px;
+  }
+
+  .status-display {
+    padding: 12px 6px 8px 6px;
+    gap: 12px;
+    flex-direction: column;
+  }
+
+  .status-weather-stack {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .program-schedule {
+    width: 100%;
+    max-height: 110px; /* Slightly increased for better visibility */
+    padding: 10px;
+    margin-top: 8px;
+  }
+
+  .program-header {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .schedule-day {
+    padding: 4px 6px;
+    margin-bottom: 3px;
+  }
+
+  .day-name,
+  .day-hours {
+    font-size: 10px;
+  }
+
+  .day-status {
+    font-size: 8px;
+    padding: 1px 4px;
+  }
+
+  .social-section {
+    padding: 10px;
+    margin-top: 20px; /* Increased margin for better separation */
+  }
+
+  .social-grid {
+    gap: 8px;
+    max-width: 200px;
+  }
+
+  .social-icon-btn {
+    height: 40px;
+    gap: 1px;
+    padding: 2px;
+  }
+
+  .social-icon {
+    font-size: 12px;
+  }
+
+  .social-text {
+    font-size: 6px;
   }
 
   .pier-photo-overlay {

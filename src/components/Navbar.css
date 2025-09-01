@@ -3,11 +3,29 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000; /* Increased to ensure navbar stays on top */
-  background: transparent;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+  min-height: 60px;
+  padding: 0 20px;
+}
+
+/* Mobile navbar adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 15px;
+    min-height: 55px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 10px;
+    min-height: 50px;
+  }
 }
 
 .navbar-link {
@@ -28,19 +46,69 @@
   text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.9);
 }
 
-/* Mobile dropdown trigger */
+/* Mobile dropdown trigger - Compact styling */
 .navbar .dropdown-toggle {
   color: #ffffff !important;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  padding: 6px 12px !important;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 14px;
+  max-width: 80px; /* Limit width to prevent overlap */
+}
+
+/* Mobile responsive adjustments for dropdown toggle */
+@media (max-width: 480px) {
+  .navbar .dropdown-toggle {
+    padding: 5px 10px !important;
+    font-size: 13px;
+    max-width: 70px;
+    border-radius: 5px;
+  }
 }
 
 .navbar .dropdown-toggle:hover,
 .navbar .dropdown-toggle:focus {
   color: #ffffff !important;
-  opacity: 0.9;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Optional hover darkening on navbar */
+/* Dropdown menu styling */
+.navbar .dropdown-menu {
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin-top: 8px;
+  padding: 8px;
+}
+
+.navbar .dropdown-item {
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* Enhanced navbar hover effect */
 .navbar:hover {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }

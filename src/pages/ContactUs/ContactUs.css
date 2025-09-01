@@ -56,14 +56,13 @@
 /* Hero Section - Netflix Principle: Text as Design Element */
 .contact-hero {
   color: var(--color-white);
-  padding: var(--space-xl) 0; /* Remove horizontal padding for alignment */
+  padding: var(--space-xl) 0;
   text-align: center;
   position: relative;
   z-index: 15;
-  /* Optical alignment with content below */
-  max-width: 1200px; /* Same as contact-content */
-  margin: 2rem auto; /* Center with auto margins */
-  /* Structural properties only - no background/borders/shadows */
+  max-width: 1200px;
+  margin: 5rem auto 2rem auto; /* Added top margin to clear navbar */
+  padding-top: 2rem; /* Additional padding to ensure title is visible */
 }
 
 /* Remove hover effects for Netflix principle - text floats freely */
@@ -191,8 +190,9 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .contact-hero {
-    padding: var(--space-lg) 0; /* Maintain no horizontal padding */
-    margin: 1rem auto; /* Keep centered alignment */
+    padding: var(--space-lg) 0;
+    margin: 4rem auto 1rem auto; /* Maintain top margin for mobile */
+    padding-top: 1.5rem;
   }
 
   .contact-hero-content {
@@ -224,8 +224,9 @@
 
 @media (max-width: 480px) {
   .contact-hero {
-    padding: var(--space-md) 0; /* Maintain no horizontal padding */
-    margin: 0.5rem auto; /* Keep centered alignment */
+    padding: var(--space-md) 0;
+    margin: 3.5rem auto 0.5rem auto; /* Maintain top margin for small mobile */
+    padding-top: 1rem;
   }
 
   .contact-hero-content {

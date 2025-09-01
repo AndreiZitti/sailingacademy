@@ -86,7 +86,8 @@
   position: relative;
   z-index: 15;
   max-width: 1200px;
-  margin: 2rem auto;
+  margin: 5rem auto 2rem auto; /* Added top margin to clear navbar */
+  padding-top: 2rem; /* Additional padding to ensure title is visible */
 }
 
 .services-hero-content {
@@ -646,7 +647,8 @@
 @media (max-width: 768px) {
   .services-hero {
     padding: var(--space-lg) 0;
-    margin: var(--space-md) auto;
+    margin: 4rem auto var(--space-md) auto; /* Maintain top margin for mobile */
+    padding-top: 1.5rem;
   }
 
   .services-hero-content {
@@ -727,7 +729,8 @@
 @media (max-width: 480px) {
   .services-hero {
     padding: var(--space-md) 0;
-    margin: var(--space-sm) auto;
+    margin: 3.5rem auto var(--space-sm) auto; /* Maintain top margin for small mobile */
+    padding-top: 1rem;
   }
 
   .services-hero-content {
