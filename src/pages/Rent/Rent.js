@@ -31,7 +31,7 @@ function Rent() {
       badges: ["rental"],
       family: "quick-rentals",
       bgImage: "/images/SUP_Service.jpg",
-      action: t("Call now"),
+      action: t("Call"),
       gradientStrength: "strong", // Brighter photo - stronger gradients
     },
     {
@@ -39,11 +39,11 @@ function Rent() {
       name: t("Electronic Boats"),
       price: t("From 200 lei/hr"),
       icon: "⚡",
-      description: t("Eco-friendly electric boats"),
+      description: t("Eco-friendly boats"),
       badges: ["rental"],
       family: "quick-rentals",
       bgImage: "/images/waterverse_service.jpeg",
-      action: t("Call now"),
+      action: t("Call"),
       gradientStrength: "medium",
     },
     // Row 2: Core offerings

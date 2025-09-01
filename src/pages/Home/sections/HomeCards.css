@@ -102,6 +102,7 @@
 @media (max-width: 768px) {
   .section-spacing {
     padding: 2rem 1rem;
+    margin-bottom: 2rem;
   }
 
   .section-spacing h1 {
@@ -110,8 +111,8 @@
   }
 
   .map-full-section {
-    padding: 1.5rem 1rem 0.5rem 1rem;
-    margin-top: -1.5rem;
+    padding: 2rem 1rem 1rem 1rem;
+    margin-top: 0;
   }
 
   .map-title {
@@ -120,16 +121,32 @@
   }
 
   .map-title-container {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
   }
 }
 
 @media (max-width: 480px) {
+  .section-spacing {
+    padding: 1.5rem 1rem;
+    margin-bottom: 2.5rem;
+  }
+  
   .section-spacing h1 {
     font-size: 2rem;
   }
 
+  .map-full-section {
+    padding: 2.5rem 1rem 1.5rem 1rem;
+    margin-top: 0;
+  }
+
   .map-title {
     font-size: 2rem;
+  }
+  
+  .map-title-container {
+    margin-bottom: 2.5rem;
+    margin-top: 1.5rem;
   }
 }

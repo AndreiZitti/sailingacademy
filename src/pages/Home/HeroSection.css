@@ -238,10 +238,13 @@ video {
     flex-direction: column; /* Stack vertically on mobile */
     gap: 1.25rem;
     max-width: 520px;
+    margin-bottom: 12rem; /* Even more spacing */
   }
   .service-card {
     min-height: 280px;
     padding: 2rem 1.5rem;
+    animation: none; /* Disable floating animation on mobile */
+    z-index: 2; /* Lower z-index to ensure no overlap */
   }
 
   .rotating-subtitle {
@@ -250,5 +253,32 @@ video {
 
   .rotate-text {
     font-size: 18px !important; /* Smaller font for mobile */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-container {
+    padding-bottom: 5rem; /* More padding at bottom of hero */
+  }
+  
+  .service-cards {
+    margin-bottom: 15rem; /* Maximum spacing for smallest mobile screens */
+    gap: 1rem;
+  }
+  
+  .service-card {
+    min-height: 260px;
+    padding: 1.5rem 1rem;
+    animation: none; /* Ensure no floating animation on small mobile */
+    transform: none; /* Reset any transforms */
+    z-index: 2; /* Lower z-index to ensure no overlap */
+  }
+  
+  .hero-text h1 {
+    font-size: var(--text-3xl);
+  }
+  
+  .hero-text p {
+    font-size: 150%;
   }
 }

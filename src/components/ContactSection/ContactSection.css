@@ -626,12 +626,18 @@
 @media (max-width: 480px) {
   .contact-section {
     padding: 12px;
+    margin-bottom: 40px;
+  }
+
+  .contact-grid-redesign {
+    margin-bottom: 40px;
   }
 
   .location-hub,
   .status-dashboard {
     height: 480px; /* Significantly increased to prevent overlap */
     padding: 14px;
+    margin-bottom: 20px;
   }
 
   /* Mobile optimized status dashboard */

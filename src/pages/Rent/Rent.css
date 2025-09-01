@@ -683,14 +683,14 @@
   }
 
   .service-card {
-    min-height: 280px;
+    min-height: 300px;
     max-width: 100%;
   }
 
   .card-content {
     padding: var(--space-md);
-    height: 280px;
-    min-height: 280px;
+    height: 300px;
+    min-height: 300px;
   }
 
   .service-badges {
@@ -755,13 +755,13 @@
   }
 
   .service-card {
-    min-height: 240px;
+    min-height: 280px;
   }
 
   .card-content {
     padding: var(--space-md);
-    height: 240px;
-    min-height: 240px;
+    height: 280px;
+    min-height: 280px;
   }
 
   .service-badges {
