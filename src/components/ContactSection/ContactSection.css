@@ -486,7 +486,7 @@
 .social-grid .bottom-row {
   grid-column: span 3;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
 }
 
@@ -548,6 +548,11 @@
 .social-icon-btn.email:hover {
   background: rgba(59, 130, 246, 0.2);
   border-color: rgba(59, 130, 246, 0.4);
+}
+
+.social-icon-btn.tripadvisor:hover {
+  background: rgba(255, 165, 0, 0.2);
+  border-color: rgba(255, 165, 0, 0.4);
 }
 
 .social-icon-btn.call:hover {

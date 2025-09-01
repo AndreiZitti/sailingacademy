@@ -31,19 +31,19 @@ function Rent() {
       badges: ["rental"],
       family: "quick-rentals",
       bgImage: "/images/SUP_Service.jpg",
-      action: t("Walk in or call"),
+      action: t("Call now"),
       gradientStrength: "strong", // Brighter photo - stronger gradients
     },
     {
       id: 3,
-      name: t("Waterverse"),
+      name: t("Electronic Boats"),
       price: t("From 200 lei/hr"),
-      icon: "🚤",
-      description: t("Premium boats via app"),
-      badges: ["partner", "rental"],
-      family: "partner",
+      icon: "⚡",
+      description: t("Eco-friendly electric boats"),
+      badges: ["rental"],
+      family: "quick-rentals",
       bgImage: "/images/waterverse_service.jpeg",
-      action: t("Download app"),
+      action: t("Call now"),
       gradientStrength: "medium",
     },
     // Row 2: Core offerings
@@ -146,6 +146,7 @@ function Rent() {
     switch (service.name) {
       case t("Kayaks"):
       case t("Stand Up Paddles"):
+      case t("Electronic Boats"):
       case t("Sailing Boats"):
         window.location.href = "tel:+40730333755";
         break;
@@ -153,9 +154,6 @@ function Rent() {
       case t("Sailing Permit"):
       case t("Corporate Events"):
         window.location.href = "mailto:info@sailingacademy.ro";
-        break;
-      case t("Waterverse"):
-        window.open("https://app.waterverse-eu.com/login", "_blank");
         break;
       default:
         break;

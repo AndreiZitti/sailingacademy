@@ -20,7 +20,7 @@ function ContactSection() {
 
   // Opening hours data
   const openingHours = {
-    monday: { isOpen: false, hours: null },
+    monday: { isOpen: true, hours: { open: "09:00", close: "20:00" } },
     tuesday: { isOpen: true, hours: { open: "09:00", close: "20:00" } },
     wednesday: { isOpen: true, hours: { open: "09:00", close: "20:00" } },
     thursday: { isOpen: true, hours: { open: "09:00", close: "20:00" } },
@@ -240,7 +240,7 @@ function ContactSection() {
           {/* Info Footer (40% of box) */}
           <div className="location-info">
             <div className="address">
-              Șoseaua Nordului 7-9, Behind the big wheel at Zexe
+              Șoseaua Nordului 7-9, Behind the "Roata mare" at Zeno
             </div>
             <button className="directions-btn" onClick={handleDirectionsClick}>
               {t("Get Directions")} →
@@ -349,16 +349,25 @@ function ContactSection() {
                   <span className="social-text">Instagram</span>
                 </a>
                 <a
-                  href="#"
-                  onClick={handleWhatsAppClick}
-                  className="social-icon-btn whatsapp"
+                  href="https://www.tripadvisor.com/Attraction_Review-g294458-d33442056-Reviews-Sailing_Academy_Herastrau_Bucuresti-Bucharest.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-icon-btn tripadvisor"
                 >
-                  <span className="social-icon">💬</span>
-                  <span className="social-text">WhatsApp</span>
+                  <span className="social-icon">🏆</span>
+                  <span className="social-text">TripAdvisor</span>
                 </a>
 
-                {/* Bottom row - 2 contact icons */}
+                {/* Bottom row - 3 contact icons */}
                 <div className="bottom-row">
+                  <a
+                    href="#"
+                    onClick={handleWhatsAppClick}
+                    className="social-icon-btn whatsapp"
+                  >
+                    <span className="social-icon">💬</span>
+                    <span className="social-text">WhatsApp</span>
+                  </a>
                   <a
                     href="mailto:info@sailingacademy.ro"
                     className="social-icon-btn email"
