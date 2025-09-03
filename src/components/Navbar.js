@@ -24,14 +24,12 @@ function NavbarComponent() {
       </RouterLink>
 
       <Nav className="ml-auto w-100" navbar>
-        {/* Membership temporarily hidden for production
         <RouterLink
           className="nav-link d-none d-md-block navbar-link"
-          to="/registration"
+          to="/membership"
         >
           {t("Membership")}
         </RouterLink>
-        */}
         <RouterLink
           className="nav-link d-none d-md-block navbar-link"
           to="/rent"
@@ -54,12 +52,9 @@ function NavbarComponent() {
             <DropdownItem tag={RouterLink} to="/">
               {t("Home")}
             </DropdownItem>
-
-            {/* Membership temporarily hidden for production
-            <DropdownItem tag={RouterLink} to="/registration">
+            <DropdownItem tag={RouterLink} to="/membership">
               {t("Membership")}
             </DropdownItem>
-            */}
             <DropdownItem tag={RouterLink} to="/rent">
               {t("Services")}
             </DropdownItem>

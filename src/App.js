@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarComponent from "./components/Navbar";
 import Home from "./pages/Home/Home";
 import ContactUs from "./pages/ContactUs/ContactUs";
-import RegistrationWrapper from "./pages/Registration/RegistrationWrapper";
+import MembershipWrapper from "./pages/Membership/MembershipWrapper";
 import Rent from "./pages/Rent/Rent";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./i18n"; // path to your i18n.js
@@ -38,7 +38,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact-us" element={<ContactUs />} />
-            <Route path="/registration" element={<RegistrationWrapper />} />
+            <Route path="/membership" element={<MembershipWrapper />} />
             <Route path="/rent" element={<Rent />} />
           </Routes>
         </div>

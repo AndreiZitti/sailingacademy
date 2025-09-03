@@ -36,6 +36,7 @@ const StepSelector = ({ formData, updateFormData, onNext }) => {
       value: "junior",
       label: "Junior (under 18)",
       desc: "For members under 18 years old",
+      price: "100 lei/month",
       details:
         "Includes access to youth programs, requires parent approval, and special coaching for young sailors.",
     },
@@ -43,6 +44,7 @@ const StepSelector = ({ formData, updateFormData, onNext }) => {
       value: "adult",
       label: "Adult (18-49)",
       desc: "For members aged 18-49",
+      price: "150 lei/month",
       details:
         "Full access to all club facilities, racing events, and adult training programs.",
     },
@@ -50,6 +52,7 @@ const StepSelector = ({ formData, updateFormData, onNext }) => {
       value: "senior",
       label: "Senior (50+)",
       desc: "For members aged 50 and above",
+      price: "100 lei/month",
       details:
         "Includes all adult benefits plus special senior events and priority booking for courses.",
     },
@@ -57,6 +60,7 @@ const StepSelector = ({ formData, updateFormData, onNext }) => {
       value: "supporter",
       label: "Supporter",
       desc: "Non-sailing supporters",
+      price: "150 lei/month",
       details:
         "Perfect for those who want to support the club without actively sailing. Includes social events and club access.",
     },
@@ -104,6 +108,11 @@ const StepSelector = ({ formData, updateFormData, onNext }) => {
       memberTier: tier,
     });
     setShowPersonalInfo(true);
+  };
+
+  // Helper function to determine if we should use child-first form
+  const shouldUseChildForm = () => {
+    return formData.type === "trial" || formData.memberTier === "junior";
   };
 
   const handleInputChange = (field, value) => {
@@ -450,6 +459,7 @@ const StepSelector = ({ formData, updateFormData, onNext }) => {
                     <div className="tier-content">
                       <h4 className="tier-label">{t(tier.label)}</h4>
                       <p className="tier-desc">{t(tier.desc)}</p>
+                      <p className="tier-price">{tier.price}</p>
                       <p className="tier-details">{t(tier.details)}</p>
                     </div>
                   </div>
@@ -469,7 +479,7 @@ const StepSelector = ({ formData, updateFormData, onNext }) => {
                 ? t("Your Membership Details")
                 : t("Trial Course Information")}
             </h3>
-            <p className="section-description">
+            <p className="form-description">
               {formData.type === "yearlong"
                 ? t(
                     "Tell us about yourself so we can create your perfect sailing membership"
@@ -479,8 +489,237 @@ const StepSelector = ({ formData, updateFormData, onNext }) => {
                   )}
             </p>
 
-            {formData.type === "yearlong" ? (
-              // Year-long membership form
+            {shouldUseChildForm() ? (
+              // Child-first form (for junior and trial)
+              <div className="form-fields">
+                {/* Child Information */}
+                <div className="field-group">
+                  <h4 className="subsection-title">{t("Child Information")}</h4>
+                  <div className="field-row">
+                    <div className="field">
+                      <label className="field-label">{t("Child's Full Name")}</label>
+                      <input
+                        type="text"
+                        value={personalData.childName || personalData.name}
+                        onChange={(e) =>
+                          handleInputChange(formData.type === "trial" ? "childName" : "name", e.target.value)
+                        }
+                        className="field-input"
+                        required
+                      />
+                    </div>
+
+                    <div className="field">
+                      <label className="field-label">
+                        {t("Child's Date of Birth")}
+                      </label>
+                      <input
+                        type="date"
+                        value={personalData.childDob || personalData.dob}
+                        onChange={(e) =>
+                          handleInputChange(formData.type === "trial" ? "childDob" : "dob", e.target.value)
+                        }
+                        className="field-input"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Parent Information */}
+                <div className="field-group parent-info">
+                  <h4 className="subsection-title">
+                    {t("Parent/Guardian Information")}
+                  </h4>
+                  <div className="field">
+                    <label className="field-label">
+                      {t("Parent/Guardian Name")}
+                    </label>
+                    <input
+                      type="text"
+                      value={personalData.parentName}
+                      onChange={(e) =>
+                        handleInputChange("parentName", e.target.value)
+                      }
+                      className="field-input"
+                      required
+                    />
+                  </div>
+
+                  <div className="field-row">
+                    <div className="field">
+                      <label className="field-label">
+                        {t("Parent Email")}
+                      </label>
+                      <input
+                        type="email"
+                        value={personalData.parentEmail}
+                        onChange={(e) =>
+                          handleInputChange("parentEmail", e.target.value)
+                        }
+                        className="field-input"
+                        required
+                      />
+                    </div>
+
+                    <div className="field">
+                      <label className="field-label">
+                        {t("Parent Phone")}
+                      </label>
+                      <input
+                        type="tel"
+                        value={personalData.parentPhone}
+                        onChange={(e) =>
+                          handleInputChange("parentPhone", e.target.value)
+                        }
+                        className="field-input"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="field">
+                    <label className="checkbox-field">
+                      <input
+                        type="checkbox"
+                        checked={personalData.parentConsent}
+                        onChange={(e) =>
+                          handleInputChange("parentConsent", e.target.checked)
+                        }
+                        className="checkbox-input"
+                        required
+                      />
+                      <span className="checkbox-label">
+                        {t(
+                          "I, the parent/legal guardian, give my consent for this membership"
+                        )}
+                      </span>
+                    </label>
+                  </div>
+                </div>
+
+                {/* Course/Additional Information (only for trial) */}
+                {formData.type === "trial" && (
+                  <div className="field-group">
+                    <h4 className="subsection-title">
+                      {t("Course Information")}
+                    </h4>
+                    <div className="field">
+                      <label className="field-label">{t("Course Name")}</label>
+                      <input
+                        type="text"
+                        value={personalData.course}
+                        onChange={(e) =>
+                          handleInputChange("course", e.target.value)
+                        }
+                        placeholder={t("e.g., Beginner Sailing Course")}
+                        className="field-input"
+                        required
+                      />
+                    </div>
+
+                    <div className="field">
+                      <label className="checkbox-field">
+                        <input
+                          type="checkbox"
+                          checked={personalData.canSwim}
+                          onChange={(e) =>
+                            handleInputChange("canSwim", e.target.checked)
+                          }
+                          className="checkbox-input"
+                          required
+                        />
+                        <span className="checkbox-label">
+                          {t(
+                            "My child can swim and is medically fit for sailing activities"
+                          )}
+                        </span>
+                      </label>
+                    </div>
+
+                    <div className="field">
+                      <label className="field-label">
+                        {t("Notes for Instructor (Optional)")}
+                      </label>
+                      <textarea
+                        value={personalData.notes}
+                        onChange={(e) =>
+                          handleInputChange("notes", e.target.value)
+                        }
+                        placeholder={t(
+                          "Any additional information about your child that might be helpful for the instructor..."
+                        )}
+                        className="field-textarea"
+                        rows="3"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Payment Method (only for year-long junior) */}
+                {formData.type === "yearlong" && (
+                  <div className="field-group payment-methods">
+                    <h4 className="subsection-title">{t("Payment Method")}</h4>
+                    <div className="payment-options">
+                      {[
+                        {
+                          value: "cash",
+                          label: t("Cash Payment"),
+                          icon: "💰",
+                          desc: t("Pay in cash at the club"),
+                        },
+                        {
+                          value: "card",
+                          label: t("Credit/Debit Card"),
+                          icon: "💳",
+                          desc: t("Secure online card payment"),
+                        },
+                        {
+                          value: "bank_transfer",
+                          label: t("Bank Transfer"),
+                          icon: "🏦",
+                          desc: t("Direct bank transfer"),
+                        },
+                      ].map((method) => (
+                        <div
+                          key={method.value}
+                          className={`payment-option ${
+                            personalData.paymentMethod === method.value
+                              ? "selected"
+                              : ""
+                          }`}
+                          onClick={() =>
+                            handleInputChange("paymentMethod", method.value)
+                          }
+                        >
+                          <input
+                            type="radio"
+                            name="paymentMethod"
+                            value={method.value}
+                            checked={personalData.paymentMethod === method.value}
+                            onChange={(e) =>
+                              handleInputChange("paymentMethod", e.target.value)
+                            }
+                            className="payment-radio"
+                            required
+                          />
+                          <div className="payment-content">
+                            <div className="payment-header">
+                              <span className="payment-icon">{method.icon}</span>
+                              <span className="payment-label">
+                                {method.label}
+                              </span>
+                            </div>
+                            <span className="payment-desc">{method.desc}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              // Adult form (for non-junior year-long memberships)
               <div className="form-fields">
                 {/* Personal Information */}
                 <div className="field-group">
@@ -687,148 +926,6 @@ const StepSelector = ({ formData, updateFormData, onNext }) => {
                         </div>
                       </div>
                     ))}
-                  </div>
-                </div>
-              </div>
-            ) : (
-              // Trial membership form
-              <div className="form-fields">
-                {/* Parent Information */}
-                <div className="field-group">
-                  <h4 className="subsection-title">
-                    {t("Parent/Guardian Information")}
-                  </h4>
-                  <div className="field">
-                    <label className="field-label">
-                      {t("Parent/Guardian Name")}
-                    </label>
-                    <input
-                      type="text"
-                      value={personalData.parentName}
-                      onChange={(e) =>
-                        handleInputChange("parentName", e.target.value)
-                      }
-                      className="field-input"
-                      required
-                    />
-                  </div>
-
-                  <div className="field-row">
-                    <div className="field">
-                      <label className="field-label">{t("Parent Email")}</label>
-                      <input
-                        type="email"
-                        value={personalData.parentEmail}
-                        onChange={(e) =>
-                          handleInputChange("parentEmail", e.target.value)
-                        }
-                        className="field-input"
-                        required
-                      />
-                    </div>
-
-                    <div className="field">
-                      <label className="field-label">{t("Parent Phone")}</label>
-                      <input
-                        type="tel"
-                        value={personalData.parentPhone}
-                        onChange={(e) =>
-                          handleInputChange("parentPhone", e.target.value)
-                        }
-                        className="field-input"
-                        required
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Child Information */}
-                <div className="field-group">
-                  <h4 className="subsection-title">{t("Child Information")}</h4>
-                  <div className="field-row">
-                    <div className="field">
-                      <label className="field-label">{t("Child Name")}</label>
-                      <input
-                        type="text"
-                        value={personalData.childName}
-                        onChange={(e) =>
-                          handleInputChange("childName", e.target.value)
-                        }
-                        className="field-input"
-                        required
-                      />
-                    </div>
-
-                    <div className="field">
-                      <label className="field-label">
-                        {t("Child Date of Birth")}
-                      </label>
-                      <input
-                        type="date"
-                        value={personalData.childDob}
-                        onChange={(e) =>
-                          handleInputChange("childDob", e.target.value)
-                        }
-                        className="field-input"
-                        required
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Course Information */}
-                <div className="field-group">
-                  <h4 className="subsection-title">
-                    {t("Course Information")}
-                  </h4>
-                  <div className="field">
-                    <label className="field-label">{t("Course Name")}</label>
-                    <input
-                      type="text"
-                      value={personalData.course}
-                      onChange={(e) =>
-                        handleInputChange("course", e.target.value)
-                      }
-                      placeholder={t("e.g., Beginner Sailing Course")}
-                      className="field-input"
-                      required
-                    />
-                  </div>
-
-                  <div className="field">
-                    <label className="checkbox-field">
-                      <input
-                        type="checkbox"
-                        checked={personalData.canSwim}
-                        onChange={(e) =>
-                          handleInputChange("canSwim", e.target.checked)
-                        }
-                        className="checkbox-input"
-                        required
-                      />
-                      <span className="checkbox-label">
-                        {t(
-                          "My child can swim and is medically fit for sailing activities"
-                        )}
-                      </span>
-                    </label>
-                  </div>
-
-                  <div className="field">
-                    <label className="field-label">
-                      {t("Notes for Instructor (Optional)")}
-                    </label>
-                    <textarea
-                      value={personalData.notes}
-                      onChange={(e) =>
-                        handleInputChange("notes", e.target.value)
-                      }
-                      placeholder={t(
-                        "Any additional information about your child that might be helpful for the instructor..."
-                      )}
-                      className="field-textarea"
-                      rows="3"
-                    />
                   </div>
                 </div>
               </div>

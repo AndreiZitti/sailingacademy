@@ -36,7 +36,7 @@ function HeroSection() {
             <h3>{t("Quick Rentals")}</h3>
             <p>{t("Kayak, SUP, and sailboats. Book a quick session!")}</p>
           </Link>
-          <Link to="/registration" className="service-card">
+          <Link to="/membership" className="service-card">
             <h3>{t("Learn to Sail")}</h3>
             <p>{t("Courses and memberships for all ages and levels.")}</p>
           </Link>

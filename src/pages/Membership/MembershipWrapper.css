@@ -1,0 +1,482 @@
+/* Membership Page - Consistent with other pages design pattern */
+
+/* Netflix Principle Animation - Fade in from top */
+@keyframes fadeInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Base Layout with Video Background */
+.membership-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Strong Overlay - Identical to other pages for consistent contrast */
+.membership-wrapper::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.4) 15%,
+    rgba(0, 0, 0, 0.35) 30%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.35) 70%,
+    rgba(0, 0, 0, 0.4) 85%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Video Background */
+.membership-wrapper .background-video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.membership-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 15;
+  padding: 0 2rem;
+}
+
+/* Header Section - Netflix Principle: Text as Design Element */
+.membership-header {
+  text-align: center;
+  margin: 5rem auto 3rem auto;
+  padding-top: 2rem;
+  position: relative;
+  z-index: 15;
+}
+
+.header-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  color: white;
+}
+
+.membership-header h1 {
+  font-size: calc(var(--text-4xl, 3rem) * 1.2);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 8px 16px rgba(0, 0, 0, 0.2);
+  animation: fadeInFromTop 1.2s ease-out;
+}
+
+.membership-header p {
+  font-size: 1.25rem;
+  color: #ffffff;
+  max-width: 32rem;
+  margin: 0 auto;
+  line-height: 1.6;
+  opacity: 0.95;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  animation: fadeInFromTop 1.2s ease-out 0.3s both;
+}
+
+/* Progress Steps */
+.progress-container {
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.progress-line {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 2px;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #2563eb, #0891b2);
+  border-radius: 2px;
+  transition: width 0.5s ease-out;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.steps-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-circle {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  color: white;
+}
+
+.step-circle.active {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(8, 145, 178, 0.8));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid rgba(37, 99, 235, 0.4);
+  color: white;
+  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.4);
+  transform: scale(1.1);
+}
+
+.step-content {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.step-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.step-label.active {
+  color: #ffffff;
+}
+
+.step-title {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.step-title.active {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Form Content - Consistent Glassmorphism */
+.form-container {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.form-content {
+  padding: 2rem 3rem;
+}
+
+/* Footer */
+.membership-footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.membership-footer a {
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.membership-footer a:hover {
+  color: #93c5fd;
+}
+
+/* Form Elements with Good Contrast */
+.form-section {
+  margin-bottom: 1.5rem;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.form-description {
+  color: #4b5563;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(37, 99, 235, 0.5);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #ffffff;
+  resize: vertical;
+  min-height: 80px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.form-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-textarea:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(37, 99, 235, 0.5);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.form-error {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #fca5a5;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Styles - Consistent with other pages */
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(8, 145, 178, 0.8));
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, rgba(29, 78, 216, 0.9), rgba(14, 116, 144, 0.9));
+  transform: translateY(-1px);
+  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-full {
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transform: scale(1);
+  transition: all 0.2s ease;
+}
+
+.btn-full:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+}
+
+/* Grid layouts */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .membership-container {
+    padding: 0 1rem;
+  }
+
+  .membership-header {
+    margin: 4rem auto 2rem auto;
+    padding-top: 1.5rem;
+  }
+
+  .membership-header h1 {
+    font-size: 2rem;
+  }
+
+  .membership-header p {
+    font-size: 1rem;
+  }
+
+  .form-content {
+    padding: 1.5rem;
+  }
+
+  .form-grid-2,
+  .form-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .steps-container {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .step-circle {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .membership-header {
+    margin: 3.5rem auto 1rem auto;
+    padding-top: 1rem;
+  }
+
+  .membership-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .form-content {
+    padding: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
