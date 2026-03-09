@@ -1,6 +1,3 @@
-/* Google Fonts - must be first */
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
-
 @import "tailwindcss";
 
 @theme {
@@ -24,9 +21,9 @@
   --color-sand-400: #facc15;
   --color-sand-500: #eab308;
 
-  /* Typography */
-  --font-family-sans: 'Source Sans 3', system-ui, sans-serif;
-  --font-family-display: 'Libre Baskerville', Georgia, serif;
+  /* Typography - fonts loaded via next/font in layout.tsx */
+  --font-family-sans: var(--font-source-sans), system-ui, sans-serif;
+  --font-family-display: var(--font-libre-baskerville), Georgia, serif;
 }
 
 @layer base {

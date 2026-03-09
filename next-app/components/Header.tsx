@@ -65,21 +65,19 @@ export default function Header({ locale, dict }: HeaderProps) {
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center gap-3 group">
-            <div className="relative w-12 h-12 overflow-hidden rounded-full ring-2 ring-ocean-200 group-hover:ring-ocean-400 transition-all">
+          <Link href={`/${locale}`} className="flex items-center group">
+            <div className={`relative h-10 w-auto transition-all ${
+              isScrolled ? 'brightness-100' : 'brightness-0 invert drop-shadow-lg'
+            }`}>
               <Image
                 src="/logoSA.png"
                 alt="Sailing Academy"
-                fill
-                className="object-cover"
+                width={87}
+                height={40}
+                className="h-10 w-auto object-contain"
                 priority
               />
             </div>
-            <span className={`font-display text-xl font-semibold tracking-tight hidden sm:block transition-colors ${
-              isScrolled ? 'text-ocean-900' : 'text-white drop-shadow-lg'
-            }`}>
-              Sailing Academy
-            </span>
           </Link>
 
           {/* Desktop Navigation */}

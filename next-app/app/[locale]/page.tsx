@@ -57,11 +57,13 @@ export default async function HomePage({
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <Image
-            src="/images/apus.jpg"
-            alt="Sunset on Herastrau Lake"
+            src="/images/pierPreview.jpeg"
+            alt="Sailing Academy pier on Herastrau Lake"
             fill
             className="object-cover"
             priority
+            sizes="100vw"
+            quality={85}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-ocean-900/70 via-ocean-800/50 to-ocean-900/80" />
         </div>

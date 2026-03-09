@@ -52,18 +52,16 @@ export default function Footer({ locale, dict }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link href={`/${locale}`} className="flex items-center gap-3 mb-5 group">
-              <div className="relative w-14 h-14 overflow-hidden rounded-full ring-2 ring-ocean-400 group-hover:ring-sand-400 transition-all">
+            <Link href={`/${locale}`} className="flex items-center mb-5 group">
+              <div className="relative h-10 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 transition-all">
                 <Image
                   src="/logoSA.png"
                   alt="Sailing Academy"
-                  fill
-                  className="object-cover"
+                  width={87}
+                  height={40}
+                  className="h-10 w-auto object-contain"
                 />
               </div>
-              <span className="font-display text-xl font-semibold text-white">
-                Sailing Academy
-              </span>
             </Link>
             <p className="text-ocean-200 text-sm leading-relaxed">
               {locale === 'ro'

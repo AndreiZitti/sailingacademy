@@ -1,5 +1,21 @@
 import type { Metadata } from "next";
+import { Source_Sans_3, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
+
+// Optimized font loading - no render blocking
+const sourceSans = Source_Sans_3({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-source-sans",
+  display: "swap",
+});
+
+const libreBaskerville = Libre_Baskerville({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-libre-baskerville",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.sailingacademy.ro'),
@@ -21,10 +37,10 @@ export const metadata: Metadata = {
     description: "Rent kayaks, SUP boards, electric boats, and sailing boats on Herastrau Lake in Bucharest.",
     images: [
       {
-        url: "/images/apus.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Sailing Academy Herastrau - Sunset on the lake",
+        url: "/images/pierPreview.jpeg",
+        width: 2048,
+        height: 1152,
+        alt: "Sailing Academy Herastrau - Pier on the lake",
       },
     ],
   },
@@ -32,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sailing Academy Herastrau",
     description: "Rent kayaks, SUP boards, electric boats, and sailing boats on Herastrau Lake in Bucharest.",
-    images: ["/images/apus.jpg"],
+    images: ["/images/pierPreview.jpeg"],
   },
   robots: {
     index: true,
@@ -83,7 +99,7 @@ const jsonLd = {
     closes: "20:00",
   },
   image: [
-    "https://www.sailingacademy.ro/images/apus.jpg",
+    "https://www.sailingacademy.ro/images/pierPreview.jpeg",
     "https://www.sailingacademy.ro/images/bigBoat.JPG",
     "https://www.sailingacademy.ro/images/SUP_Service.jpg",
   ],
@@ -115,7 +131,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${sourceSans.variable} ${libreBaskerville.variable}`}>
       <head>
         <script
           type="application/ld+json"
