@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 interface HeaderProps {
   locale: string;
@@ -21,6 +22,16 @@ interface HeaderProps {
 export default function Header({ locale, dict }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Get the path for the other locale (preserves current page)
+  const getLocaleSwitchPath = () => {
+    const otherLocale = locale === 'en' ? 'ro' : 'en';
+    // Replace the locale segment in the path
+    const segments = pathname.split('/');
+    segments[1] = otherLocale; // The locale is always the first segment after /
+    return segments.join('/');
+  };
 
   useEffect(() => {
     let ticking = false;
@@ -116,7 +127,7 @@ export default function Header({ locale, dict }: HeaderProps) {
 
             {/* Language Switcher */}
             <Link
-              href={`/${otherLocale}`}
+              href={getLocaleSwitchPath()}
               className={`text-sm font-bold uppercase px-3 py-1 rounded-full border-2 transition-all ${
                 isScrolled
                   ? 'border-ocean-300 text-ocean-600 hover:bg-ocean-50'
@@ -196,7 +207,7 @@ export default function Header({ locale, dict }: HeaderProps) {
 
             <div className="flex items-center gap-3 pt-2 border-t border-ocean-100">
               <Link
-                href={`/${otherLocale}`}
+                href={getLocaleSwitchPath()}
                 className="text-sm font-bold uppercase px-3 py-1.5 rounded-full border-2 border-ocean-300 text-ocean-600 hover:bg-ocean-50"
               >
                 {otherLocale}
