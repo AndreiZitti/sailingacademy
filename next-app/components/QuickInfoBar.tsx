@@ -103,9 +103,9 @@ export default function QuickInfoBar({
   return (
     <div className="bg-ocean-100 rounded-2xl p-4 md:p-6">
       <div className="grid grid-cols-2 gap-4 lg:flex lg:flex-row lg:justify-around lg:gap-8">
-        {visibleItems.map((item, index) => (
+        {visibleItems.map((item) => (
           <div
-            key={index}
+            key={item.label}
             className="flex items-center gap-3"
           >
             <div className="flex-shrink-0 text-ocean-700">
