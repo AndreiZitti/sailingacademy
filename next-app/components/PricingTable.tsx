@@ -4,6 +4,7 @@ interface PricingTier {
   duration: string;
   features: string[];
   highlighted?: boolean;
+  badgeText?: string;
   ctaText?: string;
   ctaHref?: string;
 }
@@ -65,10 +66,10 @@ export default function PricingTable({ tiers, title, subtitle }: PricingTablePro
             `}
           >
             {/* Highlighted badge */}
-            {tier.highlighted && (
+            {tier.highlighted && tier.badgeText && (
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                 <span className="bg-ocean-600 text-white text-xs font-semibold px-4 py-1 rounded-full uppercase tracking-wide">
-                  Popular
+                  {tier.badgeText}
                 </span>
               </div>
             )}
@@ -93,8 +94,8 @@ export default function PricingTable({ tiers, title, subtitle }: PricingTablePro
 
             {/* Features */}
             <ul className="space-y-3 mb-8">
-              {tier.features.map((feature) => (
-                <li key={feature} className="flex items-start gap-3">
+              {tier.features.map((feature, idx) => (
+                <li key={`${tier.name}-feature-${idx}`} className="flex items-start gap-3">
                   <CheckIcon />
                   <span className="text-gray-700">{feature}</span>
                 </li>
@@ -105,6 +106,7 @@ export default function PricingTable({ tiers, title, subtitle }: PricingTablePro
             {tier.ctaText && (
               <a
                 href={tier.ctaHref || '#'}
+                aria-label={`${tier.ctaText} - ${tier.name}`}
                 className={`
                   block w-full text-center py-3 px-6 rounded-lg font-semibold transition-all duration-200
                   ${
