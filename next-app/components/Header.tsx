@@ -8,7 +8,10 @@ interface HeaderProps {
   locale: string;
   dict: {
     nav: {
+      home: string;
       services: string;
+      about: string;
+      faq: string;
       contact: string;
       callUs: string;
     };
@@ -69,7 +72,7 @@ export default function Header({ locale, dict }: HeaderProps) {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             <Link
               href={`/${locale}/services`}
               className={`nav-link font-medium transition-colors ${
@@ -79,6 +82,26 @@ export default function Header({ locale, dict }: HeaderProps) {
               }`}
             >
               {dict.nav.services}
+            </Link>
+            <Link
+              href={`/${locale}/about`}
+              className={`nav-link font-medium transition-colors ${
+                isScrolled
+                  ? 'text-ocean-700 hover:text-ocean-900'
+                  : 'text-white/90 hover:text-white'
+              }`}
+            >
+              {dict.nav.about}
+            </Link>
+            <Link
+              href={`/${locale}/faq`}
+              className={`nav-link font-medium transition-colors ${
+                isScrolled
+                  ? 'text-ocean-700 hover:text-ocean-900'
+                  : 'text-white/90 hover:text-white'
+              }`}
+            >
+              {dict.nav.faq}
             </Link>
             <Link
               href={`/${locale}/contact`}
@@ -148,6 +171,20 @@ export default function Header({ locale, dict }: HeaderProps) {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {dict.nav.services}
+            </Link>
+            <Link
+              href={`/${locale}/about`}
+              className="block text-ocean-800 font-medium py-2 hover:text-ocean-600"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {dict.nav.about}
+            </Link>
+            <Link
+              href={`/${locale}/faq`}
+              className="block text-ocean-800 font-medium py-2 hover:text-ocean-600"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {dict.nav.faq}
             </Link>
             <Link
               href={`/${locale}/contact`}
