@@ -54,9 +54,12 @@ export default function FAQAccordion({ items, title }: FAQAccordionProps) {
             className="bg-white rounded-xl border border-gray-200 overflow-hidden"
           >
             <button
+              type="button"
               onClick={() => toggle(index)}
               className="w-full px-6 py-4 text-left flex items-center justify-between gap-4 hover:bg-ocean-50 transition-colors"
               aria-expanded={openIndex === index}
+              aria-controls={`faq-panel-${index}`}
+              id={`faq-button-${index}`}
             >
               <span className="font-semibold text-ocean-900">{item.question}</span>
               <svg
@@ -72,8 +75,11 @@ export default function FAQAccordion({ items, title }: FAQAccordionProps) {
               </svg>
             </button>
             <div
+              id={`faq-panel-${index}`}
+              role="region"
+              aria-labelledby={`faq-button-${index}`}
               className={`overflow-hidden transition-all duration-200 ${
-                openIndex === index ? 'max-h-96' : 'max-h-0'
+                openIndex === index ? 'max-h-[1000px]' : 'max-h-0'
               }`}
             >
               <p className="px-6 pb-4 text-gray-600 leading-relaxed">{item.answer}</p>
