@@ -241,9 +241,9 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
             <div className="max-w-3xl mx-auto">
               <h2 className="section-title text-center mb-10">What&apos;s Included</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {data.included.map((item, index) => (
+                {data.included.map((item) => (
                   <div
-                    key={index}
+                    key={item}
                     className="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm"
                   >
                     <CheckIcon className="w-6 h-6 mt-0.5" />
