@@ -112,6 +112,28 @@ export default function Footer({ locale, dict }: FooterProps) {
             <h3 className="font-display font-semibold text-sand-400 mb-4 text-sm uppercase tracking-wider">
               {locale === 'ro' ? 'Locație' : 'Location'}
             </h3>
+            {/* Map Preview */}
+            <a
+              href="https://www.google.com/maps/place/Sailing+Academy+Herastrau/@44.4825634,26.0809447,17z"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block mb-3 rounded-xl overflow-hidden border border-ocean-700/50 hover:border-ocean-500 transition-colors group"
+            >
+              <div className="relative h-[120px]">
+                <iframe
+                  src="https://maps.google.com/maps?q=Sailing+Academy+Herastrau,+Bucharest,+Romania&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="120"
+                  style={{ border: 0, pointerEvents: 'none' }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Sailing Academy Location"
+                  className="w-full h-full"
+                  tabIndex={-1}
+                />
+                <div className="absolute inset-0 bg-transparent group-hover:bg-black/10 transition-colors cursor-pointer" />
+              </div>
+            </a>
             <address className="not-italic space-y-2 text-ocean-200">
               <p className="flex items-start gap-2">
                 <svg className="w-5 h-5 mt-0.5 text-ocean-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
