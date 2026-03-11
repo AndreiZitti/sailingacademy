@@ -67,7 +67,7 @@
       },
       {
         "question": "Where can I kayak in Bucharest?",
-        "answer": "The best place to kayak in Bucharest is Herastrau Lake at Sailing Academy. We offer single and double kayak rentals starting at 50 RON per hour, with all safety equipment included. Located near the Ferris Wheel, it's easy to find and offers beautiful lake views."
+        "answer": "The best place to kayak in Bucharest is Herastrau Lake at Sailing Academy. We offer single kayaks (40 RON/hour), double kayaks (60 RON/hour) and touring kayaks (100 RON/hour), with all safety equipment included. Located near the Ferris Wheel, it's easy to find and offers beautiful lake views."
       },
       {
         "question": "What water sports are available on Herastrau Lake?",
@@ -75,7 +75,7 @@
       },
       {
         "question": "How much does it cost to rent a kayak in Bucharest?",
-        "answer": "Kayak rental at Sailing Academy on Herastrau Lake costs 50 RON per hour for both single and double kayaks. This includes life jackets and basic instruction. Multi-hour discounts are available, and no reservation is required for walk-ins."
+        "answer": "Kayak rental at Sailing Academy on Herastrau Lake starts at 40 RON per hour for a single kayak, 60 RON for a double kayak (2+1 people), and 100 RON for a touring kayak. This includes life jackets and basic instruction. No reservation is required for walk-ins."
       },
       {
         "question": "Is Sailing Academy open on weekends?",
@@ -100,20 +100,20 @@
     "noExperience": "No experience needed",
     "kayak": {
       "title": "Kayak Rental",
-      "description": "Single and double kayaks for lake exploration",
+      "description": "Single, double and touring kayaks for lake exploration",
       "heroSubtitle": "Explore Herastrau Lake at your own pace",
-      "startingPrice": "From 50 RON/hour",
+      "startingPrice": "From 40 RON/hour",
       "quickInfo": {
-        "price": "50 RON/hour",
+        "price": "40 RON/hour",
         "duration": "1-2 hours",
-        "capacity": "1-2 people",
+        "capacity": "1-3 people",
         "skillLevel": "Beginner"
       },
-      "detailedDescription": "<p>Kayaking on Herastrau Lake is one of the best ways to experience Bucharest's largest park from the water. Our kayak rental service offers well-maintained single and double kayaks perfect for couples, families, or solo explorers.</p><p>The calm waters of Herastrau Lake make it ideal for beginners, while experienced paddlers will enjoy the scenic route around the lake's islands and shores. All safety equipment is provided, and our team offers a brief introduction before you set off.</p>",
-      "longDesc": "Paddle your way around Herastrau Lake in our well-maintained kayaks. Perfect for couples, families, or solo adventurers looking to explore the calm waters at their own pace. All safety equipment included.",
-      "price": "50 lei",
+      "detailedDescription": "<p>Kayaking on Herastrau Lake is one of the best ways to experience Bucharest's largest park from the water. We offer single kayaks, double kayaks (2+1 people), and touring kayaks for a more sporty experience.</p><p>The calm waters of Herastrau Lake make it ideal for beginners, while experienced paddlers will enjoy our touring kayaks. All safety equipment is included.</p>",
+      "longDesc": "Paddle your way around Herastrau Lake in our kayaks. We have single, double and touring kayaks for a sportier ride. Perfect for couples, families, or solo adventurers. All safety equipment included.",
+      "price": "40 lei",
       "included": [
-        "Single or double kayak",
+        "Kayak of your choice",
         "Life jacket and paddle",
         "Basic safety briefing",
         "Waterproof phone pouch"
@@ -123,23 +123,23 @@
       "pricingTiers": [
         {
           "name": "Single Kayak",
-          "price": "50 RON",
+          "price": "40 RON",
           "duration": "1 hour",
           "features": ["One-person kayak", "Life jacket included", "Paddle included"]
         },
         {
-          "name": "Double Kayak",
-          "price": "70 RON",
+          "name": "Double Kayak (2+1)",
+          "price": "60 RON",
           "duration": "1 hour",
-          "features": ["Two-person kayak", "2 life jackets", "2 paddles", "Great for couples"],
+          "features": ["Kayak for 2+1 people", "Life jackets included", "Paddles included", "Great for couples & families"],
           "highlighted": true,
           "badgeText": "Popular"
         },
         {
-          "name": "Half Day",
-          "price": "150 RON",
-          "duration": "4 hours",
-          "features": ["Any kayak type", "Extended exploration", "Flexible schedule"]
+          "name": "Touring Kayak",
+          "price": "100 RON",
+          "duration": "1 hour",
+          "features": ["Narrow, sporty kayak", "For sport & long-distance", "More dynamic experience"]
         }
       ],
       "faq": [
@@ -161,20 +161,20 @@
     },
     "sup": {
       "title": "SUP Rental",
-      "description": "Stand-up paddleboards for all skill levels",
+      "description": "Stand-up paddleboards - inflatable or rigid",
       "heroSubtitle": "Find your balance on Herastrau Lake",
-      "startingPrice": "From 50 RON/hour",
+      "startingPrice": "From 60 RON/hour",
       "quickInfo": {
-        "price": "50 RON/hour",
+        "price": "60 RON/hour",
         "duration": "1-2 hours",
         "capacity": "1 person",
         "skillLevel": "Beginner to Intermediate"
       },
-      "detailedDescription": "<p>Stand-up paddleboarding (SUP) is one of the fastest-growing water sports, and Herastrau Lake provides the perfect setting to try it. Our stable, beginner-friendly boards make it easy for anyone to get started.</p><p>SUP offers a fantastic full-body workout while you enjoy the peaceful surroundings of the lake. Whether you want to work on your fitness, practice yoga on the water, or simply cruise around, paddleboarding is a rewarding experience for all ages.</p>",
-      "longDesc": "Experience the lake from a new perspective on our stable paddleboards. Great workout and perfect for beginners. We provide a quick intro lesson before you head out.",
-      "price": "50 lei",
+      "detailedDescription": "<p>Stand-up paddleboarding (SUP) is one of the most popular water sports, and Herastrau Lake provides the perfect setting to try it. We offer both inflatable and rigid SUPs at the same price — you choose what you prefer.</p><p>SUP offers a fantastic full-body workout while you enjoy the peaceful surroundings of the lake. Whether you want to work on your fitness or simply cruise around, paddleboarding is a rewarding experience for all ages.</p>",
+      "longDesc": "Experience the lake from a new perspective on our SUP boards. Inflatable or rigid, your choice, same price. Great workout and perfect for beginners.",
+      "price": "60 lei",
       "included": [
-        "Quality paddleboard",
+        "SUP board (inflatable or rigid, your choice)",
         "Adjustable paddle",
         "Life jacket",
         "Quick balance lesson",
@@ -184,24 +184,18 @@
       "pricingSubtitle": "Stand up and explore the lake",
       "pricingTiers": [
         {
-          "name": "Standard SUP",
-          "price": "50 RON",
+          "name": "SUP 1 Hour",
+          "price": "60 RON",
           "duration": "1 hour",
-          "features": ["Stable beginner board", "Paddle included", "Life jacket included"]
+          "features": ["Inflatable or rigid, your choice", "Paddle included", "Life jacket included"]
         },
         {
-          "name": "Premium SUP",
-          "price": "70 RON",
-          "duration": "1 hour",
-          "features": ["Performance board", "Lightweight paddle", "For experienced riders"],
+          "name": "SUP 2 Hours",
+          "price": "80 RON",
+          "duration": "2 hours",
+          "features": ["Inflatable or rigid, your choice", "Extended session", "Best price per hour"],
           "highlighted": true,
-          "badgeText": "Popular"
-        },
-        {
-          "name": "Half Day",
-          "price": "150 RON",
-          "duration": "4 hours",
-          "features": ["Any board type", "Extended session", "Multiple breaks allowed"]
+          "badgeText": "Best Value"
         }
       ],
       "faq": [
@@ -229,18 +223,18 @@
       "title": "E-Boat Rental",
       "description": "Electric boats - no license required",
       "heroSubtitle": "Cruise Herastrau Lake in style",
-      "startingPrice": "From 200 RON/hour",
+      "startingPrice": "From 250 RON/hour",
       "quickInfo": {
-        "price": "200 RON/hour",
+        "price": "250-350 RON/hour",
         "duration": "1-2 hours",
-        "capacity": "Up to 6 people",
+        "capacity": "4-6 people",
         "skillLevel": "No experience needed"
       },
-      "detailedDescription": "<p>Our electric boats offer the perfect way to enjoy Herastrau Lake without any effort or special skills. These quiet, eco-friendly vessels are easy to operate and require no boating license, making them ideal for families, groups of friends, or romantic outings.</p><p>With space for up to 6 passengers, e-boats are perfect for celebrations, leisurely cruises, or simply enjoying the scenery. The silent electric motor lets you appreciate the peaceful atmosphere of the lake while taking in views of Herastrau Park.</p>",
-      "longDesc": "Cruise the lake in style with our quiet, eco-friendly electric boats. No boating license required - perfect for a relaxing afternoon with friends or family. Seats up to 6 people.",
-      "price": "200 lei",
+      "detailedDescription": "<p>Our electric boats offer the perfect way to enjoy Herastrau Lake without any effort or special skills. Quiet and eco-friendly, they're easy to operate and require no boating license, making them ideal for families, groups of friends, or romantic outings.</p><p>We have e-boats for 4 or 6 passengers. The silent electric motor lets you appreciate the peaceful atmosphere of the lake.</p>",
+      "longDesc": "Cruise the lake in style with our quiet, eco-friendly electric boats. No boating license required - perfect for a relaxing afternoon with friends or family. Boats for 4 or 6 people.",
+      "price": "250 lei",
       "included": [
-        "Electric boat for up to 6 people",
+        "Electric boat for 4 or 6 people",
         "Life jackets for all passengers",
         "Brief operating instructions",
         "Full battery charge"
@@ -249,24 +243,18 @@
       "pricingSubtitle": "Relax and cruise the lake",
       "pricingTiers": [
         {
-          "name": "1 Hour Cruise",
-          "price": "200 RON",
+          "name": "E-Boat 4 People",
+          "price": "250 RON",
           "duration": "1 hour",
-          "features": ["Up to 6 passengers", "No license required", "Quiet electric motor"]
+          "features": ["Up to 4 passengers", "No license required", "Quiet electric motor"]
         },
         {
-          "name": "2 Hour Cruise",
+          "name": "E-Boat 6 People",
           "price": "350 RON",
-          "duration": "2 hours",
-          "features": ["Up to 6 passengers", "Extended lake tour", "Best value"],
+          "duration": "1 hour",
+          "features": ["Up to 6 passengers", "More space", "Great for groups"],
           "highlighted": true,
-          "badgeText": "Best Value"
-        },
-        {
-          "name": "Sunset Cruise",
-          "price": "300 RON",
-          "duration": "1.5 hours",
-          "features": ["Evening departure", "Golden hour views", "Romantic atmosphere"]
+          "badgeText": "Popular"
         }
       ],
       "faq": [
@@ -300,42 +288,42 @@
       "heroSubtitle": "Experience the thrill of sailing on Herastrau Lake",
       "startingPrice": "From 50 RON/hour",
       "quickInfo": {
-        "price": "50-100 RON/hour",
-        "duration": "1-3 hours",
-        "capacity": "2-4 people",
+        "price": "50-150 RON",
+        "duration": "1 hour",
+        "capacity": "1-4 people",
         "skillLevel": "Beginner to Advanced"
       },
-      "detailedDescription": "<p>Sailing on Herastrau Lake offers a unique and exhilarating experience right in the heart of Bucharest. Our fleet includes various sailboat types suitable for beginners learning the ropes and experienced sailors looking for a quick session on the water.</p><p>Feel the wind in your sails as you navigate the lake, enjoying a sport that combines skill, nature, and relaxation. For those new to sailing, we offer boats with instructor accompaniment to ensure a safe and educational experience.</p>",
-      "longDesc": "Experience the thrill of sailing on Herastrau Lake. Our fleet includes boats for beginners and experienced sailors. Feel the wind and enjoy a unique perspective of Bucharest.",
-      "price": "50-100 lei",
+      "detailedDescription": "<p>Sailing on Herastrau Lake offers a unique experience right in the heart of Bucharest. We have small boats (Laser, Optimist) for experienced sailors and our Yola for a relaxing session on the lake.</p><p>No experience? No problem — we offer rides with a skipper included, no sailing knowledge needed.</p>",
+      "longDesc": "Experience sailing on Herastrau Lake. We have Laser, Optimist and Yola boats. Rides with a skipper for beginners or independent rental for experienced sailors.",
+      "price": "50-150 lei",
       "included": [
         "Sailboat of your choice",
         "Life jackets for all passengers",
         "Safety briefing",
-        "Basic rigging assistance"
+        "Rigging assistance"
       ],
       "pricingTitle": "Sailing Boat Rental",
       "pricingSubtitle": "Set sail on Herastrau Lake",
       "pricingTiers": [
         {
-          "name": "Small Sailboat",
+          "name": "Small Boats",
           "price": "50 RON",
           "duration": "1 hour",
-          "features": ["2-person capacity", "Perfect for beginners", "Easy to handle"]
+          "features": ["Laser or Optimist", "Sailing experience required", "Independent sailing"]
         },
         {
-          "name": "Medium Sailboat",
-          "price": "80 RON",
+          "name": "Yola",
+          "price": "100 RON",
           "duration": "1 hour",
-          "features": ["3-4 person capacity", "More stability", "Great for learning"],
+          "features": ["Larger sailboat", "Independent sailing", "Experience required"],
           "highlighted": true,
-          "badgeText": "Recommended"
+          "badgeText": "Popular"
         },
         {
-          "name": "With Instructor",
+          "name": "Ride with Skipper",
           "price": "150 RON",
-          "duration": "1.5 hours",
-          "features": ["Any boat type", "Certified instructor", "Learn while sailing"]
+          "duration": "1 hour",
+          "features": ["No experience needed", "Skipper included", "Sit back and enjoy"]
         }
       ],
       "faq": [
@@ -359,45 +347,44 @@
       "title": "Sailing Lessons",
       "description": "Learn to sail with certified instructors",
       "heroSubtitle": "Start your sailing journey today",
-      "startingPrice": "From 80 RON/lesson",
+      "startingPrice": "From 250 RON/lesson",
       "quickInfo": {
-        "price": "80-150 RON/lesson",
-        "duration": "1.5-2 hours",
-        "capacity": "1-4 students",
+        "price": "250-350 RON/lesson",
+        "duration": "2 hours",
+        "capacity": "1-2 students",
         "skillLevel": "All levels"
       },
-      "detailedDescription": "<p>Our sailing lessons are designed for anyone who wants to learn the art of sailing, from complete beginners to those looking to refine their skills. Led by certified instructors with years of experience, our lessons combine theory and hands-on practice on the water.</p><p>Whether you dream of sailing independently, want to prepare for certification, or simply wish to understand the basics, our structured program will help you achieve your goals. Small class sizes ensure personalized attention and faster progress.</p>",
-      "longDesc": "Start your sailing journey with our certified instructors. From basic boat handling to advanced techniques, we offer personalized lessons for all ages and skill levels.",
-      "price": "80 lei",
+      "detailedDescription": "<p>Our sailing lessons are designed for anyone who wants to learn the art of sailing. Led by certified instructors, our lessons combine theory and hands-on practice on the water in 2-hour sessions.</p><p>We offer private lessons (1-on-1) or lessons for two students (2-on-1). Group lessons are also available — call us for details and scheduling.</p>",
+      "longDesc": "Start your sailing journey with our certified instructors. Private or two-student lessons, 2 hours each. Group lessons available — call us for details.",
+      "price": "250 lei",
       "included": [
         "Certified instructor",
         "Training sailboat",
         "All safety equipment",
-        "Theory materials",
-        "Progress tracking"
+        "Theory materials"
       ],
       "pricingTitle": "Sailing Lesson Packages",
       "pricingSubtitle": "Learn to sail with the experts",
       "pricingTiers": [
         {
-          "name": "Trial Lesson",
-          "price": "80 RON",
-          "duration": "1.5 hours",
-          "features": ["Introduction to sailing", "Basic boat handling", "Perfect for beginners"]
-        },
-        {
-          "name": "5-Lesson Package",
-          "price": "350 RON",
-          "duration": "5 x 1.5 hours",
-          "features": ["Complete beginner course", "Theory + practice", "Sail independently after"],
-          "highlighted": true,
-          "badgeText": "Best Value"
-        },
-        {
-          "name": "Private Lesson",
-          "price": "150 RON",
+          "name": "Private Lesson (1-on-1)",
+          "price": "250 RON",
           "duration": "2 hours",
-          "features": ["One-on-one instruction", "Customized content", "Fastest progress"]
+          "features": ["One-on-one instruction", "Personalized attention", "Fastest progress"],
+          "highlighted": true,
+          "badgeText": "Popular"
+        },
+        {
+          "name": "Duo Lesson (2-on-1)",
+          "price": "350 RON",
+          "duration": "2 hours",
+          "features": ["Two students, one instructor", "Learn together", "Better price per person"]
+        },
+        {
+          "name": "Group Lessons for Kids",
+          "price": "Call Us",
+          "duration": "On request",
+          "features": ["Group lessons for children", "Schedule by phone", "Call for details & pricing"]
         }
       ],
       "faq": [
@@ -432,6 +419,7 @@
     "nearFerrisWheel": "Near the Ferris Wheel",
     "hours": "Open Daily: 9:30 - 20:00",
     "phone": "+40 730 333 755",
+    "email": "contact@sailingacademy.ro",
     "visitUs": "Visit Us",
     "whatVisitorsSay": "What Our Visitors Say",
     "readyToBook": "Ready to book?",

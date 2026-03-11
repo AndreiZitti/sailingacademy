@@ -64,27 +64,27 @@ export default async function AboutPage({
     },
   ];
 
-  // Organization schema for SEO
+  // Organization schema — references the main LocalBusiness entity from root layout
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://sailingacademy.ro/#organization',
-    name: 'Sailing Academy',
+    '@id': 'https://www.sailingacademy.ro/#business',
+    name: 'Sailing Academy Herăstrău',
     description: dict.about.subtitle,
-    url: 'https://sailingacademy.ro',
+    url: 'https://www.sailingacademy.ro',
     telephone: '+40730333755',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Soseaua Nordului 7-9',
-      addressLocality: 'Bucharest',
-      addressRegion: 'Bucharest',
-      postalCode: '014104',
+      streetAddress: 'Șos. Nordului 7-9',
+      addressLocality: 'București',
+      addressRegion: 'Sector 1',
+      postalCode: '014101',
       addressCountry: 'RO',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 44.4823,
-      longitude: 26.0855,
+      latitude: 44.4825634,
+      longitude: 26.0835196,
     },
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
@@ -93,12 +93,12 @@ export default async function AboutPage({
       closes: '20:00',
     },
     sameAs: [
-      'https://www.facebook.com/sailingacademy.ro',
+      'https://www.facebook.com/SailingAcademyBucharest',
       'https://www.instagram.com/sailingacademy.ro',
+      'https://www.google.com/maps/place/Sailing+Academy+Herastrau',
     ],
-    image: 'https://sailingacademy.ro/images/ClubPhoto.jpg',
+    image: 'https://www.sailingacademy.ro/images/ClubPhoto.jpg',
     priceRange: '$$',
-    foundingDate: '2015',
   };
 
   return (
@@ -153,7 +153,7 @@ export default async function AboutPage({
               </div>
               {/* Decorative badge */}
               <div className="absolute -bottom-4 -right-4 bg-ocean-600 text-white px-6 py-3 rounded-xl shadow-lg">
-                <span className="text-2xl font-bold">2015</span>
+                <span className="text-2xl font-bold">2020</span>
                 <span className="text-sm block opacity-90">Est.</span>
               </div>
             </div>

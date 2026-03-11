@@ -64,8 +64,12 @@ export default async function LessonsPage({ params }: Props) {
 
     serviceName: service.title,
     serviceDescription: service.description,
-    provider: 'Sailing Academy Herastrau',
+    provider: 'Sailing Academy Herăstrău',
     areaServed: 'Bucharest, Romania',
+
+    locale,
+    serviceSlug: 'lessons',
+    servicesLabel: dict.nav.services,
   };
 
   return <ServicePageTemplate data={pageData} />;

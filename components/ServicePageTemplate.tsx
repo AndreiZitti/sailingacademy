@@ -3,6 +3,7 @@ import Link from 'next/link';
 import FAQAccordion from './FAQAccordion';
 import QuickInfoBar from './QuickInfoBar';
 import PricingTable from './PricingTable';
+import BreadcrumbSchema from './BreadcrumbSchema';
 
 // Re-export PricingTier type for external use
 export interface PricingTier {
@@ -75,6 +76,11 @@ export interface ServicePageData {
   serviceDescription: string;
   provider: string;
   areaServed: string;
+
+  // Breadcrumb
+  locale?: string;
+  serviceSlug?: string;
+  servicesLabel?: string;
 }
 
 interface ServicePageTemplateProps {
@@ -133,7 +139,7 @@ function PhoneIcon({ className = 'w-5 h-5' }: { className?: string }) {
 }
 
 export default function ServicePageTemplate({ data }: ServicePageTemplateProps) {
-  // Generate Service schema
+  // Generate Service schema with Offer pricing
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -141,17 +147,19 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
     description: data.serviceDescription,
     provider: {
       '@type': 'LocalBusiness',
+      '@id': 'https://www.sailingacademy.ro/#business',
       name: data.provider,
     },
     areaServed: {
-      '@type': 'Place',
+      '@type': 'City',
       name: data.areaServed,
     },
     offers: data.pricingTiers.map((tier) => ({
       '@type': 'Offer',
       name: tier.name,
       price: tier.price.replace(/[^0-9.,]/g, ''),
-      priceCurrency: 'EUR',
+      priceCurrency: 'RON',
+      availability: 'https://schema.org/InStock',
     })),
   };
 
@@ -166,6 +174,18 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
+
+      {/* Breadcrumb Schema */}
+      {data.locale && (
+        <BreadcrumbSchema
+          locale={data.locale}
+          items={[
+            { name: data.locale === 'ro' ? 'Acasă' : 'Home', href: '' },
+            { name: data.servicesLabel || (data.locale === 'ro' ? 'Servicii' : 'Services'), href: '/services' },
+            { name: data.serviceName, href: `/services/${data.serviceSlug || ''}` },
+          ]}
+        />
+      )}
 
       {/* Hero Section */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center">
@@ -225,7 +245,7 @@ export default function ServicePageTemplate({ data }: ServicePageTemplateProps) 
       <section className="section bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="section-title text-center mb-8">About This Experience</h2>
+            <h2 className="section-title text-center mb-8">{data.locale === 'ro' ? 'Despre Această Experiență' : 'About This Experience'}</h2>
             <div
               className="prose prose-lg prose-ocean mx-auto text-gray-700 leading-relaxed"
               dangerouslySetInnerHTML={{ __html: data.description }}

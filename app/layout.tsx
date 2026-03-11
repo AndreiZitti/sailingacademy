@@ -1,53 +1,51 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, Libre_Baskerville } from "next/font/google";
-import "./globals.css";
-
-// Optimized font loading - no render blocking
-const sourceSans = Source_Sans_3({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-source-sans",
-  display: "swap",
-});
-
-const libreBaskerville = Libre_Baskerville({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-libre-baskerville",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.sailingacademy.ro'),
   title: {
-    default: "Sailing Academy Herastrau - Kayak, SUP & Sailing Rentals in Bucharest",
-    template: "%s | Sailing Academy Herastrau",
+    default: "Sailing Academy Herăstrău — Sailing Tours, Lessons & Water Sports in Bucharest",
+    template: "%s | Sailing Academy Herăstrău",
   },
-  description: "Rent kayaks, SUP boards, electric boats, and sailing boats on Herastrau Lake in Bucharest. Sailing lessons available. Open daily near the Ferris Wheel.",
-  keywords: ["sailing", "kayak rental", "SUP rental", "Herastrau Lake", "Bucharest", "boat rental", "sailing lessons", "water sports"],
-  authors: [{ name: "Sailing Academy Herastrau" }],
-  creator: "Sailing Academy Herastrau",
+  description: "The only sailing school on Lake Herăstrău, inside Bucharest's biggest park. Guided sailing tours, FRY-certified sailing lessons, kayak & SUP rentals, e-boat cruises. Kids from age 8. 5 min from Aviatorilor metro.",
+  keywords: [
+    "sailing Herăstrău",
+    "sailing lessons Bucharest",
+    "kayak Herăstrău",
+    "water activities Herăstrău park",
+    "things to do in Herăstrău",
+    "sailing tour Lake Herăstrău",
+    "sailing school Bucharest",
+    "kids sailing Bucharest",
+    "SUP rental Bucharest",
+    "e-boat Herăstrău",
+    "activities King Michael I Park Bucharest",
+    "FRY sailing certification Bucharest",
+    "boat rental Herăstrău",
+    "water sports Bucharest",
+  ],
+  authors: [{ name: "Sailing Academy Herăstrău" }],
+  creator: "Sailing Academy Herăstrău",
   openGraph: {
     type: "website",
     locale: "ro_RO",
     alternateLocale: "en_US",
     url: "https://www.sailingacademy.ro",
-    siteName: "Sailing Academy Herastrau",
-    title: "Sailing Academy Herastrau - Kayak, SUP & Sailing Rentals",
-    description: "Rent kayaks, SUP boards, electric boats, and sailing boats on Herastrau Lake in Bucharest.",
+    siteName: "Sailing Academy Herăstrău",
+    title: "Sailing Academy Herăstrău — Sailing Tours, Lessons & Water Sports",
+    description: "The only sailing school on Lake Herăstrău. Guided sailing tours, FRY-certified lessons, kayaks, SUPs, e-boats. Kids from age 8. Open daily in King Michael I Park, Bucharest.",
     images: [
       {
         url: "/images/pierPreview.jpeg",
         width: 2048,
         height: 1152,
-        alt: "Sailing Academy Herastrau - Pier on the lake",
+        alt: "Sailing Academy Herăstrău — Pier on Lake Herăstrău, Bucharest",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sailing Academy Herastrau",
-    description: "Rent kayaks, SUP boards, electric boats, and sailing boats on Herastrau Lake in Bucharest.",
+    title: "Sailing Academy Herăstrău",
+    description: "The only sailing school on Lake Herăstrău. Tours, lessons, kayaks, SUPs, e-boats. Open daily in Bucharest.",
     images: ["/images/pierPreview.jpeg"],
   },
   robots: {
@@ -68,77 +66,12 @@ export const metadata: Metadata = {
   },
 };
 
-// LocalBusiness JSON-LD Schema
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://www.sailingacademy.ro",
-  name: "Sailing Academy Herastrau",
-  alternateName: "Sailing Academy",
-  description: "Water sports rental and sailing lessons on Herastrau Lake in Bucharest. Kayaks, SUP boards, electric boats, and sailing boats available.",
-  url: "https://www.sailingacademy.ro",
-  telephone: "+40730333755",
-  email: "contact@sailingacademy.ro",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Șos. Nordului 7-9",
-    addressLocality: "București",
-    addressRegion: "Sector 1",
-    postalCode: "014101",
-    addressCountry: "RO",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 44.4825634,
-    longitude: 26.0835196,
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-    opens: "09:30",
-    closes: "20:00",
-  },
-  image: [
-    "https://www.sailingacademy.ro/images/pierPreview.jpeg",
-    "https://www.sailingacademy.ro/images/bigBoat.JPG",
-    "https://www.sailingacademy.ro/images/SUP_Service.jpg",
-  ],
-  priceRange: "$$",
-  currenciesAccepted: "RON",
-  paymentAccepted: "Cash, Card",
-  amenityFeature: [
-    { "@type": "LocationFeatureSpecification", name: "Kayak Rental" },
-    { "@type": "LocationFeatureSpecification", name: "SUP Rental" },
-    { "@type": "LocationFeatureSpecification", name: "Electric Boat Rental" },
-    { "@type": "LocationFeatureSpecification", name: "Sailing Lessons" },
-    { "@type": "LocationFeatureSpecification", name: "Life Jackets Included" },
-  ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "50",
-  },
-  sameAs: [
-    "https://www.facebook.com/SailingAcademyBucharest",
-    "https://www.instagram.com/sailingacademy.ro",
-    "https://www.google.com/maps/place/Sailing+Academy+Herastrau",
-  ],
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" className={`${sourceSans.variable} ${libreBaskerville.variable}`}>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
-      <body>{children}</body>
-    </html>
-  );
+  // Root layout is a pass-through — html/body are in [locale]/layout.tsx
+  // so we can set <html lang> dynamically per locale
+  return children;
 }

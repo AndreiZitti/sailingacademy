@@ -48,7 +48,7 @@ export default async function ServicesPage({
     },
     {
       key: 'eboat',
-      image: '/images/boat_preview.png',
+      image: '/images/waterverse_service.jpeg',
       badge: dict.home.noLicense,
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

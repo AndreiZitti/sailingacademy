@@ -28,7 +28,7 @@ export default async function EBoatPage({ params }: Props) {
   const pageData = {
     title: service.title,
     subtitle: service.heroSubtitle,
-    heroImage: '/images/boat_preview.png',
+    heroImage: '/images/waterverse_service.jpeg',
     startingPrice: service.startingPrice,
     ctaText: dict.common.bookNow,
     ctaHref: `https://wa.me/40730333755`,
@@ -64,8 +64,12 @@ export default async function EBoatPage({ params }: Props) {
 
     serviceName: service.title,
     serviceDescription: service.description,
-    provider: 'Sailing Academy Herastrau',
+    provider: 'Sailing Academy Herăstrău',
     areaServed: 'Bucharest, Romania',
+
+    locale,
+    serviceSlug: 'eboat',
+    servicesLabel: dict.nav.services,
   };
 
   return <ServicePageTemplate data={pageData} />;

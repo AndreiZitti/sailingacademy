@@ -31,7 +31,7 @@ export default async function HomePage({
     },
     {
       key: 'eboat',
-      image: '/images/boat_preview.png',
+      image: '/images/waterverse_service.jpeg',
       badge: dict.home.noLicense,
     },
     {

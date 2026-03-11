@@ -94,7 +94,7 @@ export default async function ContactPage({
       {/* Contact Info Grid */}
       <section className="section bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {/* Location */}
             <div className="text-center p-8 rounded-2xl bg-ocean-50 hover:bg-ocean-100 transition-colors">
               <div className="w-16 h-16 mx-auto mb-5 rounded-full bg-ocean-100 flex items-center justify-center">
@@ -146,12 +146,30 @@ export default async function ContactPage({
                 {locale === 'ro' ? 'Sau WhatsApp' : 'Or WhatsApp'}
               </p>
             </div>
+
+            {/* Email */}
+            <div className="text-center p-8 rounded-2xl bg-ocean-50 hover:bg-ocean-100 transition-colors">
+              <div className="w-16 h-16 mx-auto mb-5 rounded-full bg-ocean-100 flex items-center justify-center">
+                <svg className="w-8 h-8 text-ocean-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="font-display text-xl font-semibold text-ocean-900 mb-2">
+                Email
+              </h3>
+              <a
+                href={`mailto:${dict.contact.email}`}
+                className="text-ocean-600 font-semibold text-lg hover:text-ocean-700 transition-colors"
+              >
+                {dict.contact.email}
+              </a>
+            </div>
           </div>
 
           {/* Map Section */}
           <div className="rounded-2xl overflow-hidden shadow-2xl">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2847.7941944634384!2d26.08094697644371!3d44.482563399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201f24158a8c9%3A0x847c5cdce8e6c36d!2sSailing%20Academy%20Herastrau!5e0!3m2!1sen!2sro!4v1709910000000!5m2!1sen!2sro"
+              src="https://maps.google.com/maps?q=Sailing+Academy+Herastrau,+Bucharest,+Romania&t=&z=16&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="400"
               style={{ border: 0 }}
